@@ -1,3 +1,4 @@
+import { User } from './models/user';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,4 +8,16 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+  public instance:AppComponent;
+  public val:string;
+  public currentUser :any;
+
+
+  constructor(){
+    this.instance = this;
+    console.log(this.currentUser);
+    console.log(localStorage.getItem("current"));
+  }
+
+ 
 }
