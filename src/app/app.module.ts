@@ -8,6 +8,7 @@ import {RouterModule,Routes} from '@angular/router';
 import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import {FormsModule} from '@angular/forms';
+import { LogoutComponent } from './shared/logout/logout.component';
 export const routes = [
   {path:'',redirectTo:'home',pathMatch:'full'},
   {path:'home',component:AppComponent},
@@ -18,7 +19,8 @@ export const routes = [
     AppComponent,
     LoginComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    LogoutComponent
   ],
   imports: [
     FormsModule,

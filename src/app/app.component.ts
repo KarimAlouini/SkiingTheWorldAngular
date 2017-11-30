@@ -16,8 +16,19 @@ export class AppComponent {
   constructor(){
     this.instance = this;
     console.log(this.currentUser);
-    console.log(localStorage.getItem("current"));
+    
+    //console.log(this.currentUser);
+    //console.log(localStorage.getItem("current"));
+   
+    try{
+      this.currentUser = JSON.parse(localStorage.getItem("current"));
+    }catch(e){
+      console.log("exception");
+    }
+    
+   
   }
 
+ 
  
 }

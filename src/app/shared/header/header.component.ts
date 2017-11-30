@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { AppComponent } from './../../app.component';
 import { Component, OnInit,Injector } from '@angular/core';
 
@@ -9,17 +10,12 @@ import { Component, OnInit,Injector } from '@angular/core';
 export class HeaderComponent implements OnInit {
 parent:AppComponent;
 
-  constructor(private inj:Injector) {
+  constructor(private inj:Injector,private router:Router) {
     this.parent = inj.get(AppComponent);
    }
 
   ngOnInit() {
   }
 
-  logout(){
-    this.parent.currentUser = null;
-    localStorage.setItem("current",undefined);
-    console.log("logout");
-  }
-
+ 
 }
