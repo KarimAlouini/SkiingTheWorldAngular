@@ -18,14 +18,26 @@ export class UserService {
     headers.set("login", user.login);
     headers.set("password", user.password);
 
-    return this._http.post('http://localhost:18080/SkiWorld-web/v0/users'
+    return this._http.post(BASE_URL+'users'
       , params,
       {headers: headers});
   }
 
   public confirm(code:any){
+    console.log('form '+code);
 
-      return this._http.get(BASE_URL+'users/confirm/'+code);
+      return this._http.get(BASE_URL+'users/confirm/'+code.email);
+  }
+
+  public resendConfirmation(email:string){
+console.log(email);
+    var headers = new Headers();
+    headers.set("email",email);
+
+    return this._http.post(BASE_URL+"users/resendConfirmation",null,{
+      headers:headers
+    });
+
   }
 
 }

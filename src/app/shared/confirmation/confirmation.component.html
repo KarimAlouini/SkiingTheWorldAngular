@@ -6,7 +6,8 @@
     <div class="my_account_block clearfix">
       <div class="login">
         <div *ngIf="response != undefined && response.code == 0" class="alert alert-success">
-          <strong>Success!</strong> Your registration has been confirmed , redirecting you in {{countDown}}
+          <strong>Success!</strong> <div *ngIf="redirection">Your registration has been confirmed , redirecting you in {{countDown}}</div>
+          <div *ngIf="!redirection">{{response.message}}</div>
         </div>
 
         <div *ngIf="response != undefined && response.code != 0" class="alert alert-danger">
@@ -14,8 +15,8 @@
         </div>
 
         <h2>Resend confirmation email</h2>
-        <form  *ngIf="response != undefined && response.code !== 0" class="login_form" #form="ngForm" (ngSubmit)="login(form.value)">
-          <input required placeholder="Your email" type="text" name="email" value="Username or email" />
+        <form  *ngIf="response != undefined && response.code !== 0" class="login_form" #f="ngForm" (ngSubmit)="resendConfirmation(f.value)">
+          <input ngModel required placeholder="Your email" type="text" name="email"  />
 
           <div class="clearfix">
 

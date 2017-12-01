@@ -18,11 +18,11 @@ export class RegistrationComponent implements OnInit {
   constructor(private signup: SignupService, private inj: Injector) {
 
     this.parent = inj.get(AppComponent);
-    //this.parent.showSpinner(true);
+
   }
 
   public signUp(user: any) {
-    console.log(user);
+
     this.parent.setBusy(true);
     this.signup.signUp(user).subscribe(res => {
       this.parent.setBusy(false);

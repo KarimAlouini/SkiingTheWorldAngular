@@ -16,6 +16,7 @@ export class ConfirmationComponent implements OnInit {
   response: any;
   confirm: any;
   countDown : number = 3 ;
+  private redirection:boolean = false;
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute, private us: UserService, private inj: Injector) {
     this.parent = this.inj.get(AppComponent);
@@ -26,6 +27,16 @@ export class ConfirmationComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  public resendConfirmation(form:any){
+
+    this.parent.setBusy(true);
+    this.us.resendConfirmation(form.email).subscribe(res=>{
+        this.response = res.json();
+        this.parent.setBusy(false);
+    });
+
   }
 
   ngAfterViewInit() {
@@ -44,6 +55,7 @@ export class ConfirmationComponent implements OnInit {
         this.response = resp.json();
 
         if (this.response.code == 0){
+          this.redirection = true;
          var interval = setInterval(()=>{
            this.countDown --;
            if (this.countDown < 1 ){
