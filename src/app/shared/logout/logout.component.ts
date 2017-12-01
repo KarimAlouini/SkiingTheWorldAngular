@@ -4,17 +4,18 @@ import { Component, OnInit, Injector } from '@angular/core';
 
 @Component({
   selector: 'app-logout',
-  templateUrl: './logout.component.html',
-  styleUrls: ['./logout.component.css']
+  template:`<h3>Logout</h3>`
 })
 export class LogoutComponent implements OnInit {
-parent:AppComponent;
+private parent:AppComponent;
 
   constructor(private inj:Injector,private router:Router) {
-    this.parent.currentUser = undefined;
-    localStorage.setItem("current",undefined);
-    this.router.navigateByUrl("home");
- 
+    this.parent = inj.get(AppComponent);
+   localStorage.setItem("current","");
+   if(this.parent.currentUser!== null)
+     this.parent.currentUser = null;
+   router.navigateByUrl("");
+
    }
 
   ngOnInit() {

@@ -17,5 +17,5 @@ parent:AppComponent;
   ngOnInit() {
   }
 
- 
+
 }

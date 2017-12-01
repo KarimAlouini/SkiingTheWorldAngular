@@ -1,36 +1,36 @@
 <header>
-    
+
     <!-- TOP INFO -->
     <div class="top_info">
-      
+
       <!-- CONTAINER -->
       <div  class="container clearfix">
-        <ul   class="secondary_menu">
-          {{console.log("haha")}}
-          <li><a href="login" >login</a></li>
-          <li><a href="my-account.html" >Register</a></li>
-        </ul>
-      
+        <ul *ngIf="parent.currentUser === null" class="secondary_menu">
 
-        <div class="live_chat"><a href="logout" ><i class="fa fa-comment-o"></i> Logout</a></div>
-        
-        <div class="phone_top">have a question? <a href="tel:1 800 888 2828" >1 800 888 2828</a></div>
+          <li><a routerLink="/login" >login</a></li>
+          <li><a routerLink="/register" >Register</a></li>
+        </ul>
+
+
+        <div *ngIf="parent.currentUser !== null" class="live_chat"><a routerLink="/logout" ><i class="fa fa-comment-o"></i> Logout</a></div>
+
+        <div *ngIf="parent.currentUser !== null" class="phone_top">Hello {{parent.currentUser.login}}</div>
       </div><!-- //CONTAINER -->
     </div><!-- TOP INFO -->
-    
-    
+
+
     <!-- MENU BLOCK -->
     <div class="menu_block">
-    
+
       <!-- CONTAINER -->
       <div class="container clearfix">
-        
+
         <!-- LOGO -->
         <div class="logo">
           <a href="index-2.html" ><img src="assets/images/logo.png" alt="" /></a>
         </div><!-- //LOGO -->
-        
-        
+
+
         <!-- SEARCH FORM -->
         <div class="top_search_form">
           <a class="top_search_btn" href="javascript:void(0);" ><i class="fa fa-search"></i></a>
@@ -38,8 +38,8 @@
             <input type="text" name="search" value="Search" onFocus="if (this.value == 'Search') this.value = '';" onBlur="if (this.value == '') this.value = 'Search';" />
           </form>
         </div><!-- SEARCH FORM -->
-        
-        
+
+
         <!-- SHOPPING BAG -->
         <div class="shopping_bag">
           <a class="shopping_bag_btn" href="javascript:void(0);" ><i class="fa fa-shopping-cart"></i><p>shopping bag</p><span>2</span></a>
@@ -62,8 +62,8 @@
             </div>
           </div>
         </div><!-- //SHOPPING BAG -->
-        
-        
+
+
         <!-- LOVE LIST -->
         <div class="love_list">
           <a class="love_list_btn" href="javascript:void(0);" ><i class="fa fa-heart-o"></i><p>Love list</p><span>0</span></a>
@@ -77,8 +77,8 @@
             </div>
           </div>
         </div><!-- //LOVE LIST -->
-        
-        
+
+
         <!-- MENU -->
         <ul class="navmenu center">
           <li class="sub-menu first active"><a ngLink="/home" >Home</a>
@@ -151,7 +151,7 @@
                   <li><a href="love-list.html" >Love List</a></li>
                   <li><a href="shopping-bag.html" >Shopping Bag</a></li>
                   <li><a ngLink="/login" >My Account</a></li>
-                  
+
                 </ol>
               </li>
               <li class="col">
