@@ -1,6 +1,6 @@
-import { AppComponent } from './../app.component';
-import { LoginResponse } from './../models/LoginResponse';
-import { UserService } from './../services/user.service';
+import { AppComponent } from '../app.component';
+import { LoginResponse } from '../models/LoginResponse';
+import { UserService } from '../services/user.service';
 import { Component, OnInit ,Input,Injector} from '@angular/core';
 import { Response } from '@angular/http';
 import { Router } from '@angular/router';
@@ -21,7 +21,7 @@ loginResponse:any;
 getData:string;
  parent:AppComponent;
 
-  constructor(private userservice:UserService,private inj:Injector,private router:Router) { 
+  constructor(private userservice:UserService,private inj:Injector,private router:Router) {
     this.parent = this.inj.get(AppComponent);
   }
 
@@ -29,7 +29,7 @@ getData:string;
   }
 
   login(user:any){
-   
+
   this.userservice.login(user).subscribe((resp:Response)=>{
     console.log(resp);
     this.loginResponse = resp.json();
@@ -39,13 +39,13 @@ getData:string;
       this.router.navigateByUrl("home");
 
     }
-    
+
   })
   }
 
-  
 
- 
-  
+
+
+
 
 }
