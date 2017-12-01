@@ -4,6 +4,7 @@ import {SignupService} from "./services/signup.service";
 
 
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -15,10 +16,10 @@ export class AppComponent {
   public instance:AppComponent;
   public val:string;
   public currentUser :User;
+  private busy:boolean = false;
 
 
   constructor(){
-
     this.instance = this;
 
     try{
@@ -33,6 +34,10 @@ export class AppComponent {
   public getCurrentUser(){
     return this.currentUser;
   }
+
+public setBusy(busy:boolean){
+    this.busy = busy;
+}
 
 
 

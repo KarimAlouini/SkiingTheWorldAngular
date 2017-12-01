@@ -23,9 +23,9 @@ export class UserService {
       {headers: headers});
   }
 
-  public confirm(code:string){
+  public confirm(code:any){
 
-      return this._http.get(BASE_URL+'users/confirm'+code);
+      return this._http.get(BASE_URL+'users/confirm/'+code);
   }
 
 }

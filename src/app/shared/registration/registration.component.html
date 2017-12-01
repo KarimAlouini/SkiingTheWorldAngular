@@ -1,0 +1,43 @@
+<section class="my_account parallax">
+
+  <!-- CONTAINER -->
+  <div class="container">
+
+    <div class="my_account_block clearfix">
+      <div class="login">
+        <h2>Create your new account now!</h2>
+
+
+        <div *ngIf="response !== undefined && response.code !=0"class="alert alert-danger alert-dismissable">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+          <strong>Authentication problem</strong> {{response.message}}
+        </div>
+
+        <div *ngIf="response !== undefined &&  response.code ==0" class="alert alert-success alert-dismissable">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+          <strong>Registration successful</strong> {{response.message}}
+        </div>
+        <form class="login_form" #f = "ngForm" (ngSubmit)="signUp(f.value)">
+          <input required ngModel type="text" name="email"   placeholder="E-mail"/>
+          <input required ngModel type="text" name="login"   placeholder="login"/>
+
+          <input required ngModel type="text" name="phoneNumber"  placeholder="Phone number" />
+          <input required ngModel type="text" name="firstName"  placeholder="First name" />
+          <input required ngModel type="text" name="lastName"  placeholder="Last name" />
+
+          <input required ngModel placeholder="Password" class="last" type="password" name="password" />
+
+
+          <input required ngModel placeholder="Confirm password" class="last" type="password" name="password" />
+          <div class="clearfix">
+
+            <div class="pull-right"><a class="forgot_pass" routerLink="/login" > Already registered ? </a></div>
+          </div>
+          <div class="center"><input type="submit" value="Register"></div>
+        </form>
+      </div>
+
+    </div>
+
+    <div class="my_account_note center">HAVE A QUESTION? <b>1 800 888 02828</b></div>
+  </div><!-- //CONTAINER -->

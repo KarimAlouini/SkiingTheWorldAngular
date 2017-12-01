@@ -1,0 +1,31 @@
+<section class="my_account parallax">
+
+  <!-- CONTAINER -->
+  <div class="container">
+
+    <div class="my_account_block clearfix">
+      <div class="login">
+        <div *ngIf="response != undefined && response.code == 0" class="alert alert-success">
+          <strong>Success!</strong> Your registration has been confirmed , redirecting you in {{countDown}}
+        </div>
+
+        <div *ngIf="response != undefined && response.code != 0" class="alert alert-danger">
+          <strong>Confirmation failed!</strong> {{response.message}}
+        </div>
+
+        <h2>Resend confirmation email</h2>
+        <form  *ngIf="response != undefined && response.code !== 0" class="login_form" #form="ngForm" (ngSubmit)="login(form.value)">
+          <input required placeholder="Your email" type="text" name="email" value="Username or email" />
+
+          <div class="clearfix">
+
+            <div class="pull-right"><a class="forgot_pass" href="javascript:void(0);" >Forgot password?</a></div>
+          </div>
+          <div class="center"><input type="submit" value="Send confirmation"></div>
+        </form>
+
+    </div>
+
+
+
+  </div><!-- //CONTAINER -->

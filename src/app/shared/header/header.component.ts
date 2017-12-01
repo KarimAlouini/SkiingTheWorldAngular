@@ -2,6 +2,7 @@ import { Router } from '@angular/router';
 import { AppComponent } from './../../app.component';
 import { Component, OnInit,Injector } from '@angular/core';
 
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -16,6 +17,8 @@ parent:AppComponent;
 
   ngOnInit() {
   }
+
+
 
 
 }
