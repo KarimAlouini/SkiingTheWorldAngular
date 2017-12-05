@@ -12,9 +12,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { LogoutComponent } from './shared/logout/logout.component';
 import { ConfirmationComponent } from './shared/confirmation/confirmation.component';
 import { RegistrationComponent } from './shared/registration/registration.component';
-import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
-import { FrontComponent } from './shared/front/front.component';
-import { BackComponent } from './shared/back/back.component';
+
 export const BASE_URL = "http://localhost:18080/SkiWorld-web/v0/";
 export const routes = [
   {path:'',redirectTo:'home',pathMatch:'full'},
@@ -33,9 +31,7 @@ export const routes = [
     LogoutComponent,
     HomeComponent,
     ConfirmationComponent,
-    RegistrationComponent,
-    FrontComponent,
-    BackComponent
+    RegistrationComponent
   ],
   imports: [
     FormsModule,

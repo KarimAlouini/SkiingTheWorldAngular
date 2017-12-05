@@ -1,6 +1,5 @@
 import {Component, Injector, OnInit} from '@angular/core';
 import {AppComponent} from "../../app.component";
-import {isUndefined} from "util";
 
 @Component({
   selector: 'app-home',

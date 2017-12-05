@@ -1,2 +1,9 @@
-<app-front *ngIf="!back"></app-front>
-<app-back *ngIf="back"></app-back>
+<div id="preloader"><img src="assets/images/preloader.gif" alt="" /></div>
+<div *ngIf="busy" class="loading">Loading&#8230;</div>
+<div class="preloader_hide">
+  <div id="page">
+    <app-header></app-header>
+    <router-outlet></router-outlet>
+
+  </div>
+</div>
