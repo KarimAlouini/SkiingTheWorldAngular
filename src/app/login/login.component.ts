@@ -1,7 +1,6 @@
 import { AppComponent } from '../app.component';
-import { LoginResponse } from '../models/LoginResponse';
 import { UserService } from '../services/user.service';
-import { Component, OnInit ,Input,Injector} from '@angular/core';
+import { Component, OnInit ,Injector} from '@angular/core';
 import { Response } from '@angular/http';
 import { Router } from '@angular/router';
 
