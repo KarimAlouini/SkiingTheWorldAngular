@@ -12,7 +12,9 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { LogoutComponent } from './shared/logout/logout.component';
 import { ConfirmationComponent } from './shared/confirmation/confirmation.component';
 import { RegistrationComponent } from './shared/registration/registration.component';
-import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner'
+import { JobOffersComponent } from './hiering/job-offers/job-offers.component';
+import { OfferDetailsComponent } from './hiering/offer-details/offer-details.component';
+import { OfferCardComponent } from './hiering/offer-card/offer-card.component'
 export const BASE_URL = "http://localhost:18080/SkiWorld-web/v0/";
 export const routes = [
   {path:'',redirectTo:'home',pathMatch:'full'},
@@ -20,7 +22,9 @@ export const routes = [
   {path:'login',component:LoginComponent},
   {path:'logout',component:LogoutComponent},
   {path:'register',component:RegistrationComponent},
-  {path:'confirm/:code',component:ConfirmationComponent}
+  {path:'confirm/:code',component:ConfirmationComponent},
+  {path:'jobOffers',component:JobOffersComponent},
+  {path:'offersDetails/:id',component:OfferDetailsComponent}
 ];
 @NgModule({
   declarations: [
@@ -31,7 +35,10 @@ export const routes = [
     LogoutComponent,
     HomeComponent,
     ConfirmationComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    JobOffersComponent,
+    OfferDetailsComponent,
+    OfferCardComponent
   ],
   imports: [
     FormsModule,
