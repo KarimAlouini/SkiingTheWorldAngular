@@ -8,7 +8,7 @@
         <h2>Create your new account now!</h2>
 
 
-        <div *ngIf="response !== undefined && response.code !=0"class="alert alert-danger alert-dismissable">
+        <div *ngIf="response !== undefined && response.code !=0" class="alert alert-danger alert-dismissable">
           <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
           <strong>Authentication problem</strong> {{response.message}}
         </div>
@@ -17,27 +17,72 @@
           <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
           <strong>Registration successful</strong> {{response.message}}
         </div>
-        <form class="login_form" #f = "ngForm" (ngSubmit)="signUp(f.value)">
-          <input required ngModel type="text" name="email"   placeholder="E-mail"/>
-          <input required ngModel type="text" name="login"   placeholder="login"/>
-
-          <input required ngModel type="text" name="phoneNumber"  placeholder="Phone number" />
-          <input required ngModel type="text" name="firstName"  placeholder="First name" />
-          <input required ngModel type="text" name="lastName"  placeholder="Last name" />
-
-          <input required ngModel placeholder="Password" class="last" type="password" name="password" />
 
 
-          <input required ngModel placeholder="Confirm password" class="last" type="password" name="password" />
+        <form [formGroup]="form" class="login_form" (ngSubmit)="signUp(form.value)">
+          <div class="form-group" [ngClass]="{'has-error':!form.controls['email'].valid && form.controls['email'].touched}">
+            <label for="email" class="control-label">Email</label>
+
+            <input  class="form-control" type="text" formControlName="email" id="email">
+            <span *ngIf="!form.controls['email'].valid && form.controls['email'].touched" class="help-block">
+              <div class="alert alert-danger">Valid email is required !</div>
+              </span>
+
+          </div>
+
+          <div class="form-group" [ngClass]="{'has-error':!form.controls['login'].valid && form.controls['login'].touched}">
+            <label for="login" class="control-label">Username</label>
+
+            <input class="has-error" class="form-control" type="text" formControlName="login" id="login">
+            <span *ngIf="!form.controls['login'].valid && form.controls['login'].touched" class="help-block">
+              <div class="alert alert-danger">This field is required !</div>
+              </span>
+
+          </div>
+
+          <div class="form-group" [ngClass]="{'has-error':!form.controls['firstName'].valid && form.controls['firstName'].touched}">
+            <label for="firstName" class="control-label">First name</label>
+
+            <input class="has-error" class="form-control" type="text" formControlName="firstName" id="firstName">
+            <span *ngIf="!form.controls['firstName'].valid && form.controls['firstName'].touched" class="help-block">
+              <div class="alert alert-danger">This field is required !</div>
+              </span>
+
+          </div>
+
+          <div class="form-group" [ngClass]="{'has-error':!form.controls['lastName'].valid && form.controls['lastName'].touched}">
+            <label for="lastName" class="control-label">Last name</label>
+
+            <input class="has-error" class="form-control" type="text" formControlName="lastName" id="lastName">
+            <span *ngIf="!form.controls['lastName'].valid && form.controls['lastName'].touched" class="help-block">
+              <div class="alert alert-danger">This field is required !</div>
+              </span>
+
+          </div>
+
+          <div class="form-group" [ngClass]="{'has-error':!form.controls['phoneNumber'].valid && form.controls['phoneNumber'].touched}">
+          <label for="phoneNumber" class="control-label">Phone number</label>
+
+          <input class="has-error" class="form-control" type="text" formControlName="phoneNumber" id="phoneNumber">
+          <span *ngIf="!form.controls['phoneNumber'].valid && form.controls['phoneNumber'].touched" class="help-block">
+              <div class="alert alert-danger">Valid phone number is required!</div>
+              </span>
+
+        </div>
+
+
+
+
+
           <div class="clearfix">
 
-            <div class="pull-right"><a class="forgot_pass" routerLink="/login" > Already registered ? </a></div>
+            <div class="pull-right"><a class="forgot_pass" routerLink="/login"> Already registered ? </a></div>
           </div>
-          <div class="center"><input type="submit" value="Register"></div>
+          <div class="center"><input class="btn" [ngClass]="{'disabled':!form.valid}" type="submit" value="Register"></div>
         </form>
       </div>
 
     </div>
 
-    <div class="my_account_note center">HAVE A QUESTION? <b>1 800 888 02828</b></div>
+    <div class="my_account_note center" style="visibility: hidden">HAVE A QUESTION? <b>1 800 888 02828</b></div>
   </div><!-- //CONTAINER -->

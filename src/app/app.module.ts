@@ -11,6 +11,9 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { LogoutComponent } from './shared/logout/logout.component';
 import { ConfirmationComponent } from './shared/confirmation/confirmation.component';
 import { RegistrationComponent } from './shared/registration/registration.component';
+import { JobOffersComponent } from './hiering/job-offers/job-offers.component';
+import { OfferDetailsComponent } from './hiering/offer-details/offer-details.component';
+import { OfferCardComponent } from './hiering/offer-card/offer-card.component'
 import { EventListingComponent } from './event-listing/event-listing.component';
 import { EventCardComponent } from './event-card/event-card.component';
 import { EventCardDetailComponent } from './event-card-detail/event-card-detail.component';
@@ -26,6 +29,9 @@ export const routes = [
   {path:'confirm/:code',component:ConfirmationComponent},
   {path:'events',component:EventListingComponent},
   {path:'events/show/:id',component:EventCardDetailComponent}
+  {path:'confirm/:code',component:ConfirmationComponent},
+  {path:'jobOffers',component:JobOffersComponent},
+  {path:'offersDetails/:id',component:OfferDetailsComponent}
 ];
 @NgModule({
   declarations: [
@@ -35,6 +41,10 @@ export const routes = [
     LogoutComponent,
     HomeComponent,
     ConfirmationComponent,
+    RegistrationComponent,
+    JobOffersComponent,
+    OfferDetailsComponent,
+    OfferCardComponent
     RegistrationComponent,
     EventListingComponent,
     EventCardComponent,

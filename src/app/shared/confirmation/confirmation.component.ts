@@ -2,6 +2,7 @@ import {Component, Injector, OnInit, AfterViewInit} from '@angular/core';
 import {ActivatedRoute, Router, Params} from "@angular/router";
 import {UserService} from "../../services/user.service";
 import {AppComponent} from "../../app.component";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-confirmation',
@@ -11,6 +12,7 @@ import {AppComponent} from "../../app.component";
 })
 export class ConfirmationComponent implements OnInit {
 
+  private f:FormGroup;
   code: string;
   private parent: AppComponent;
   response: any;
@@ -18,8 +20,11 @@ export class ConfirmationComponent implements OnInit {
   countDown : number = 3 ;
   private redirection:boolean = false;
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute, private us: UserService, private inj: Injector) {
+  constructor(private router: Router, private activatedRoute: ActivatedRoute, private us: UserService, private inj: Injector,private fb:FormBuilder) {
     this.parent = this.inj.get(AppComponent);
+  this.f = this.fb.group({
+    'email':[null,Validators.email]
+  });
 
 
 
