@@ -6,7 +6,8 @@
     <div class="my_account_block clearfix">
       <div class="login">
         <div *ngIf="response != undefined && response.code == 0" class="alert alert-success">
-          <strong>Success!</strong> <div *ngIf="redirection">Your registration has been confirmed , redirecting you in {{countDown}}</div>
+          <strong>Success!</strong>
+          <div *ngIf="redirection">Your registration has been confirmed , redirecting you in {{countDown}}</div>
           <div *ngIf="!redirection">{{response.message}}</div>
         </div>
 
@@ -14,19 +15,23 @@
           <strong>Confirmation failed!</strong> {{response.message}}
         </div>
 
-        <h2>Resend confirmation email</h2>
-        <form  *ngIf="response != undefined && response.code !== 0" class="login_form" #f="ngForm" (ngSubmit)="resendConfirmation(f.value)">
-          <input ngModel required placeholder="Your email" type="text" name="email"  />
-
-          <div class="clearfix">
-
-            <div class="pull-right"><a class="forgot_pass" href="javascript:void(0);" >Forgot password?</a></div>
-          </div>
-          <div class="center"><input type="submit" value="Send confirmation"></div>
-        </form>
-
-    </div>
+        <div *ngIf="response != undefined && response.code !== 0">
+          <h2>Resend confirmation email</h2>
+          <form class="login_form" [formGroup]="f" (ngSubmit)="resendConfirmation(f.value)">
+           <div class="form-group" [ngClass]="{'has-error':!f.controls['email'].valid && f.controls['email'].touched}">
+             <label for="email">Email</label>
+             <input   type="text" name="email" id="email" formControlName="email"/>
+             <span class="help-block" *ngIf="!f.controls['email'].valid && f.controls['email'].touched">
+               <div class="alert alert-danger">Please provide a valid email</div>
+             </span>
+           </div>
 
 
+            <div class="center"><input type="submit" class="btn" [ngClass] ="{'disabled':!f.valid}" value="Send confirmation"></div>
+          </form>
+        </div>
 
-  </div><!-- //CONTAINER -->
+      </div>
+
+
+    </div><!-- //CONTAINER -->

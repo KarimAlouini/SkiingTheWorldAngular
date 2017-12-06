@@ -14,12 +14,12 @@ export class AppComponent {
   public val: string;
   public currentUser: User;
   private busy: boolean = false;
-  private back: boolean = false;
+
 
 
   constructor() {
     this.instance = this;
-    //this.back = true;
+
 
     try {
       this.currentUser = JSON.parse(localStorage.getItem("current"));
@@ -36,6 +36,10 @@ export class AppComponent {
 
   public setBusy(busy: boolean) {
     this.busy = busy;
+  }
+
+  public check(){
+    console.log('check');
   }
 
 

@@ -1,6 +1,9 @@
-import {Component, Injector, OnInit} from '@angular/core';
+import {Component, ElementRef, Injector, OnInit, ViewChild} from '@angular/core';
 import {SignupService} from "../../services/signup.service";
 import {AppComponent} from "../../app.component";
+import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import * as $ from 'jquery';
+
 
 @Component({
   selector: 'app-registration',
@@ -12,10 +15,28 @@ import {AppComponent} from "../../app.component";
 export class RegistrationComponent implements OnInit {
   private parent: AppComponent;
   private response: any;
+   form:FormGroup;
+  @ViewChild('pass1',{read:ElementRef}) password:ElementRef;
+  @ViewChild('pass2') password2;
 
-  constructor(private signup: SignupService, private inj: Injector) {
+  constructor(private signup: SignupService, private inj: Injector,private fb:FormBuilder) {
 
     this.parent = inj.get(AppComponent);
+
+
+    this.form = this.fb.group({
+      'email':[null,Validators.email],
+      'password':[null,Validators.compose([Validators.minLength(5),Validators.required])],
+
+      'login':[null,Validators.required],
+      'firstName':[null,Validators.required],
+      'lastName':[null,Validators.required],
+      'phoneNumber':[null,Validators.compose([Validators.minLength(8),Validators.maxLength(8)])],
+
+
+    });
+
+
 
   }
 
@@ -31,7 +52,10 @@ export class RegistrationComponent implements OnInit {
   }
 
   ngOnInit() {
+
   }
+
+
 
 
 
