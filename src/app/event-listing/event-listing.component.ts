@@ -1,19 +1,37 @@
-import { Component, OnInit } from '@angular/core';
+import { AppComponent } from './../app.component';
+import { eventService } from './../services/event.service';
+import { Component, OnInit, Injector } from '@angular/core';
 import { event } from './../event';
 import { events } from '../../data/event';
 
 @Component({
   selector: 'app-event-listing',
   templateUrl: './event-listing.component.html',
-  styleUrls: ['./event-listing.component.css']
+  styleUrls: ['./event-listing.component.css'],
+  providers:[eventService]
 })
 export class EventListingComponent implements OnInit {
 
-  events : Array<any> = events;
-
-  constructor() { }
+  events:any[];
+  private parent:AppComponent;
+  constructor(private es:eventService,private inj:Injector) {
+    this.parent = this. inj.get(AppComponent);
+   }
 
   ngOnInit() {
+      this.parent.setBusy(true);
+      this.es.getAllEvents().subscribe(
+        data=>{
+          this.parent.setBusy(false);
+            this.events = data.json();
+            console.log(this.events);
+        },
+        error=>{
+          this.parent.setBusy(false);
+
+        }
+      );
+
   }
 
 }

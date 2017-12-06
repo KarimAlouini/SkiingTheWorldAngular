@@ -23,7 +23,9 @@ export const routes = [
   {path:'login',component:LoginComponent},
   {path:'logout',component:LogoutComponent},
   {path:'register',component:RegistrationComponent},
-  {path:'confirm/:code',component:ConfirmationComponent}
+  {path:'confirm/:code',component:ConfirmationComponent},
+  {path:'events',component:EventListingComponent},
+  {path:'events/show/:id',component:EventCardDetailComponent}
 ];
 @NgModule({
   declarations: [
