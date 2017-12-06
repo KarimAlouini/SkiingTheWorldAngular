@@ -1,44 +1,42 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {User} from "./models/user";
-import {SignupService} from "./services/signup.service";
-
-
 
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers:[SignupService]
+
 })
 export class AppComponent {
   title = 'app';
-  public instance:AppComponent;
-  public val:string;
-  public currentUser :User;
-  private busy:boolean = false;
+  public instance: AppComponent;
+  public val: string;
+  public currentUser: User;
+  private busy: boolean = false;
+  private back: boolean = false;
 
 
-  constructor(){
+  constructor() {
     this.instance = this;
+    //this.back = true;
 
-    try{
+    try {
       this.currentUser = JSON.parse(localStorage.getItem("current"));
-    }catch(e){
+    } catch (e) {
       this.currentUser = null;
     }
 
 
   }
 
-  public getCurrentUser(){
+  public getCurrentUser() {
     return this.currentUser;
   }
 
-public setBusy(busy:boolean){
+  public setBusy(busy: boolean) {
     this.busy = busy;
-}
-
+  }
 
 
 }

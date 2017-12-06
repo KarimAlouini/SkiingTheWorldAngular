@@ -1,6 +1,7 @@
 import {Component, Injector, OnInit} from '@angular/core';
 import {SignupService} from "../../services/signup.service";
 import {AppComponent} from "../../app.component";
+import {User} from "../../models/user";
 
 
 
