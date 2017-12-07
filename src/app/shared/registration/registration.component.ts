@@ -2,7 +2,6 @@ import {Component, ElementRef, Injector, OnInit, ViewChild} from '@angular/core'
 import {SignupService} from "../../services/signup.service";
 import {AppComponent} from "../../app.component";
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
-import * as $ from 'jquery';
 
 
 @Component({

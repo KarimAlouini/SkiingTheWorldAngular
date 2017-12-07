@@ -9,6 +9,10 @@ export class JobOffersService {
 
   public getAllOffers(){
     return this.http.get(BASE_URL+'joboffers/all');
-}
+  }
+
+  public getById(id:number){
+    return this.http.get(BASE_URL+'joboffers/'+id);
+  }
 
 }

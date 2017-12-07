@@ -28,10 +28,10 @@ export const routes = [
   {path:'register',component:RegistrationComponent},
   {path:'confirm/:code',component:ConfirmationComponent},
   {path:'events',component:EventListingComponent},
-  {path:'events/show/:id',component:EventCardDetailComponent}
+  {path:'events/show/:id',component:EventCardDetailComponent},
   {path:'confirm/:code',component:ConfirmationComponent},
   {path:'jobOffers',component:JobOffersComponent},
-  {path:'offersDetails/:id',component:OfferDetailsComponent}
+  {path:'jobOffers/show/:id',component:OfferDetailsComponent}
 ];
 @NgModule({
   declarations: [
@@ -44,7 +44,7 @@ export const routes = [
     RegistrationComponent,
     JobOffersComponent,
     OfferDetailsComponent,
-    OfferCardComponent
+    OfferCardComponent,
     RegistrationComponent,
     EventListingComponent,
     EventCardComponent,
