@@ -1,11 +1,11 @@
 import { HomeComponent } from './shared/home/home.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { ReCaptchaModule } from 'angular2-recaptcha';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { HttpModule } from '@angular/http';
-import {RouterModule,Routes} from '@angular/router';
+import {RouterModule} from '@angular/router';
 import { HeaderComponent } from './shared/header/header.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { LogoutComponent } from './shared/logout/logout.component';
@@ -19,7 +19,8 @@ import { EventCardComponent } from './event-card/event-card.component';
 import { EventCardDetailComponent } from './event-card-detail/event-card-detail.component';
 import { UtilService } from './services/util.service';
 import { eventService } from './services/event.service';
-export const BASE_URL = "http://localhost:18080/SkiWorld-web/v0/";
+import {ProfileComponent} from './shared/profile/profile.component';
+export const BASE_URL = 'http://localhost:18080/SkiWorld-web/v0/';
 export const routes = [
   {path:'',redirectTo:'home',pathMatch:'full'},
   {path:'home',component:HomeComponent},
@@ -28,7 +29,8 @@ export const routes = [
   {path:'register',component:RegistrationComponent},
   {path:'confirm/:code',component:ConfirmationComponent},
   {path:'jobOffers',component:JobOffersComponent},
-  {path:'offersDetails/:id',component:OfferDetailsComponent}
+  {path:'offersDetails/:id',component:OfferDetailsComponent},
+  {path:'profile',component:ProfileComponent}
 ];
 @NgModule({
   declarations: [
@@ -41,18 +43,20 @@ export const routes = [
     RegistrationComponent,
     JobOffersComponent,
     OfferDetailsComponent,
-    OfferCardComponent
+    OfferCardComponent,
     RegistrationComponent,
     EventListingComponent,
     EventCardComponent,
-    EventCardDetailComponent
+    EventCardDetailComponent,
+    ProfileComponent
   ],
   imports: [
     FormsModule,
     BrowserModule,
     HttpModule,
     RouterModule.forRoot(routes),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ReCaptchaModule
   ],
   providers: [
     eventService,

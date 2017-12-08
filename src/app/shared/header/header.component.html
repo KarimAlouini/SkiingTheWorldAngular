@@ -14,7 +14,7 @@
 
         <div *ngIf="parent.currentUser !== null" class="live_chat"><a routerLink="/logout" ><i class="fa fa-sign-out"></i> Logout</a></div>
 
-        <div *ngIf="parent.currentUser !== null" class="phone_top">Hello {{parent.currentUser.login}}</div>
+       <div *ngIf="parent.currentUser !== null" class="phone_top">Hello <a routerLink="/profile" class="username"> {{parent.currentUser.login}}</a></div>
       </div><!-- //CONTAINER -->
     </div><!-- TOP INFO -->
 
