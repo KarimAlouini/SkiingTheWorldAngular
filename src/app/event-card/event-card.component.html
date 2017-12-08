@@ -1,8 +1,10 @@
-<a class="article_image" href="article-single.html" >
-  <div class="article_date">{{ event.start }}<span>{{ event.end }}</span></div>
-  <img src="assets/images/blog/1.jpg" alt="" />
+<a [routerLink]="['show',event.id]">
+  <a class="article_image" >
+    <div class="article_date">{{ event.start|date:'dd MMM' }}<span></span></div>
+    <img src="assets/images/blog/1.jpg" alt="" />
+  </a>
+  <a class="article_title"  >{{event.name}}</a>
+  <ul class="post_meta">
+    <li><i class="fa fa-user"></i><a href="javascript:void(0);" ><i>{{event.host.login}}</i></a></li>
+  </ul>
 </a>
-<a class="article_title" href="article-single.html" >{{event.name}}</a>
-<ul class="post_meta">
-  <li><i class="fa fa-user"></i><a href="javascript:void(0);" ><i>{{event.user}}</i></a></li>
-</ul>

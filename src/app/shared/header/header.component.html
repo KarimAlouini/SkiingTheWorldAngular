@@ -27,7 +27,7 @@
 
         <!-- LOGO -->
         <div class="logo">
-          <a routerLink="/home" ><img src="assets/images/skilogo.png" alt="" /></a>
+          <a routerLink="/home" ><img src="assets/images/skilogo.png" style="max-width: 170%"  alt="" /></a>
         </div><!-- //LOGO -->
 
 
@@ -80,7 +80,7 @@
 
 
         <!-- MENU -->
-        <ul class="navmenu center">
+        <ul  class="navmenu center">
           <li class="sub-menu first active"><a ngLink="/home" >Home</a>
             <!-- MEGA MENU -->
             <ul class="mega_menu megamenu_col1 clearfix">
@@ -96,21 +96,8 @@
               </li>
             </ul><!-- //MEGA MENU -->
           </li>
-          <li class="sub-menu"><a href="javascript:void(0);" >women</a>
-            <!-- MEGA MENU -->
-            <ul class="mega_menu megamenu_col1 clearfix">
-              <li class="col">
-                <ol>
-                  <li><a href="women.html" >sweaters</a></li>
-                  <li><a href="women.html" >shirts & tops<span>hot</span></a></li>
-                  <li><a href="women.html" >knits & tees</a></li>
-                  <li><a href="women.html" >pants</a></li>
-                  <li><a href="women.html" >denim</a></li>
-                  <li><a href="women.html" >dresses</a></li>
-                  <li><a href="women.html" >maternity</a></li>
-                </ol>
-              </li>
-            </ul><!-- //MEGA MENU -->
+          <li ng-class="{'active': clicked}" ng-click="clicked = clicked" class="sub-menu"><a routerLink="/events"  >Event</a>
+            
           </li>
           <li class="sub-menu"><a href="javascript:void(0);" >Men</a>
             <!-- MEGA MENU -->

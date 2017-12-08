@@ -1,6 +1,7 @@
 import { HomeComponent } from './shared/home/home.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {NgxPaginationModule} from 'ngx-pagination';
 import { ReCaptchaModule } from 'angular2-recaptcha';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -28,9 +29,12 @@ export const routes = [
   {path:'logout',component:LogoutComponent},
   {path:'register',component:RegistrationComponent},
   {path:'confirm/:code',component:ConfirmationComponent},
-  {path:'jobOffers',component:JobOffersComponent},
+  {path:'events',component:EventListingComponent},
+  {path:'events/show/:id',component:EventCardDetailComponent},
   {path:'offersDetails/:id',component:OfferDetailsComponent},
-  {path:'profile',component:ProfileComponent}
+  {path:'profile',component:ProfileComponent},
+  {path:'jobOffers',component:JobOffersComponent},
+  {path:'jobOffers/show/:id',component:OfferDetailsComponent}
 ];
 @NgModule({
   declarations: [
@@ -56,6 +60,7 @@ export const routes = [
     HttpModule,
     RouterModule.forRoot(routes),
     ReactiveFormsModule,
+    NgxPaginationModule,
     ReCaptchaModule
   ],
   providers: [

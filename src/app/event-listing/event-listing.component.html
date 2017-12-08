@@ -1,10 +1,9 @@
-<pre>  </pre>
 
 <!-- BREADCRUMBS -->
 <section class="breadcrumb parallax margbot30"></section>
 <!-- //BREADCRUMBS -->
 <!-- PAGE HEADER -->
-<section class="page_header">
+<section class="page_header parallax">
   
   <!-- CONTAINER -->
   <div class="container">
@@ -33,9 +32,11 @@
         
         <div class="respond_clear_768"></div>
         
-        <article *ngFor="let event of events" >
+        <article *ngFor="let event of events | paginate: { itemsPerPage: 4, currentPage: p }" >
             <app-event-card [event]="event" class="article_item article_small col-lg-3 col-md-3 col-sm-6 col-xs-6 col-ss-12 clearfix margbot30" ></app-event-card>
-        </article>
+        </article><br>
+        
+        
         
       </div><!-- //ARTICLES LIST -->
     </div><!-- //ROW -->
@@ -43,15 +44,10 @@
     <hr>
 
     <!-- PAGINATION -->
-    <ul class="pagination clearfix">
-      <li><a href="javascript:void(0);" >1</a></li>
-      <li><a href="javascript:void(0);" >2</a></li>
-      <li class="active"><a href="javascript:void(0);" >3</a></li>
-      <li><a href="javascript:void(0);" >4</a></li>
-      <li><a href="javascript:void(0);" >5</a></li>
-      <li><a href="javascript:void(0);" >6</a></li>
-      <li><a href="javascript:void(0);" >...</a></li>
-    </ul><!-- //PAGINATION -->
+    <pagination-controls  (pageChange)="p = $event">
+        
+                </pagination-controls>
+    <!-- //PAGINATION -->
     
     <div class="padbot30"></div>
   </div><!-- //CONTAINER -->
