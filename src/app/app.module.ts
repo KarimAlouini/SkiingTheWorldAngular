@@ -1,7 +1,7 @@
 import { HomeComponent } from './shared/home/home.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import {NgxPaginationModule} from 'ngx-pagination';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { HttpModule } from '@angular/http';
@@ -55,7 +55,8 @@ export const routes = [
     BrowserModule,
     HttpModule,
     RouterModule.forRoot(routes),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxPaginationModule
   ],
   providers: [
     eventService,
