@@ -2,10 +2,11 @@ import { HomeComponent } from './shared/home/home.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {NgxPaginationModule} from 'ngx-pagination';
+import { ReCaptchaModule } from 'angular2-recaptcha';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { HttpModule } from '@angular/http';
-import {RouterModule,Routes} from '@angular/router';
+import {RouterModule} from '@angular/router';
 import { HeaderComponent } from './shared/header/header.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { LogoutComponent } from './shared/logout/logout.component';
@@ -19,8 +20,15 @@ import { EventCardComponent } from './event/event-card/event-card.component';
 import { EventCardDetailComponent } from './event/event-card-detail/event-card-detail.component';
 import { UtilService } from './services/util.service';
 import { eventService } from './services/event.service';
+import {ProfileComponent} from './shared/profile/profile.component';
+import { PersonalComponent } from './shared/profile/personal/personal.component';
+import { SecurityComponent } from './shared/profile/security/security.component';
+import { EventsInvitationsComponent } from './shared/profile/events-invitations/events-invitations.component';
+import { EventsParticipationsComponent } from './shared/profile/events-participations/events-participations.component';
+import { MyAdAreaRequestsComponent } from './shared/profile/my-ad-area-requests/my-ad-area-requests.component';
+import {DatePickerModule} from 'angular-io-datepicker';
+export const BASE_URL = 'http://localhost:18080/SkiWorld-web/v0/';
 import { EventAddComponent } from './event/event-add/event-add.component';
-export const BASE_URL = "http://localhost:18080/SkiWorld-web/v0/";
 export const routes = [
   {path:'',redirectTo:'home',pathMatch:'full'},
   {path:'home',component:HomeComponent},
@@ -30,7 +38,14 @@ export const routes = [
   {path:'confirm/:code',component:ConfirmationComponent},
   {path:'events',component:EventListingComponent},
   {path:'events/show/:id',component:EventCardDetailComponent},
-  {path:'confirm/:code',component:ConfirmationComponent},
+  {path:'offersDetails/:id',component:OfferDetailsComponent},
+  {path:'profile',component:ProfileComponent,children:[
+      {path:'informations',component:PersonalComponent},
+      {path:'security',component:SecurityComponent},
+      {path:'myinvitations',component:EventsInvitationsComponent},
+      {path:'myparticipations',component:EventsParticipationsComponent},
+      {path:'adarequests',component:MyAdAreaRequestsComponent}
+    ]},
   {path:'jobOffers',component:JobOffersComponent},
   {path:'jobOffers/show/:id',component:OfferDetailsComponent},
   {path:'event/add',component:EventAddComponent}
@@ -51,6 +66,13 @@ export const routes = [
     EventListingComponent,
     EventCardComponent,
     EventCardDetailComponent,
+    ProfileComponent,
+    PersonalComponent,
+    SecurityComponent,
+    EventsInvitationsComponent,
+    EventsParticipationsComponent,
+    MyAdAreaRequestsComponent
+    EventCardDetailComponent,
     EventAddComponent
   ],
   imports: [
@@ -59,7 +81,9 @@ export const routes = [
     HttpModule,
     RouterModule.forRoot(routes),
     ReactiveFormsModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    ReCaptchaModule,
+    DatePickerModule
   ],
   providers: [
     eventService,
