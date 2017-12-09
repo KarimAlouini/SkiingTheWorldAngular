@@ -1,0 +1,78 @@
+<!-- BREADCRUMBS -->
+<section class="breadcrumb parallax margbot30"></section>
+<!-- //BREADCRUMBS -->
+
+
+<!-- PAGE HEADER -->
+<section class="page_header">
+
+  <!-- CONTAINER -->
+  <div class="container border0 margbot0">
+    <h3 class="pull-left"><b>Add Event</b></h3>
+
+    <div class="pull-right">
+      <a href="shopping-bag.html" >Back shopping bag<i class="fa fa-angle-right"></i></a>
+    </div>
+  </div><!-- //CONTAINER -->
+</section><!-- //PAGE HEADER -->
+
+
+<!-- CHECKOUT PAGE -->
+<section class="checkout_page">
+
+  <!-- CONTAINER -->
+  <div class="container">
+
+    <!-- CHECKOUT BLOCK -->
+    <div class="checkout_block">
+      
+
+      <form class="checkout_form clearfix" #EventForm="ngForm" (ngSubmit)="onEventSubmit(EventForm.value)" method="get">
+            <div class="checkout_form_input2 adress "  >
+              <label>Event name<span class="color_red">*</span></label>
+              <input type="text" name="name" value="" placeholder="" />
+            </div>
+            <div class="checkout_form_input2 last adress">
+                <label>Max place <span class="color_red">*</span></label>
+                <input type="text" name="name" value="" placeholder="" />
+            </div>
+            <div class="checkout_form_input3">
+                <label>Location<span class="color_red">*</span></label>
+                <input type="text" name="name" value="" placeholder="" />
+            </div>
+            <div class="checkout_form_input2 adress">
+                <label>Start<span class="color_red">*</span></label>
+                <input type="text" name="name" value="" placeholder="" />
+              </div>
+      
+              <div class="checkout_form_input2 last adress">
+                <label>End<span class="color_red">*</span></label>
+                <input type="text" name="name" value="" placeholder="" />
+              </div>
+              <div class="checkout_form_input2 adress">
+                  <label>Public/Private <span class="color_red">*</span></label>
+                  <select class="basic">
+                    <option>Public</option>
+                    <option>Private</option>
+                  </select>
+              </div>
+              <div class="checkout_form_input2 last adress">
+                  <label>Image<span class="color_red">*</span></label>
+                  <input type="text" name="name" value="" placeholder="" />
+              </div>
+              <hr class="clear">
+
+            <div class="checkout_form_input3">
+                <label>Description<span class="color_red">*</span></label>
+                <input type="textarea" name="name" value="" placeholder="" />
+            </div>
+
+        <div class="clear"></div>
+
+        <div class="checkout_form_note">All fields marked with (<span class="color_red">*</span>) are required</div>
+
+        <a class="btn active pull-right" href="checkout2.html" >Continue</a>
+      </form>
+    </div><!-- //CHECKOUT BLOCK -->
+  </div><!-- //CONTAINER -->
+</section><!-- //CHECKOUT PAGE -->

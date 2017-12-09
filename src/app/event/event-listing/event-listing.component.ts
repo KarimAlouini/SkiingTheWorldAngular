@@ -1,7 +1,7 @@
-import { AppComponent } from './../app.component';
-import { eventService } from './../services/event.service';
+import { AppComponent } from './../../app.component';
+import { eventService } from './../../services/event.service';
 import { Component, OnInit, Injector } from '@angular/core';
-import { event } from './../event';
+import { event } from './../../models/event';
 
 @Component({
   selector: 'app-event-listing',

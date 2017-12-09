@@ -14,11 +14,12 @@ import { RegistrationComponent } from './shared/registration/registration.compon
 import { JobOffersComponent } from './hiering/job-offers/job-offers.component';
 import { OfferDetailsComponent } from './hiering/offer-details/offer-details.component';
 import { OfferCardComponent } from './hiering/offer-card/offer-card.component'
-import { EventListingComponent } from './event-listing/event-listing.component';
-import { EventCardComponent } from './event-card/event-card.component';
-import { EventCardDetailComponent } from './event-card-detail/event-card-detail.component';
+import { EventListingComponent } from './event/event-listing/event-listing.component';
+import { EventCardComponent } from './event/event-card/event-card.component';
+import { EventCardDetailComponent } from './event/event-card-detail/event-card-detail.component';
 import { UtilService } from './services/util.service';
 import { eventService } from './services/event.service';
+import { EventAddComponent } from './event/event-add/event-add.component';
 export const BASE_URL = "http://localhost:18080/SkiWorld-web/v0/";
 export const routes = [
   {path:'',redirectTo:'home',pathMatch:'full'},
@@ -31,7 +32,8 @@ export const routes = [
   {path:'events/show/:id',component:EventCardDetailComponent},
   {path:'confirm/:code',component:ConfirmationComponent},
   {path:'jobOffers',component:JobOffersComponent},
-  {path:'jobOffers/show/:id',component:OfferDetailsComponent}
+  {path:'jobOffers/show/:id',component:OfferDetailsComponent},
+  {path:'event/add',component:EventAddComponent}
 ];
 @NgModule({
   declarations: [
@@ -48,7 +50,8 @@ export const routes = [
     RegistrationComponent,
     EventListingComponent,
     EventCardComponent,
-    EventCardDetailComponent
+    EventCardDetailComponent,
+    EventAddComponent
   ],
   imports: [
     FormsModule,
