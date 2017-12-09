@@ -2391,7 +2391,19 @@ ul.comments li ul li{
 }
 
 
+.black-pills li a{
 
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  font-family: 'Roboto', sans-serif;
+}
+
+
+.black-pills li.active a{
+  background-color: #333;
+  text-align: center;
+}
 
 
 
@@ -2408,7 +2420,7 @@ ul.comments li ul li{
     background-color:inherit;
     background-repeat:no-repeat;
     background-size:cover;
-    background-image:url(../images/breadcrumb_bg2.jpg);
+    background-image:url(../images/my_account_bg.jpg);
 }
 
 

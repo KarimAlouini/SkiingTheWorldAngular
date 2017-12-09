@@ -21,6 +21,12 @@ import { EventCardDetailComponent } from './event-card-detail/event-card-detail.
 import { UtilService } from './services/util.service';
 import { eventService } from './services/event.service';
 import {ProfileComponent} from './shared/profile/profile.component';
+import { PersonalComponent } from './shared/profile/personal/personal.component';
+import { SecurityComponent } from './shared/profile/security/security.component';
+import { EventsInvitationsComponent } from './shared/profile/events-invitations/events-invitations.component';
+import { EventsParticipationsComponent } from './shared/profile/events-participations/events-participations.component';
+import { MyAdAreaRequestsComponent } from './shared/profile/my-ad-area-requests/my-ad-area-requests.component';
+import {DatePickerModule} from 'angular-io-datepicker';
 export const BASE_URL = 'http://localhost:18080/SkiWorld-web/v0/';
 export const routes = [
   {path:'',redirectTo:'home',pathMatch:'full'},
@@ -32,7 +38,13 @@ export const routes = [
   {path:'events',component:EventListingComponent},
   {path:'events/show/:id',component:EventCardDetailComponent},
   {path:'offersDetails/:id',component:OfferDetailsComponent},
-  {path:'profile',component:ProfileComponent},
+  {path:'profile',component:ProfileComponent,children:[
+      {path:'informations',component:PersonalComponent},
+      {path:'security',component:SecurityComponent},
+      {path:'myinvitations',component:EventsInvitationsComponent},
+      {path:'myparticipations',component:EventsParticipationsComponent},
+      {path:'adarequests',component:MyAdAreaRequestsComponent}
+    ]},
   {path:'jobOffers',component:JobOffersComponent},
   {path:'jobOffers/show/:id',component:OfferDetailsComponent}
 ];
@@ -52,7 +64,12 @@ export const routes = [
     EventListingComponent,
     EventCardComponent,
     EventCardDetailComponent,
-    ProfileComponent
+    ProfileComponent,
+    PersonalComponent,
+    SecurityComponent,
+    EventsInvitationsComponent,
+    EventsParticipationsComponent,
+    MyAdAreaRequestsComponent
   ],
   imports: [
     FormsModule,
@@ -61,7 +78,8 @@ export const routes = [
     RouterModule.forRoot(routes),
     ReactiveFormsModule,
     NgxPaginationModule,
-    ReCaptchaModule
+    ReCaptchaModule,
+    DatePickerModule
   ],
   providers: [
     eventService,

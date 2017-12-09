@@ -1,9 +1,9 @@
 import {Component, ElementRef, Injector, OnInit, ViewChild} from '@angular/core';
-import {SignupService} from "../../services/signup.service";
-import {AppComponent} from "../../app.component";
-import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import {SignupService} from '../../services/signup.service';
+import {AppComponent} from '../../app.component';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
-import { ReCaptchaComponent } from 'angular2-recaptcha'
+import { ReCaptchaComponent } from 'angular2-recaptcha';
 
 
 @Component({
@@ -16,6 +16,7 @@ import { ReCaptchaComponent } from 'angular2-recaptcha'
 export class RegistrationComponent implements OnInit {
   private parent: AppComponent;
   private response: any;
+  private  passwordsEqual:boolean=false;
   form: FormGroup;
   @ViewChild('pass1') private pass1: ElementRef;
   @ViewChild('pass2') private pass2: ElementRef;
@@ -46,13 +47,13 @@ export class RegistrationComponent implements OnInit {
 
     });
 
-    var timer = setInterval(() => {
+    const timer = setInterval(() => {
       if (this.recaptchaValid) {
         this.recaptchaExpired = true;
         this.recaptchaValid = false;
         this.captcha.reset();
       }
-    }, 10000);
+    }, 60000);
   }
 
   public signUp(user: any) {
@@ -76,9 +77,11 @@ export class RegistrationComponent implements OnInit {
   }
 
   public handleCorrectCaptcha($event) {
-    this.recaptchaExpired = false;
+
 
     if (this.captcha.getResponse() != null) {
+      console.log(this.captcha.getResponse());
+      this.recaptchaExpired = false;
       this.recaptchaValid = true;
     }
 
