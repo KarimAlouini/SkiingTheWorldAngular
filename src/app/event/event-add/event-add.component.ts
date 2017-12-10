@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { event } from './../../models/event';
 import { eventService } from './../../services/event.service';
 import { Component, OnInit, Injector } from '@angular/core';
@@ -17,25 +18,23 @@ export class EventAddComponent implements OnInit {
   
   
 
-  constructor(private addE: eventService, private inj: Injector, private fb: FormBuilder) {
+  constructor(private addE: eventService, private inj: Injector, private fb: FormBuilder,private router:Router) {
+    
     this.parent = inj.get(AppComponent);
 
     this.form = this.fb.group({
       'name': [null, Validators.required],
-      'Location': [null, Validators.required],
-      'Start': [null, Validators.required],
-      'End': [null, Validators.required],
+      'location': [null, Validators.required],
+      'start': [null, Validators.required],
+      'end': [null, Validators.required],
       'description': [null, Validators.required],
       'maxPlace': [null, Validators.compose([Validators.min(2), Validators.required])],
       'statue': [null, Validators.required],
-      'Image': [null],
+      'image': [null],
 
     });
 
-    this.form.valueChanges.subscribe(value=>{
-      console.log(this.form.valid);
-      console.log(this.form.controls);
-    });
+    
   }
   public add(event: any) {
     
@@ -43,6 +42,7 @@ export class EventAddComponent implements OnInit {
         this.addE.addEvent(event).subscribe(res => {
           this.parent.setBusy(false);
           this.response = res;
+          this.router.navigateByUrl('profile/myevents');
     
     
         });

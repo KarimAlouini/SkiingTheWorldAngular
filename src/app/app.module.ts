@@ -29,6 +29,7 @@ import { MyAdAreaRequestsComponent } from './shared/profile/my-ad-area-requests/
 import {DatePickerModule} from 'angular-io-datepicker';
 export const BASE_URL = 'http://localhost:18080/SkiWorld-web/v0/';
 import { EventAddComponent } from './event/event-add/event-add.component';
+import { MyEventsComponent } from './shared/profile/my-events/my-events.component';
 export const routes = [
   {path:'',redirectTo:'home',pathMatch:'full'},
   {path:'home',component:HomeComponent},
@@ -43,6 +44,7 @@ export const routes = [
       {path:'informations',component:PersonalComponent},
       {path:'security',component:SecurityComponent},
       {path:'myinvitations',component:EventsInvitationsComponent},
+      {path:'myevents',component:MyEventsComponent},
       {path:'myparticipations',component:EventsParticipationsComponent},
       {path:'adarequests',component:MyAdAreaRequestsComponent}
     ]},
@@ -74,6 +76,7 @@ export const routes = [
     MyAdAreaRequestsComponent,
     EventCardDetailComponent,
     EventAddComponent,
+    MyEventsComponent,
   ],
   imports: [
     FormsModule,
