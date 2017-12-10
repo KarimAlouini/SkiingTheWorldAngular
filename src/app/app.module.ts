@@ -73,7 +73,7 @@ export const routes = [
     EventsParticipationsComponent,
     MyAdAreaRequestsComponent,
     EventCardDetailComponent,
-    EventAddComponent
+    EventAddComponent,
   ],
   imports: [
     FormsModule,
