@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Http} from "@angular/http";
+import {Headers, Http} from "@angular/http";
 import {BASE_URL} from "../app.module";
 
 @Injectable()
@@ -9,13 +9,16 @@ export class AdAreaService {
 
   }
 
-  public getMyAdAreaRequests(token:string){
+  public getMyAdAreaRequests(){
+    let token = localStorage.get('token');
+    var headers = new Headers();
 
-    let header = new Headers();
-    console.log(token);
-    header.set('Authorization','CodeInc '+token);
+    headers.set('Authorization','CodeInc '+token);
 
-    return this.http.get(BASE_URL+'secured/users/ad_requests',header);
+    return this.http.get(BASE_URL+'secured/users/ad_requests',{
+      headers:headers
+    });
+
   }
 
 }

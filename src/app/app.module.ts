@@ -71,9 +71,9 @@ export const routes = [
     SecurityComponent,
     EventsInvitationsComponent,
     EventsParticipationsComponent,
-    MyAdAreaRequestsComponent
+    MyAdAreaRequestsComponent,
     EventCardDetailComponent,
-    EventAddComponent
+    EventAddComponent,
   ],
   imports: [
     FormsModule,

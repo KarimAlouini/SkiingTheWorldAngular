@@ -20,7 +20,7 @@ export class AppComponent {
 
   constructor() {
     this.instance = this;
-
+    this.token = localStorage.getItem('token');
 
     try {
       this.currentUser = JSON.parse(localStorage.getItem("current"));

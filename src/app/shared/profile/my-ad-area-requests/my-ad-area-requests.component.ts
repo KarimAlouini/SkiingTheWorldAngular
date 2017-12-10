@@ -17,7 +17,11 @@ export class MyAdAreaRequestsComponent implements OnInit {
   }
 
   ngOnInit() {
-   this.service.getMyAdAreaRequests(this.parent.getToken());
+   this.service.getMyAdAreaRequests().subscribe(data=>{
+     console.log(data);
+   },error=>{
+     console.log(error);
+   });
   }
 
 }
