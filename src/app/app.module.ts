@@ -15,9 +15,9 @@ import { RegistrationComponent } from './shared/registration/registration.compon
 import { JobOffersComponent } from './hiering/job-offers/job-offers.component';
 import { OfferDetailsComponent } from './hiering/offer-details/offer-details.component';
 import { OfferCardComponent } from './hiering/offer-card/offer-card.component'
-import { EventListingComponent } from './event-listing/event-listing.component';
-import { EventCardComponent } from './event-card/event-card.component';
-import { EventCardDetailComponent } from './event-card-detail/event-card-detail.component';
+import { EventListingComponent } from './event/event-listing/event-listing.component';
+import { EventCardComponent } from './event/event-card/event-card.component';
+import { EventCardDetailComponent } from './event/event-card-detail/event-card-detail.component';
 import { UtilService } from './services/util.service';
 import { eventService } from './services/event.service';
 import {ProfileComponent} from './shared/profile/profile.component';
@@ -28,6 +28,7 @@ import { EventsParticipationsComponent } from './shared/profile/events-participa
 import { MyAdAreaRequestsComponent } from './shared/profile/my-ad-area-requests/my-ad-area-requests.component';
 import {DatePickerModule} from 'angular-io-datepicker';
 export const BASE_URL = 'http://localhost:18080/SkiWorld-web/v0/';
+import { EventAddComponent } from './event/event-add/event-add.component';
 export const routes = [
   {path:'',redirectTo:'home',pathMatch:'full'},
   {path:'home',component:HomeComponent},
@@ -46,7 +47,8 @@ export const routes = [
       {path:'adarequests',component:MyAdAreaRequestsComponent}
     ]},
   {path:'jobOffers',component:JobOffersComponent},
-  {path:'jobOffers/show/:id',component:OfferDetailsComponent}
+  {path:'jobOffers/show/:id',component:OfferDetailsComponent},
+  {path:'event/add',component:EventAddComponent}
 ];
 @NgModule({
   declarations: [
@@ -70,6 +72,8 @@ export const routes = [
     EventsInvitationsComponent,
     EventsParticipationsComponent,
     MyAdAreaRequestsComponent
+    EventCardDetailComponent,
+    EventAddComponent
   ],
   imports: [
     FormsModule,
