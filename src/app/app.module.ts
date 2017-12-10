@@ -36,8 +36,8 @@ export const routes = [
   {path:'logout',component:LogoutComponent},
   {path:'register',component:RegistrationComponent},
   {path:'confirm/:code',component:ConfirmationComponent},
-  {path:'events',component:EventListingComponent},
-  {path:'events/show/:id',component:EventCardDetailComponent},
+  {path:'event',component:EventListingComponent},
+  {path:'event/show/:id',component:EventCardDetailComponent},
   {path:'offersDetails/:id',component:OfferDetailsComponent},
   {path:'profile',component:ProfileComponent,children:[
       {path:'informations',component:PersonalComponent},
@@ -71,7 +71,7 @@ export const routes = [
     SecurityComponent,
     EventsInvitationsComponent,
     EventsParticipationsComponent,
-    MyAdAreaRequestsComponent
+    MyAdAreaRequestsComponent,
     EventCardDetailComponent,
     EventAddComponent
   ],

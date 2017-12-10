@@ -27,51 +27,58 @@
     <div class="checkout_block">
       
 
-      <form class="checkout_form clearfix" #EventForm="ngForm" (ngSubmit)="onEventSubmit(EventForm.value)" method="get">
+      <form class="checkout_form clearfix" [formGroup]="form" (ngSubmit)="add(form.value)" >
+
             <div class="checkout_form_input2 adress "  >
               <label>Event name<span class="color_red">*</span></label>
-              <input type="text" name="name" value="" placeholder="" />
+              <input type="text" formControlName="name" name="name" value="" placeholder="" />
             </div>
+
             <div class="checkout_form_input2 last adress">
                 <label>Max place <span class="color_red">*</span></label>
-                <input type="text" name="name" value="" placeholder="" />
+                <input type="text" formControlName="maxPlace" name="name" value="" placeholder="" />
             </div>
+
             <div class="checkout_form_input3">
                 <label>Location<span class="color_red">*</span></label>
-                <input type="text" name="name" value="" placeholder="" />
+                <input type="text" formControlName="Location" name="name" value="" placeholder="" />
             </div>
+
             <div class="checkout_form_input2 adress">
                 <label>Start<span class="color_red">*</span></label>
-                <input type="text" name="name" value="" placeholder="" />
+                <date-picker formControlName="Start" [showClearButton]="false"   name="date"></date-picker>              
               </div>
       
               <div class="checkout_form_input2 last adress">
                 <label>End<span class="color_red">*</span></label>
-                <input type="text" name="name" value="" placeholder="" />
+                <date-picker formControlName="End" [showClearButton]="false"   name="date"></date-picker>
               </div>
+
               <div class="checkout_form_input2 adress">
                   <label>Public/Private <span class="color_red">*</span></label>
-                  <select class="basic">
-                    <option>Public</option>
-                    <option>Private</option>
+                  <select formControlName="statue" class="form-control">
+                    <option value="0">Public</option>
+                    <option value="1">Private</option>
                   </select>
               </div>
+
               <div class="checkout_form_input2 last adress">
                   <label>Image<span class="color_red">*</span></label>
-                  <input type="text" name="name" value="" placeholder="" />
+                  <input formControlName="Image" type="text" name="name" value="" placeholder="" />
               </div>
+
               <hr class="clear">
 
             <div class="checkout_form_input3">
                 <label>Description<span class="color_red">*</span></label>
-                <input type="textarea" name="name" value="" placeholder="" />
+                <input formControlName="description" type="textarea" name="name" value="" placeholder="" />
             </div>
 
         <div class="clear"></div>
 
         <div class="checkout_form_note">All fields marked with (<span class="color_red">*</span>) are required</div>
 
-        <a class="btn active pull-right" href="checkout2.html" >Continue</a>
+        <div class="center"><input class="btn" [ngClass]="{'disabled':!form.valid }" type="submit" value="Register"></div>
       </form>
     </div><!-- //CHECKOUT BLOCK -->
   </div><!-- //CONTAINER -->
