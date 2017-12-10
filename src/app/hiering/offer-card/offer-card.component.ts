@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {offer} from "../../models/offer";
 
 @Component({
   selector: 'app-offer-card',
@@ -8,7 +9,7 @@ import {Component, Input, OnInit} from '@angular/core';
 export class OfferCardComponent implements OnInit {
 
   @Input()
-  offer:any;
+  offer:offer;
   constructor() { }
 
   ngOnInit() {

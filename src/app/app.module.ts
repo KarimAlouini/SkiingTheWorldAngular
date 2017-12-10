@@ -19,19 +19,22 @@ import { EventCardComponent } from './event-card/event-card.component';
 import { EventCardDetailComponent } from './event-card-detail/event-card-detail.component';
 import { UtilService } from './services/util.service';
 import { eventService } from './services/event.service';
+import { Top5Component } from './hiering/offer-details/top5/top5.component';
+import { NewArrivalComponent } from './hiering/offer-details/new-arrival/new-arrival.component';
 export const BASE_URL = "http://localhost:18080/SkiWorld-web/v0/";
 export const routes = [
   {path:'',redirectTo:'home',pathMatch:'full'},
-  {path:'home',component:HomeComponent},
-  {path:'login',component:LoginComponent},
-  {path:'logout',component:LogoutComponent},
-  {path:'register',component:RegistrationComponent},
-  {path:'confirm/:code',component:ConfirmationComponent},
-  {path:'events',component:EventListingComponent},
-  {path:'events/show/:id',component:EventCardDetailComponent},
-  {path:'confirm/:code',component:ConfirmationComponent},
-  {path:'jobOffers',component:JobOffersComponent},
-  {path:'jobOffers/show/:id',component:OfferDetailsComponent}
+  {path:'home',component:HomeComponent,pathMatch: 'full'},
+  {path:'login',component:LoginComponent,pathMatch: 'full'},
+  {path:'logout',component:LogoutComponent,pathMatch: 'full'},
+  {path:'register',component:RegistrationComponent,pathMatch: 'full'},
+  {path:'confirm/:code',component:ConfirmationComponent,pathMatch: 'full'},
+  {path:'events',component:EventListingComponent,pathMatch: 'full'},
+  {path:'events/show/:id',component:EventCardDetailComponent,pathMatch: 'full'},
+  {path:'confirm/:code',component:ConfirmationComponent,pathMatch: 'full'},
+  {path:'jobOffers',component:JobOffersComponent,pathMatch: 'full'},
+  {path:'jobOffers/show/:id',component:OfferDetailsComponent,pathMatch: 'full'},
+
 ];
 @NgModule({
   declarations: [
@@ -48,7 +51,10 @@ export const routes = [
     RegistrationComponent,
     EventListingComponent,
     EventCardComponent,
-    EventCardDetailComponent
+    EventCardDetailComponent,
+    Top5Component,
+    NewArrivalComponent
+
   ],
   imports: [
     FormsModule,

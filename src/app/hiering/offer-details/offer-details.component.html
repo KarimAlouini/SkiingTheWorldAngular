@@ -1,1 +1,127 @@
-saluttt
+<div *ngIf="doneLoading">
+  <section class="breadcrumb parallax margbot30"></section>
+
+  <section class="tovar_details padbot70">
+    <div class="container">
+
+      <!-- CONTAINER -->
+
+      <div class="row">
+
+        <div class="col-lg-3 col-md-3 sidebar_tovar_details">
+          <h3><b>Jobs in the same category</b></h3>
+
+          <div *ngIf="doneLoading">
+            <app-top5 [cat]="this.offer.jobOfferCategory"></app-top5>
+
+          </div>
+
+        </div>
+
+        <div class="col-lg-9 col-md-9 tovar_details_wrapper clearfix">
+          <div class="tovar_details_header clearfix margbot35">
+            <h3 class="pull-left"><b>Job</b></h3><div class="tovar_article">#3XCKGMTH{{offer.id}}</div>
+
+
+          </div>
+
+          <div class="clearfix padbot40">
+            <div class="tovar_view_fotos clearfix">
+              <div id="slider2" class="flexslider">
+                <ul class="slides">
+                  <li><img src="../../../assets/images/tovar/women/1_2.jpg" alt="" /></li>
+                </ul>
+              </div>
+            </div>
+
+
+            <div class="tovar_view_description">
+              <div class="tovar_view_title">{{offer.name}}</div>
+              <br/>
+              <br/>
+              <div class="clearfix tovar_brend_price">
+                <br/>
+                <div class="pull-left tovar_brend">Salary</div>
+                <br/>
+                <div class="pull-right tovar_view_price">{{offer.salary}} DT</div>
+              </div>
+
+              <div class="tovar_size_select">
+                <div class="clearfix">
+                  <p class="pull-left">number of places available</p>
+                </div>
+                <a class="sizeXXXL" href="javascript:void(0);" >3</a>
+              </div>
+              <div class="tovar_size_select">
+                <div class="clearfix">
+                  <p class="pull-left">period of work</p>
+                </div>
+                <div class="pull-left tovar_brend">From:{{offer.startDate}}</div><br/><br/>
+                <div class="pull-left tovar_brend">To:{{offer.endDate}}</div>
+
+                <br/>
+                <br/>
+                <br/>
+
+              </div>
+              <div class="tovar_view_btn">
+                <a class="add_bag" href="javascript:void(0);" ><i class="fa fa-shopping-cart"></i>Apply To Job</a>
+              </div>
+
+            </div>
+
+
+          </div>
+          <div class="tovar_information">
+            <ul class="tabs clearfix">
+              <li class="current">Details</li>
+            </ul>
+            <div class="box visible">
+              <p>{{offer.description}}</p>
+            </div>
+            <div class="box">
+              <h3>WRITE A REVIEW</h3>
+              <p>Now please write a (short) review....(min. 200, max. 2000 characters)</p>
+              <div class="clearfix">
+                <textarea id="review-textarea"></textarea>
+                <label class="pull-left rating-box-label">Your Rate:</label>
+                <div class="pull-left rating-box clearfix">
+                  <i class="fa fa-star-o"></i>
+                  <i class="fa fa-star-o"></i>
+                  <i class="fa fa-star-o"></i>
+                  <i class="fa fa-star-o"></i>
+                  <i class="fa fa-star-o"></i>
+                </div>
+                <input type="submit" class="dark-blue big" value="Submit a review">
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+
+
+
+<section class="new_arrivals padbot50"  >
+
+  <!-- CONTAINER -->
+  <div class="container" >
+    <h2>newests job offers</h2>
+
+    <!-- JCAROUSEL -->
+    <div class="jcarousel-wrapper">
+
+
+
+      <div class="jcarousel">
+<app-new-arrival></app-new-arrival>
+      </div>
+    </div><!-- //JCAROUSEL -->
+  </div><!-- //CONTAINER -->
+</section>
+</div>
