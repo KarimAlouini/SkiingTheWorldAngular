@@ -10,6 +10,7 @@ import {User} from "./models/user";
 })
 export class AppComponent {
   title = 'app';
+  private token:string;
   public instance: AppComponent;
   public val: string;
   public currentUser: User;
@@ -40,6 +41,10 @@ export class AppComponent {
 
   public check(){
     console.log('check');
+  }
+
+  public getToken():string{
+    return this.token;
   }
 
 
