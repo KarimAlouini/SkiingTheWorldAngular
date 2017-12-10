@@ -17,7 +17,6 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 loginResponse:any;
-getData:string;
  parent:AppComponent;
 
   constructor(private userservice:UserService,private inj:Injector,private router:Router) {
@@ -35,8 +34,9 @@ getData:string;
     this.loginResponse = resp.json();
     if(this.loginResponse.code == 0){
       this.parent.currentUser = this.loginResponse.token.user;
-      localStorage.setItem("current",JSON.stringify(this.loginResponse.token.user));
-      this.router.navigateByUrl("home");
+      localStorage.setItem('current',JSON.stringify(this.loginResponse.token.user));
+      localStorage.setItem('token',this.loginResponse.token.value);
+      this.router.navigateByUrl('home');
 
     }
 

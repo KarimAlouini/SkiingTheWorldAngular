@@ -1,0 +1,35 @@
+<section class="breadcrumb parallax margbot30"></section>
+
+<section class="typography_block padbot40">
+
+  <!-- CONTAINER -->
+  <div class="container">
+
+
+    <div class="col-md-3 col-xs-12 col-lg-3">
+      <ul class="nav nav-pills nav-stacked black-pills">
+        <li role="presentation" routerLinkActive="active"><a routerLink="informations">My informations</a></li>
+        <li role="presentation" routerLinkActive="active"><a routerLink="security">Security</a></li>
+        <li role="presentation" routerLinkActive="active"><a routerLink="myevents">My Events</a></li>
+
+
+        <!--user menu-->
+
+        <li *ngIf="role == 'ROLE_USER'" role="presentation" routerLinkActive="active"><a routerLink="myinvitations">My event invitations</a></li>
+        <li *ngIf="role == 'ROLE_USER'" role="presentation" routerLinkActive="active"><a routerLink="myparticipations">My event participations</a></li>
+
+        <!--agent menu-->
+
+        <li *ngIf="role == 'ROLE_AGENT'" role="presentation" routerLinkActive="active"><a routerLink="adarequests">My Ad areas requests</a></li>
+
+
+      </ul>
+    </div>
+
+    <div class="col-md-9 col-xs-12 col-lg-9">
+      <router-outlet></router-outlet>
+    </div>
+
+
+  </div>
+</section>

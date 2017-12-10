@@ -1,0 +1,25 @@
+<table  class="table type1">
+  <tr style="background-color:lightblue; text-transform:uppercase">
+    <th>Name</th>
+    <th>Max places</th> 
+    <th>Location</th>
+    <th>Start</th>
+    <th>End</th>
+    <th>Status</th>
+    <th>Images</th>
+    <th>Description</th>
+    <th>Action</th>
+  </tr>
+  <tr *ngFor="let event of events">
+    <td>{{event.name}}</td>
+    <td>{{event.maxPlace}}</td> 
+    <td>{{event.location}}</td>
+    <td>{{event.start}}</td>
+    <td>{{event.end}}</td>
+    <td>{{event.statue}}</td>
+    <td>{{event.image}}</td>
+    <td>{{event.description}}</td>
+    <td>Update <br> Delete </td>
+  </tr>
+  
+</table>

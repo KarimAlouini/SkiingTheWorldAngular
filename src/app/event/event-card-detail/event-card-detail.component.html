@@ -8,7 +8,7 @@
   
   <!-- CONTAINER -->
   <div class="container">
-    <h3 class="pull-left"><b>Article Single</b></h3>
+    <h3 class="pull-left"><b>Event Single</b></h3>
     
     <div class="pull-right">
       <a href="women.html" >Back to shop<i class="fa fa-angle-right"></i></a>
@@ -31,7 +31,13 @@
             <div class="article_date">{{ event.start|date:'dd MMM' }}<span></span></div> 
             <img src="assets/images/articles/1_full.jpg" alt="" /> 
           </div> 
-          <div class="article_single_caption" style="text-transform: uppercase" ><p>{{ event.name}}</p></div> 
+          <div class="article_single_caption" style="text-transform: uppercase" >
+            
+            <p>{{ event.name}} <br>
+              <br>Start: {{ event.start|date:'dd MMM' }}
+              <br>Start: {{ event.end|date:'dd MMM' }}
+            </p>
+          </div> 
           <div class="clear"></div> 
            
           <div class="article_single_content"> 
