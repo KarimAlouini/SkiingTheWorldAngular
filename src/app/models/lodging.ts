@@ -1,9 +1,10 @@
-import { Offer } from "./offer";
+import {Offer} from "./offer";
+
 export class Lodging extends Offer {
 
     constructor(
-         public id: number, 
-         public label: string, 
+         public id: number,
+         public label: string,
          public  description: string,
          public price: number,
          public quantity: number,
@@ -12,7 +13,7 @@ export class Lodging extends Offer {
          public endDate: Date ,
          public etat: string,
          public img: string
-                ) 
+                )
                 { super(id,label,description,  price,
                    quantity)
                  }
