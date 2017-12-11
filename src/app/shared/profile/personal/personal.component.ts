@@ -74,7 +74,7 @@ export class PersonalComponent implements OnInit {
         }
       },
       error => {
-        console.log(error);
+        this.parent.parent.setBusy(false);
       });
 
 
