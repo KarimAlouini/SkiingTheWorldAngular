@@ -1,20 +1,7 @@
-<!-- BREADCRUMBS -->
-<section class="breadcrumb parallax margbot30"></section>
-<!-- //BREADCRUMBS -->
 
 
-<!-- PAGE HEADER -->
-<section class="page_header">
 
-  <!-- CONTAINER -->
-  <div class="container border0 margbot0">
-    <h3 class="pull-left"><b>Add Event</b></h3>
 
-    <div class="pull-right">
-      <a href="shopping-bag.html" >Back shopping bag<i class="fa fa-angle-right"></i></a>
-    </div>
-  </div><!-- //CONTAINER -->
-</section><!-- //PAGE HEADER -->
 
 
 <!-- CHECKOUT PAGE -->
@@ -31,32 +18,32 @@
 
             <div class="checkout_form_input2 adress "  >
               <label>Event name<span class="color_red">*</span></label>
-              <input type="text" formControlName="name" name="name" value="" placeholder="" />
+              <input type="text" formControlName="name" name="name" value="" placeholder="" [(ngModel)] ="event.name" />
             </div>
 
             <div class="checkout_form_input2 last adress">
                 <label>Max place <span class="color_red">*</span></label>
-                <input type="text" formControlName="maxPlace" name="name" value="" placeholder="" />
+                <input type="text" formControlName="maxPlace" name="name" value="" placeholder="" [(ngModel)]="event.maxPlace" />
             </div>
 
             <div class="checkout_form_input3">
                 <label>Location<span class="color_red">*</span></label>
-                <input type="text" formControlName="location" name="name" value="" placeholder="" />
+                <input type="text" formControlName="location" name="name" value="" placeholder="" [(ngModel)]="event.location" />
             </div>
 
             <div class="checkout_form_input2 adress">
                 <label>Start<span class="color_red">*</span></label>
-                <date-picker formControlName="start" [showClearButton]="false"   name="date"></date-picker>              
+                <date-picker formControlName="start" [showClearButton]="false"   name="date" [(ngModel)]="event.start" ></date-picker>              
               </div>
       
               <div class="checkout_form_input2 last adress">
                 <label>End<span class="color_red">*</span></label>
-                <date-picker formControlName="end" [showClearButton]="false"   name="date"></date-picker>
+                <date-picker formControlName="end" [showClearButton]="false" [(ngModel)]="event.end"  name="date"></date-picker>
               </div>
 
               <div class="checkout_form_input2 adress">
                   <label>Public/Private <span class="color_red">*</span></label>
-                  <select formControlName="statue" class="form-control">
+                  <select formControlName="statue" [(ngModel)]="event.statue" class="form-control">
                     <option value="0">Public</option>
                     <option value="1">Private</option>
                   </select>
@@ -64,7 +51,7 @@
 
               <div class="checkout_form_input2 last adress">
                   <label>Image<span class="color_red">*</span></label>
-                  <input formControlName="image" type="file" name="name" value="" placeholder="" />
+                  <input formControlName="image" type="file" name="name" value="" placeholder="" [(ngModel)]="event.image" />
                   {{itemsAsObjects|json}}
                                   
               </div>
@@ -73,7 +60,7 @@
 
             <div class="checkout_form_input3">
                 <label>Description<span class="color_red">*</span></label>
-                <input formControlName="description" type="textarea" name="name" value="" placeholder="" />
+                <input formControlName="description" type="textarea" name="name" value="" placeholder="" [(ngModel)]="event.description" />
             </div>
 
         <div class="clear"></div>

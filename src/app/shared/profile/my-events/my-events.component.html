@@ -1,3 +1,7 @@
+<div *ngIf="selectedEvent == null">
+
+
+
 <table  class="table type1">
   <tr style="background-color:lightblue; text-transform:uppercase">
     <th>Name</th>
@@ -19,7 +23,10 @@
     <td>{{event.statue}}</td>
     <td>{{event.image}}</td>
     <td>{{event.description}}</td>
-    <td>Update <br> Delete </td>
+    <td><a class="btn btn-success"  (click)="selectEvent(event)">Update</a> <br> Delete </td>
   </tr>
   
 </table>
+</div>
+
+<app-event-update [event] = "selectedEvent"></app-event-update>

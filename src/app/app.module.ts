@@ -36,6 +36,7 @@ import { Ng2UploaderModule } from 'ng2-uploader';
 import { LodgingListingComponent } from './lodging/lodging-listing/lodging-listing.component';
 import { LodgingService } from './services/lodging.service';
 import { LodgingDetailComponent } from './lodging/lodging-detail/lodging-detail.component';
+import { EventUpdateComponent } from './event/event-update/event-update.component';
 export const routes = [
   {path:'',redirectTo:'home',pathMatch:'full'},
   {path:'home',component:HomeComponent},
@@ -57,6 +58,8 @@ export const routes = [
   {path:'jobOffers',component:JobOffersComponent},
   {path:'jobOffers/show/:id',component:OfferDetailsComponent},
   {path:'event/add',component:EventAddComponent},
+  
+  
   {path:'lodging',component:LodgingListingComponent},
   {path:'lodging/:id',component:LodgingDetailComponent},
 ];
@@ -87,7 +90,9 @@ export const routes = [
     LodgingListingComponent,
     LodgingDetailComponent,
 
-    MyEventsComponent
+    MyEventsComponent,
+
+    EventUpdateComponent
   ],
   imports: [
     FormsModule,
