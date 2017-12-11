@@ -3,9 +3,7 @@ import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AppComponent } from '../../app.component';
 import {JobOffersService} from "../../services/job-offers.service";
-import {offer} from "../../models/offer";
-
-
+import {JobOffer} from "../../models/joboffer";
 
 
 @Component({
@@ -19,7 +17,7 @@ import {offer} from "../../models/offer";
 export class JobAddComponent implements OnInit {
   private parent : AppComponent;
   form: FormGroup;
-  private Offers :offer;
+  private Offers :JobOffer;
   private response:any;
 
 

@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {JobOffersService} from "../../../services/job-offers.service";
-import {offer} from "../../../models/offer";
+import {JobOffer} from "../../../models/joboffer";
 
 @Component({
   selector: 'app-new-arrival',
@@ -9,7 +9,7 @@ import {offer} from "../../../models/offer";
   providers: [JobOffersService]
 })
 export class NewArrivalComponent implements OnInit {
-  private newest: offer[];
+  private newest: JobOffer[];
   constructor(private jos: JobOffersService) {
 
   }

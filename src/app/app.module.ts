@@ -22,7 +22,6 @@ import { UtilService } from './services/util.service';
 import { eventService } from './services/event.service';
 import { Top5Component } from './hiering/offer-details/top5/top5.component';
 import { NewArrivalComponent } from './hiering/offer-details/new-arrival/new-arrival.component';
-export const BASE_URL = "http://localhost:18080/SkiWorld-web/v0/";
 import {ProfileComponent} from './shared/profile/profile.component';
 import { PersonalComponent } from './shared/profile/personal/personal.component';
 import { SecurityComponent } from './shared/profile/security/security.component';
@@ -39,6 +38,7 @@ import { Ng2UploaderModule } from 'ng2-uploader';
 import { LodgingListingComponent } from './lodging/lodging-listing/lodging-listing.component';
 import { LodgingService } from './services/lodging.service';
 import { LodgingDetailComponent } from './lodging/lodging-detail/lodging-detail.component';
+import {JobAddComponent} from "./hiering/job-add/job-add.component";
 export const routes = [
   {path:'',redirectTo:'home',pathMatch:'full'},
   {path:'home',component:HomeComponent,pathMatch: 'full'},
@@ -108,7 +108,7 @@ export const routes = [
     LodgingListingComponent,
     LodgingDetailComponent,
 
-    MyEventsComponent
+    MyEventsComponent,
     JobAddComponent,
   ],
   imports: [

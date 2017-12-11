@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {offer} from "../../models/offer";
+import {JobOffer} from "../../models/joboffer";
 
 @Component({
   selector: 'app-offer-card',
@@ -9,7 +9,7 @@ import {offer} from "../../models/offer";
 export class OfferCardComponent implements OnInit {
 
   @Input()
-  offer:offer;
+  offer:JobOffer;
   constructor() { }
 
   ngOnInit() {

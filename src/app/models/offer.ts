@@ -1,18 +1,19 @@
-import {OfferCategory} from "./offerCategory";
+export class Offer {
 
-export class offer {
-  constructor(public id: number,
-              public creationDate:Date,
-              public description: string,
-              public  endDate: Date,
-              public isArchived: boolean,
-              public jobOfferCategory: OfferCategory,
-              public name: string,
-              public numberOfPlaces :number,
-              public salary:number,
-              public startDate:Date,
-              public agent_id:number
-              ) {
 
-  }
+
+  constructor(
+
+    public id: number,
+
+    public label: string,
+
+    public  description: string,
+
+    public price: number,
+
+    public quantity: number)
+
+  { }
+
 }

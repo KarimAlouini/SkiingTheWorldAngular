@@ -3,8 +3,8 @@ import { Component, OnInit, Injector } from '@angular/core';
 import { AppComponent } from '../../app.component';
 import { ActivatedRoute } from '@angular/router';
 import { Params } from '@angular/router';
-import {offer} from "../../models/offer";
 
+import{JobOffer} from "../../models/joboffer";
 
 @Component({
   selector: 'app-offer-details',
@@ -13,7 +13,7 @@ import {offer} from "../../models/offer";
   providers:[JobOffersService]
 })
 export class OfferDetailsComponent implements OnInit {
-  private offer:offer;
+  private offer:JobOffer;
 
   private parent:AppComponent;
 

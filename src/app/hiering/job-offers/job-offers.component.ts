@@ -1,7 +1,7 @@
 import {Component, Injector, OnInit} from '@angular/core';
 import {AppComponent} from "../../app.component";
 import {JobOffersService} from "../../services/job-offers.service";
-import {offer} from "../../models/offer";
+import {JobOffer} from "../../models/joboffer";
 
 @Component({
   selector: 'app-job-offers',
@@ -12,7 +12,7 @@ import {offer} from "../../models/offer";
 export class JobOffersComponent implements OnInit {
 
   private parent: AppComponent;
-  private offers: offer;
+  private offers: JobOffer;
   private error: boolean = false;
   private doneLoading:boolean=false;
 

@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {JobOffersService} from "../../../services/job-offers.service";
-import {offer} from "../../../models/offer";
+import {JobOffer} from "../../../models/joboffer";
 
 @Component({
   selector: 'app-top5',
@@ -9,7 +9,7 @@ import {offer} from "../../../models/offer";
   providers:[JobOffersService]
 })
 export class Top5Component implements OnInit {
-private offers:offer[];
+private offers:JobOffer[];
 private doneLoading:boolean=false;
 @Input()  cat:string;
   constructor(private service:JobOffersService) {
