@@ -11,7 +11,7 @@
         <li><i class="fa fa-user"></i>Created by<span class="sep">|</span>{{offer.agent.firstName}}</li>
         <li><i class="fa fa-plus"></i>Number of places<span class="sep">|</span>{{offer.numberOfPlaces}}</li>
         <li><i class="fa fa-dollar"></i>Salary<span class="sep">|</span> {{offer.salary | number : '1.2'}} Dt</li>
-        <li><i class="fa fa-calendar"></i>Available until<span class="sep">|</span>{{ offer.endDate }}</li>
+        <li><i class="fa fa-calendar"></i>Available until<span class="sep">|</span>{{ offer.endDate | date:'shortDate' }}</li>
       </ul>
 
 </a>

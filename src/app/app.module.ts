@@ -30,9 +30,9 @@ import { EventsInvitationsComponent } from './shared/profile/events-invitations/
 import { EventsParticipationsComponent } from './shared/profile/events-participations/events-participations.component';
 import { MyAdAreaRequestsComponent } from './shared/profile/my-ad-area-requests/my-ad-area-requests.component';
 import {DatePickerModule} from 'angular-io-datepicker';
-export const BASE_URL = 'http://localhost:18080/SkiWorld-web/v0/';
 import { EventAddComponent } from './event/event-add/event-add.component';
 import { MyEventsComponent } from './shared/profile/my-events/my-events.component';
+import { JobAddComponent } from './hiering/job-add/job-add.component';
 export const routes = [
   {path:'',redirectTo:'home',pathMatch:'full'},
   {path:'home',component:HomeComponent,pathMatch: 'full'},
@@ -64,7 +64,11 @@ export const routes = [
     ]},
   {path:'jobOffers',component:JobOffersComponent},
   {path:'jobOffers/show/:id',component:OfferDetailsComponent},
-  {path:'event/add',component:EventAddComponent}
+  {path:'event/add',component:EventAddComponent},
+  {path:'jobOffers/add',component:JobAddComponent}
+
+
+
 ];
 @NgModule({
   declarations: [
@@ -83,8 +87,7 @@ export const routes = [
     EventCardComponent,
     EventCardDetailComponent,
     Top5Component,
-    NewArrivalComponent
-
+    NewArrivalComponent,
     EventCardDetailComponent,
     ProfileComponent,
     PersonalComponent,
@@ -95,6 +98,7 @@ export const routes = [
     EventCardDetailComponent,
     EventAddComponent,
     MyEventsComponent,
+    JobAddComponent,
   ],
   imports: [
     FormsModule,

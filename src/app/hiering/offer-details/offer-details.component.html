@@ -56,8 +56,8 @@
                 <div class="clearfix">
                   <p class="pull-left">period of work</p>
                 </div>
-                <div class="pull-left tovar_brend">From:{{offer.startDate}}</div><br/><br/>
-                <div class="pull-left tovar_brend">To:{{offer.endDate}}</div>
+                <div class="pull-left tovar_brend">From:{{offer.startDate | date:'shortDate' }}</div><br/><br/>
+                <div class="pull-left tovar_brend">To:{{offer.endDate | date:'shortDate' }}</div>
 
                 <br/>
                 <br/>
