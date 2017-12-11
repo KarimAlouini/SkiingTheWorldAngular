@@ -30,6 +30,8 @@ import {DatePickerModule} from 'angular-io-datepicker';
 export const BASE_URL = 'http://localhost:18080/SkiWorld-web/v0/';
 import { EventAddComponent } from './event/event-add/event-add.component';
 import { MyEventsComponent } from './shared/profile/my-events/my-events.component';
+import { Ng2UploaderModule } from 'ng2-uploader';
+
 export const routes = [
   {path:'',redirectTo:'home',pathMatch:'full'},
   {path:'home',component:HomeComponent},
@@ -76,7 +78,7 @@ export const routes = [
     MyAdAreaRequestsComponent,
     EventCardDetailComponent,
     EventAddComponent,
-    MyEventsComponent,
+    MyEventsComponent
   ],
   imports: [
     FormsModule,
@@ -86,7 +88,8 @@ export const routes = [
     ReactiveFormsModule,
     NgxPaginationModule,
     ReCaptchaModule,
-    DatePickerModule
+    DatePickerModule,
+    Ng2UploaderModule
   ],
   providers: [
     eventService,

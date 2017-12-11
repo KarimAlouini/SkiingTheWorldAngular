@@ -15,6 +15,32 @@ export class EventAddComponent implements OnInit {
   form: FormGroup;
   private response: any;
 
+  uploadFile: any;
+  hasBaseDropZoneOver: boolean = false;
+  options: Object = {
+    url: 'http://localhost:/FileUploader/index.php'
+  };
+  sizeLimit = 2000000;
+ 
+  handleUpload(data): void {
+    if (data && data.response) {
+      data = JSON.parse(data.response);
+      this.uploadFile = data;
+      alert('File uploaded');
+    }
+  }
+ 
+  fileOverBase(e:any):void {
+    this.hasBaseDropZoneOver = e;
+  }
+ 
+  beforeUpload(uploadingFile): void {
+    if (uploadingFile.size > this.sizeLimit) {
+      uploadingFile.setAbort();
+      alert('File is too large');
+    }
+  }
+
   
   
 

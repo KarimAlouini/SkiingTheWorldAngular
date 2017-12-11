@@ -43,5 +43,15 @@ export class eventService {
       headers: headers
     }).map(res => res.json());
   }
+  
+  public applyForEvent(event:any){
+    let token = localStorage.getItem('token');
+    var headers = new Headers();
+
+    headers.set('Authorization', 'CodeInc ' + token);
+    return this.http.put(BASE_URL+ 'secured/event/apply', event, {
+      headers: headers
+    });
+  }
 
 }
