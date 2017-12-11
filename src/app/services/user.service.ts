@@ -40,4 +40,16 @@ console.log(email);
 
   }
 
+  public update(user:any,file:any){
+
+    let headers = new Headers();
+    headers.set('user',JSON.stringify(user));
+    headers.set('Authorization','CodeInc '+localStorage.getItem('token'));
+    let input = new FormData();
+    input.append('uploadedFile',file);
+    return this._http.post(BASE_URL+'secured/users/update',input,{
+      headers:headers
+    });
+  }
+
 }

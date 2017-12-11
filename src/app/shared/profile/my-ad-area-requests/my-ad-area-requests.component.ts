@@ -1,6 +1,7 @@
 import {Component, Injector, OnInit} from '@angular/core';
 import {AdAreaService} from '../../../services/ad-area-service.service';
 import {AppComponent} from '../../../app.component';
+import {ProfileComponent} from "../profile.component";
 
 @Component({
   selector: 'app-my-ad-area-requests',
@@ -10,18 +11,25 @@ import {AppComponent} from '../../../app.component';
 })
 export class MyAdAreaRequestsComponent implements OnInit {
   private requests:any[];
-  private parent:AppComponent;
+
+  private parent:ProfileComponent;
+  private isLoading:boolean=true;
+  private error:boolean=false;
 
   constructor(private service:AdAreaService,private injector:Injector) {
-    this.parent = this.injector.get(AppComponent);
+    this.parent = injector.get(ProfileComponent);
+    this.service.getMyAdAreaRequests().subscribe(data=>{
+      this.requests = data.json();
+      console.log(this.requests);
+      this.isLoading = false;
+    },error=>{
+      this.error = true;
+      this.isLoading = false;
+    });
   }
 
   ngOnInit() {
-   this.service.getMyAdAreaRequests().subscribe(data=>{
-     console.log(data);
-   },error=>{
-     console.log(error);
-   });
+
   }
 
 }

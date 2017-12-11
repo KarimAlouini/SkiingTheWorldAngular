@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Http} from "@angular/http";
-import {User} from "../models/user";
+import {User} from "../models/user/user";
 
 @Injectable()
 export class SignupService {

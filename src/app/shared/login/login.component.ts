@@ -1,5 +1,5 @@
-import { AppComponent } from '../app.component';
-import { UserService } from '../services/user.service';
+import { AppComponent } from '../../app.component';
+import { UserService } from '../../services/user.service';
 import { Component, OnInit ,Injector} from '@angular/core';
 import { Response } from '@angular/http';
 import { Router } from '@angular/router';
