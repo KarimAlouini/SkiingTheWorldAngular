@@ -1,0 +1,114 @@
+<div class="preloader_hide">
+  
+    <!-- PAGE -->
+    <div id="page">
+    
+      <!-- HEADER -->
+    
+      
+      
+      <!-- BREADCRUMBS -->
+      <section class="breadcrumb parallax margbot30"></section>
+      <!-- //BREADCRUMBS -->
+      
+         <!-- NEWSLETTER FORM WIDGET -->
+         <div class='container'>
+          <div class="newsletter_wrapper">
+            <h3>NEWSLETTER</h3>
+            <form class="newsletter_form clearfix" action="javascript:void(0);" method="get">
+         
+            </form>
+          </div>
+        </div><!-- //NEWSLETTER FORM WIDGET -->
+      <!-- PAGE HEADER -->
+      <section class="page_header">
+        
+        <!-- CONTAINER -->
+        <div class="container">
+          <h3 class="pull-left"><b>Establishment list</b></h3>
+          
+          <div class="pull-right">
+            <a href="women.html" >Back to shop<i class="fa fa-angle-right"></i></a>
+          </div>
+        </div><!-- //CONTAINER -->
+      </section><!-- //PAGE HEADER -->
+      	<!-- SIDEBAR -->
+					<div id="sidebar" class="col-lg-3 col-md-3 col-sm-3 padbot50">
+              
+              <!-- CATEGORIES -->
+              <div class="sidepanel widget_categories">
+                <h3>Product Categories</h3>
+                <ul>
+                    <li><a href="/afficher-chalet" >Chalet</a></li>
+                    <li><a href="/afficher-resort" >Resort</a></li>
+                  <li><a href="javascript:void(0);" >KNITS &amp; TEES</a></li>
+                  <li><a href="javascript:void(0);" >PANTS</a></li>
+                  <li><a href="javascript:void(0);" >DENIM</a></li>
+                  <li><a href="javascript:void(0);" >DRESSES</a></li>
+                  <li><a href="javascript:void(0);" >Maternity</a></li>
+                </ul>
+              </div><!-- //CATEGORIES -->
+              
+
+            </div><!-- //SIDEBAR -->
+            
+      
+      <!-- PRODUCT CATALOG SECTION -->
+      <section class="product_catalog_block">
+        
+        <div class="tovar_wrapper col-lg-4 col-md-4 col-sm-6 col-xs-6 col-ss-12 padbot40">
+            <li *ngFor="let lodging of lodgings | paginate: {itemsPerPage: 5, currentPage:page, id: '1'}; let i = index">
+                
+            <div class="tovar_item clearfix">
+              <div class="tovar_img">
+                <div class="tovar_img_wrapper">
+                   
+                  <img class="img" src="/assets/images/articles/{{lodging.img}}" alt="" />
+                
+                </div>
+                <div class="tovar_item_btns">
+                 <a class="open-project tovar_view"  [routerLink]="['/lodging', lodging.id]" ><span>quick</span> view</a>
+               
+                </div>
+              </div>
+              <div class="tovar_description clearfix">
+                  <li> <a [routerLink]="['/lodging', lodging.id]">
+                    <span class="badge">{{ lodging.label }}</span>
+                  </a></li>
+                <span class="tovar_price">night price ${{ lodging.price }}</span>
+              </div>
+              <div class="tovar_content">What makes our cashmere so special? We start with the finest yarns from an Italian mill known for producing some of the softest cashmere out there.</div>
+            </div>
+            </li>
+            <pagination-controls (pageChange)="page = $event" id="1"
+            maxSize="5"
+            directionLinks="true"
+            autoHide="true">
+      </pagination-controls>`
+          </div>
+      </section><!-- //PRODUCT CATALOG SECTION -->
+      
+      
+      <!-- PRODUCT CATALOG SECTION -->
+      <section class="product_catalog_block">
+        
+        <!-- CONTAINER -->
+        <div class="container">
+    
+        </div><!-- //CONTAINER -->
+      </section><!-- //PRODUCT CATALOG SECTION -->
+      
+  
+      
+      
+  
+    </div><!-- //PAGE -->
+  </div>
+  
+  <!-- TOVAR MODAL CONTENT -->
+  <div id="modal-body" class="clearfix">
+    <div id="tovar_content"></div>
+    <div class="close_block"></div>
+  </div><!-- TOVAR MODAL CONTENT -->
+  
+

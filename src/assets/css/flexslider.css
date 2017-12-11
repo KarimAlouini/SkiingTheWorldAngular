@@ -577,7 +577,6 @@ a.slide_banner:hover:before {
 /* __________ Article Slider __________ */
 .flexslider.article_slider {
 	float:left;
-	width:600px;
 	margin:0 48px 40px 0;
 }
 

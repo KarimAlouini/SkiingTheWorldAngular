@@ -1,3 +1,29 @@
-<p>
-  my-ad-area-requests works!
-</p>
+<div class="title center">
+  <p>My ad area purchase requests</p>
+</div>
+<table  *ngIf="!isLoading && !error" class="table type1">
+  <tr>
+
+    <th>Ad Area</th>
+    <th>Start date</th>
+    <th>End date</th>
+    <th>Status</th>
+  </tr>
+
+  <tr *ngFor="let req of this.requests">
+      <td>{{req.adArea.number}}</td>
+    <td>{{req.startDate|date:'longDate'}}</td>
+    <td>{{req.endDate|date:'longDate'}}</td>
+    <td >
+
+      <span class="label label-success" ngClass="{'label-success':req.confirmation == 'ACCEPTED','label-warning':req.confirmation =='WAITING','label-danger':req.confirmation =='REJECTED'}" >{{req.confirmation}}</span>
+
+    </td>
+  </tr>
+</table>
+
+<div *ngIf="isLoading" class="spinner">
+  <div class="bounce1"></div>
+  <div class="bounce2"></div>
+  <div class="bounce3"></div>
+</div>

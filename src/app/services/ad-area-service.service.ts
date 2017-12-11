@@ -10,7 +10,7 @@ export class AdAreaService {
   }
 
   public getMyAdAreaRequests(){
-    let token = localStorage.get('token');
+    let token = localStorage.getItem('token');
     var headers = new Headers();
 
     headers.set('Authorization','CodeInc '+token);
