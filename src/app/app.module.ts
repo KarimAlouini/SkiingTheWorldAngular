@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { ReCaptchaModule } from 'angular2-recaptcha';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './shared/login/login.component';
 import { HttpModule } from '@angular/http';
 import {RouterModule} from '@angular/router';
 import { HeaderComponent } from './shared/header/header.component';
@@ -27,8 +27,11 @@ import { EventsInvitationsComponent } from './shared/profile/events-invitations/
 import { EventsParticipationsComponent } from './shared/profile/events-participations/events-participations.component';
 import { MyAdAreaRequestsComponent } from './shared/profile/my-ad-area-requests/my-ad-area-requests.component';
 import {DatePickerModule} from 'angular-io-datepicker';
-export const BASE_URL = 'http://localhost:18080/SkiWorld-web/v0/';
+export const URL='http://localhost:18080/SkiWorld-web/';
+export const BASE_URL = URL+'v0/';
+export const USER_IMAGE_DIR =URL+'/resources/users/';
 import { EventAddComponent } from './event/event-add/event-add.component';
+
 export const routes = [
   {path:'',redirectTo:'home',pathMatch:'full'},
   {path:'home',component:HomeComponent},

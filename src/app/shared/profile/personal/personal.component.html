@@ -1,4 +1,118 @@
-<div class="col-md-6 col-md-offset-3">
-  <date-picker ></date-picker>
-
+<div class="title center" [@500]="'fadeInUp'">
+  <p>Edit your personal informations</p>
 </div>
+
+
+  <!--<form  (ngSubmit)="save()">-->
+
+
+      <!--<input type="file" (change)="changeFile($event)"  class="file" id="file">-->
+
+
+
+
+
+  <!--<input type="submit" >-->
+
+  <!--</form>-->
+  <form [formGroup]="form"  (ngSubmit)="save(form.value)">
+    <div class="form-group" [ngClass]="{'has-error':!form.controls['email'].valid && form.controls['email'].touched}">
+      <label for="email" class="control-label">Email</label>
+
+      <input  class="form-control" type="text" formControlName="email" id="email" [(ngModel)]="user.email">
+      <span *ngIf="!form.controls['email'].valid && form.controls['email'].touched" class="help-block">
+              <div class="alert alert-danger">Valid email is required !</div>
+              </span>
+
+    </div>
+
+    <div class="form-group" [ngClass]="{'has-error':!form.controls['login'].valid && form.controls['login'].touched}">
+      <label for="login" class="control-label">Username</label>
+
+      <input class="has-error" class="form-control" type="text" formControlName="login" id="login" [(ngModel)]="user.login">
+      <span *ngIf="!form.controls['login'].valid && form.controls['login'].touched" class="help-block">
+              <div class="alert alert-danger">This field is required !</div>
+              </span>
+
+    </div>
+
+    <div class="form-group" [ngClass]="{'has-error':!form.controls['firstName'].valid && form.controls['firstName'].touched}">
+      <label for="firstName" class="control-label">First name</label>
+
+      <input class="has-error" class="form-control" type="text" formControlName="firstName" id="firstName" [(ngModel)]=user.firstName>
+      <span *ngIf="!form.controls['firstName'].valid && form.controls['firstName'].touched" class="help-block">
+              <div class="alert alert-danger">This field is required !</div>
+              </span>
+
+    </div>
+
+    <div class="form-group" [ngClass]="{'has-error':!form.controls['lastName'].valid && form.controls['lastName'].touched}">
+      <label for="lastName" class="control-label">Last name</label>
+
+      <input class="has-error" class="form-control" type="text" formControlName="lastName" id="lastName" [(ngModel)]="user.lastName">
+      <span *ngIf="!form.controls['lastName'].valid && form.controls['lastName'].touched" class="help-block">
+              <div class="alert alert-danger">This field is required !</div>
+              </span>
+
+    </div>
+
+    <div class="form-group" [ngClass]="{'has-error':!form.controls['phoneNumber'].valid && form.controls['phoneNumber'].touched}">
+      <label for="phoneNumber" class="control-label">Phone number</label>
+
+      <input class="has-error" class="form-control" type="text" formControlName="phoneNumber" id="phoneNumber" [(ngModel)]="user.phoneNumber">
+      <span *ngIf="!form.controls['phoneNumber'].valid && form.controls['phoneNumber'].touched" class="help-block">
+              <div class="alert alert-danger">Valid phone number is required!</div>
+              </span>
+
+    </div>
+
+    <!--Address-->
+    <div class="form-group" >
+      <label for="phoneNumber" class="control-label">Street</label>
+
+      <input class="form-control" type="text" formControlName="street" [(ngModel)]="user.address.street">
+
+
+    </div>
+
+    <div class="form-group" >
+      <label for="phoneNumber" class="control-label">City</label>
+
+      <input class="has-error" class="form-control" type="text" formControlName="city"  [(ngModel)]="user.address.city">
+
+
+    </div>
+
+    <div class="form-group" [ngClass]="{'has-error':!form.controls['zipCode'].valid && form.controls['zipCode'].touched}">
+      <label for="zip" class="control-label">ZIP code</label>
+
+      <input class="has-error" class="form-control" type="number" formControlName="zipCode" id="zip" [(ngModel)]="user.address.zipCode">
+      <span *ngIf="!form.controls['zipCode'].valid && form.controls['zipCode'].touched" class="help-block">
+              <div class="alert alert-danger">Please enter a valid ZIP code</div>
+              </span>
+
+    </div>
+
+    <div class="form-group" >
+      <label for="phoneNumber" class="control-label">Country</label>
+
+      <input class="has-error" class="form-control" type="text" formControlName="country"  [(ngModel)]="user.address.country">
+
+
+    </div>
+
+    <div class="form-group">
+      <label for="image" class="control-label">Profile picture</label>
+
+      <input type="file" (change)="changeFile($event)"  class="file" id="image">
+    </div>
+
+
+
+
+
+
+
+    <div class="center"><input class="btn" [ngClass]="{'disabled':!form.valid }" type="submit" value="Update my info"></div>
+  </form>
+

@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {User} from "./models/user";
+import {User} from "./models/user/user";
 
 
 @Component({
@@ -47,6 +47,9 @@ export class AppComponent {
     return this.token;
   }
 
+  public updateUser(){
+    localStorage.setItem('current',JSON.stringify(this.currentUser));
+  }
 
 
 }
