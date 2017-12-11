@@ -2181,7 +2181,6 @@ ul.comments li ul li{
 }
 .post_meta li {
 	float:none !important;
-	display:inline-block;
 	width:auto !important;
 	padding-right:20px;
 	margin-right:0 !important;

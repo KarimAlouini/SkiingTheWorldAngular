@@ -32,6 +32,7 @@ export const BASE_URL = URL+'v0/';
 export const USER_IMAGE_DIR =URL+'/resources/users/';
 import { EventAddComponent } from './event/event-add/event-add.component';
 import { MyEventsComponent } from './shared/profile/my-events/my-events.component';
+import { Ng2UploaderModule } from 'ng2-uploader';
 import { LodgingListingComponent } from './lodging/lodging-listing/lodging-listing.component';
 import { LodgingService } from './services/lodging.service';
 import { LodgingDetailComponent } from './lodging/lodging-detail/lodging-detail.component';
@@ -83,10 +84,10 @@ export const routes = [
     MyAdAreaRequestsComponent,
     EventCardDetailComponent,
     EventAddComponent,
-    MyEventsComponent,
     LodgingListingComponent,
     LodgingDetailComponent,
 
+    MyEventsComponent
   ],
   imports: [
     FormsModule,
@@ -96,7 +97,8 @@ export const routes = [
     ReactiveFormsModule,
     NgxPaginationModule,
     ReCaptchaModule,
-    DatePickerModule
+    DatePickerModule,
+    Ng2UploaderModule
   ],
   providers: [   LodgingService,
     eventService,

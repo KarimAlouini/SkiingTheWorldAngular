@@ -25,7 +25,7 @@
     
       <!-- ARTICLE SINGLE --> 
       <div class="article_single_block clearfix"> 
-        <article class="article_single clearfix"> 
+        <article *ngIf="!isLoading" class="article_single clearfix"> 
            
           <div class="article_image" href="article-single.html" > 
             <div class="article_date">{{ event.start|date:'dd MMM' }}<span></span></div> 
@@ -35,20 +35,31 @@
             
             <p>{{ event.name}} <br>
               <br>Start: {{ event.start|date:'dd MMM' }}
-              <br>Start: {{ event.end|date:'dd MMM' }}
+              <br>End: {{ event.end|date:'dd MMM' }}
             </p>
           </div> 
+          
           <div class="clear"></div> 
            
           <div class="article_single_content"> 
-            <h3>You could say Barbara Casasola has had a charmed run. After a critically acclaimed London Fashion Week debut last September, the Porto Alegre, Brazil–born, London-based upstart was tapped to be the sole women’s wear presenter at Pitti Uomo, the biannual menswear trade show in Florence, an honor previously accorded to Peter Pilotto and Rodarte.</h3> 
+            <h3>{{ event.description}}</h3> 
              
             <blockquote> 
-              <i>Eveningwear was my starting point for my first, AW 2012 collection, because my sense of what was out there tended to reference a different generation. I went for a kind of Madame Gres-meets-1990s Helmut Lang; or a certain mix of elegance and attitude.</i> 
+              <table style="width:50%">
+                <tr >
+                  <td><h4 style="font-weight:bold">Location: </h4></td>
+                  <td><h5>{{ event.location}}</h5> </td>
+                </tr>
+                <tr>
+                  <td><h4 style="font-weight:bold">Max Places: </h4></td>
+                  <td><h5>{{ event.maxPlace}}</h5></td>
+                </tr>
+              </table>
+              <a (click)="apply()" [ngClass]="{'disabled':isParticipated}" class="btn active" href="javascript:void(0);"><div *ngIf="!isParticipated">Apply for this event</div><div *ngIf="isParticipated">Already in</div></a>
             </blockquote> 
             <div class="clear"></div> 
              
-            <div class="flexslider article_slider"> 
+            <div class="flexslider article_slider col-md-12"> 
               <ul class="slides"> 
                 <li class="slide1"> 
                   <img src="images/articles/slide1.jpg" /> 
@@ -62,25 +73,14 @@
               </ul> 
             </div> 
              
-            <p>This courage of conviction allows such friends of the designer as Caroline Issa and Brazilian princess Paola Orléans e Bragança and other fans—like, say, Gwyneth Paltrow—to stand tall in her designs. (The five-inch pumps she collaborated on with Manolo Blahnik also help).</p> 
-            <p>Casasola has a Central Saint Martins degree and design work at Lanvin on her résumé, but she says she learned the most from her seamstress grandmother, who never left the house in anything but a maxi-length. The lesson, she says: “Luxury is simplicity.”</p> 
-            <p>The cousin had a point. Consider Casasola’s spring/ summer 2014 lineup, which, inspired by the work of Brazilian constructivist master Lygia Clark, explores the duality of discipline and sensuality:</p> 
-            <p>There is something decidedly not of this century about the evening dresses—and they are almost all evening dresses, with a few soigné jumpsuits and pencil skirts in the mix—that she crafts from unembellished satins, cadys, and organzas, with hems cropped just above the ankle. “A lot of people think it makes you look shorter,” says Casasola of her preferred silhouette. “But it’s the other way around.”</p> 
-            <p>The cousin had a point. Consider Casasola’s spring/ summer 2014 lineup, which, inspired by the work of Brazilian constructivist master Lygia Clark, explores the duality of discipline and sensuality: There is something decidedly not of this century about the evening dresses—and they are almost all evening dresses, with a few soigné jumpsuits and pencil skirts in the mix—that she crafts from unembellished satins, cadys, and organzas, with hems cropped just above the ankle. “A lot of people think it makes you look shorter,” says Casasola of her preferred silhouette. “But it’s the other way around.”</p> 
-            <p>This courage of conviction allows such friends of the designer as Caroline Issa and Brazilian princess Paola Orléans e Bragança and other fans—like, say, Gwyneth Paltrow—to stand tall in her designs. (The five-inch pumps she collaborated on with Manolo Blahnik also help). Casasola has a Central Saint Martins degree and design work at Lanvin on her résumé, but she says she learned the most from her seamstress grandmother, who never left the house in anything but a maxi-length. The lesson, she says: “Luxury is simplicity.”</p> 
-             
+            
             <ul class="post_meta"> 
-              <li><i class="fa fa-user"></i><a href="javascript:void(0);" > Anna Balashova</a></li> 
-              <li><i class="fa fa-comments"></i>Commetcs <span class="sep">|</span> 15</li> 
-              <li><i class="fa fa-eye"></i>views <span class="sep">|</span> 259</li> 
+              <li><i class="fa fa-user"></i><a href="javascript:void(0);" >{{event.host.login}}</a></li>
             </ul> 
              
             <div class="shared_tags_block clearfix"> 
-              <div class="pull-left post_tags"> 
-                <a href="javascript:void(0);" >DRESS</a> 
-                <a href="javascript:void(0);" >Sweaters</a> 
-                <a href="javascript:void(0);" >MATERNITY</a> 
-                <a href="javascript:void(0);" >SHIRTS & TOPS</a> 
+              <div *ngFor ="let kw of event.keyword" class="pull-left post_tags"> 
+                <a href="javascript:void(0);" >{{kw.content}}</a>
               </div> 
                
               <div class="pull-right tovar_shared clearfix"> 
