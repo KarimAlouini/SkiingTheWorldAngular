@@ -20,6 +20,8 @@ import { EventCardComponent } from './event/event-card/event-card.component';
 import { EventCardDetailComponent } from './event/event-card-detail/event-card-detail.component';
 import { UtilService } from './services/util.service';
 import { eventService } from './services/event.service';
+import { Top5Component } from './hiering/offer-details/top5/top5.component';
+import { NewArrivalComponent } from './hiering/offer-details/new-arrival/new-arrival.component';
 import {ProfileComponent} from './shared/profile/profile.component';
 import { PersonalComponent } from './shared/profile/personal/personal.component';
 import { SecurityComponent } from './shared/profile/security/security.component';
@@ -36,9 +38,21 @@ import { Ng2UploaderModule } from 'ng2-uploader';
 import { LodgingListingComponent } from './lodging/lodging-listing/lodging-listing.component';
 import { LodgingService } from './services/lodging.service';
 import { LodgingDetailComponent } from './lodging/lodging-detail/lodging-detail.component';
+import {JobAddComponent} from "./hiering/job-add/job-add.component";
 import { EventUpdateComponent } from './event/event-update/event-update.component';
 export const routes = [
   {path:'',redirectTo:'home',pathMatch:'full'},
+  {path:'home',component:HomeComponent,pathMatch: 'full'},
+  {path:'login',component:LoginComponent,pathMatch: 'full'},
+  {path:'logout',component:LogoutComponent,pathMatch: 'full'},
+  {path:'register',component:RegistrationComponent,pathMatch: 'full'},
+  {path:'confirm/:code',component:ConfirmationComponent,pathMatch: 'full'},
+  {path:'events',component:EventListingComponent,pathMatch: 'full'},
+  {path:'events/show/:id',component:EventCardDetailComponent,pathMatch: 'full'},
+  {path:'confirm/:code',component:ConfirmationComponent,pathMatch: 'full'},
+  {path:'jobOffers',component:JobOffersComponent,pathMatch: 'full'},
+  {path:'jobOffers/show/:id',component:OfferDetailsComponent,pathMatch: 'full'},
+
   {path:'home',component:HomeComponent},
   {path:'login',component:LoginComponent},
   {path:'logout',component:LogoutComponent},
@@ -62,6 +76,10 @@ export const routes = [
   
   {path:'lodging',component:LodgingListingComponent},
   {path:'lodging/:id',component:LodgingDetailComponent},
+  {path:'jobOffers/add',component:JobAddComponent}
+
+
+
 ];
 @NgModule({
   declarations: [
@@ -79,6 +97,9 @@ export const routes = [
     EventListingComponent,
     EventCardComponent,
     EventCardDetailComponent,
+    Top5Component,
+    NewArrivalComponent,
+    EventCardDetailComponent,
     ProfileComponent,
     PersonalComponent,
     SecurityComponent,
@@ -91,7 +112,8 @@ export const routes = [
     LodgingDetailComponent,
 
     MyEventsComponent,
-
+    JobAddComponent,
+    MyEventsComponent,
     EventUpdateComponent
   ],
   imports: [

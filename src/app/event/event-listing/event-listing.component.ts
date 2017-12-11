@@ -11,7 +11,7 @@ import { event } from './../../models/event';
 })
 export class EventListingComponent implements OnInit {
   p: number = 1;
-  events:any[];
+  events:event[];
   private parent:AppComponent;
   constructor(private es:eventService,private inj:Injector) {
     this.parent = this. inj.get(AppComponent);

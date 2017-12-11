@@ -1,0 +1,17 @@
+
+<div *ngIf="doneLoading">
+<div *ngFor="let offer of offers">
+  <a [routerLink]="['/jobOffers/show',offer.id]">
+  <ul  class="tovar_items_small clearfix">
+
+    <li class="clearfix">
+      <img class="tovar_item_small_img" src="../../../assets/images/tovar/women/1.jpg" alt="" />
+      <a class="tovar_item_small_title">{{offer.name}}</a>
+      <span class="tovar_item_small_price">{{offer.salary}}Dt</span>
+    </li>
+
+  </ul>
+  </a>
+</div>
+
+</div>

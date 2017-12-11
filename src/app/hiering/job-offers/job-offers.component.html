@@ -1,4 +1,4 @@
-
+<div *ngIf="doneLoading">
     <!-- BREADCRUMBS -->
     <section class="breadcrumb parallax margbot30"></section>
     <!-- //BREADCRUMBS -->
@@ -42,8 +42,9 @@
 
 
             <div class="respond_clear_768 respond_clear_480">
-
-              <app-offer-card *ngFor="let offer of offers" [offer]="offer" ></app-offer-card>
+              <article >
+              <app-offer-card class="article_item col-lg-4 col-md-4 col-sm-4 col-xs-6 col-ss-12 clearfix margbot30" *ngFor="let offer of offers" [offer]="offer" ></app-offer-card>
+              </article>
 
             </div>
 
@@ -67,3 +68,4 @@
         <div class="padbot30"></div>
       </div><!-- //CONTAINER -->
     </section><!-- //BLOG BLOCK -->
+</div>

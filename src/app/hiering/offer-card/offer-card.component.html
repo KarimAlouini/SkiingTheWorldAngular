@@ -1,18 +1,17 @@
 
-<a  [routerLink]="['show',offer.id]">
+<a [routerLink]="['show',offer.id]">
 
-<article class="article_item col-lg-4 col-md-4 col-sm-4 col-xs-6 col-ss-12 clearfix margbot30">
-  <a class="article_image" href="article-single.html" >
-    <div class="article_date">{{offer.startDate | date:'dd'}}<span> {{offer.startDate | date:'MMMM'}}</span></div>
-    <img src="../../../assets/images/articles/1.jpg" alt="" />
-  </a>
-  <a class="article_title" href="article-single.html" >{{offer.name}}</a>
-  <ul class="post_meta">
-    <li><i class="fa fa-user"></i>Created by<span class="sep">|</span>{{offer.agent.firstName}}</li>
-    <li><i class="fa fa-plus"></i>Number of places<span class="sep">|</span>{{offer.numberOfPlaces}}</li>
-    <li><i class="fa fa-dollar"></i>Salary<span class="sep">|</span> {{offer.salary | number : '1.2'}} Dt</li>
-    <li><i class="fa fa-calendar"></i>Available until<span class="sep">|</span>{{ offer.endDate }}</li>
-  </ul>
-</article>
+
+      <a class="article_image"  >
+        <div class="article_date">{{offer.startDate | date:'dd'}}<span> {{offer.startDate | date:'MMMM'}}</span></div>
+        <img src="../../../assets/images/articles/1.jpg" alt="" />
+      </a>
+      <a class="article_title"  >{{offer.name}}</a>
+      <ul class="post_meta">
+        <li><i class="fa fa-user"></i>Created by<span class="sep">|</span>{{offer.agent.firstName}}</li>
+        <li><i class="fa fa-plus"></i>Number of places<span class="sep">|</span>{{offer.numberOfPlaces}}</li>
+        <li><i class="fa fa-dollar"></i>Salary<span class="sep">|</span> {{offer.salary | number : '1.2'}} Dt</li>
+        <li><i class="fa fa-calendar"></i>Available until<span class="sep">|</span>{{ offer.endDate | date:'shortDate' }}</li>
+      </ul>
 
 </a>
