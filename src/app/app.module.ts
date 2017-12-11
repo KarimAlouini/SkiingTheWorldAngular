@@ -39,6 +39,7 @@ import { LodgingListingComponent } from './lodging/lodging-listing/lodging-listi
 import { LodgingService } from './services/lodging.service';
 import { LodgingDetailComponent } from './lodging/lodging-detail/lodging-detail.component';
 import {JobAddComponent} from "./hiering/job-add/job-add.component";
+import { EventUpdateComponent } from './event/event-update/event-update.component';
 export const routes = [
   {path:'',redirectTo:'home',pathMatch:'full'},
   {path:'home',component:HomeComponent,pathMatch: 'full'},
@@ -71,6 +72,8 @@ export const routes = [
   {path:'jobOffers',component:JobOffersComponent},
   {path:'jobOffers/show/:id',component:OfferDetailsComponent},
   {path:'event/add',component:EventAddComponent},
+  
+  
   {path:'lodging',component:LodgingListingComponent},
   {path:'lodging/:id',component:LodgingDetailComponent},
   {path:'jobOffers/add',component:JobAddComponent}
@@ -110,6 +113,8 @@ export const routes = [
 
     MyEventsComponent,
     JobAddComponent,
+    MyEventsComponent,
+    EventUpdateComponent
   ],
   imports: [
     FormsModule,

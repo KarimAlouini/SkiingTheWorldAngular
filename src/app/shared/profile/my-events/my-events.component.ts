@@ -10,6 +10,8 @@ import { AppComponent } from '../../../app.component';
 })
 export class MyEventsComponent implements OnInit {
 
+selectedEvent:any=null;
+
   p: number = 1;
   events:any[];
   private parent:AppComponent;
@@ -31,6 +33,10 @@ export class MyEventsComponent implements OnInit {
         }
       );
 
+  }
+
+  public selectEvent(event:any){
+      this.selectedEvent = event;
   }
 
 }

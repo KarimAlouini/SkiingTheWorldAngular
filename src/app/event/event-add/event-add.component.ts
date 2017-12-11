@@ -73,6 +73,7 @@ export class EventAddComponent implements OnInit {
     
         });
   }
+  
    
 
   ngOnInit() {
