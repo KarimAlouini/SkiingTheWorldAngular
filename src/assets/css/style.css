@@ -2430,7 +2430,7 @@ ul.comments li ul li{
     margin:0;
     padding:0;
     border-radius:0;
-    border-bottom:200px solid rgba(255,255,255,0.65);
+    border-bottom:300px solid rgba(255,255,255,0.65);
     background-color:inherit;
     background-repeat:no-repeat;
     background-size:cover;
@@ -3564,7 +3564,9 @@ table tr.cart_item td.product-subtotal {
 /*-----------------------------------------------------------------------------------*/
 /*	PAGE 404
 /*-----------------------------------------------------------------------------------*/
-.page404 {background-image:url(../images/404_bg.jpg);}
+.page404 {
+	background-color: #000;
+}
 
 .wrapper404 {
 	float:right;

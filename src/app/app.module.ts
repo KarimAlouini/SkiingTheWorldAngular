@@ -29,19 +29,50 @@ import {EventsInvitationsComponent} from './shared/profile/events-invitations/ev
 import {EventsParticipationsComponent} from './shared/profile/events-participations/events-participations.component';
 import {MyAdAreaRequestsComponent} from './shared/profile/my-ad-area-requests/my-ad-area-requests.component';
 import {DatePickerModule} from 'angular-io-datepicker';
-import {EventAddComponent} from './event/event-add/event-add.component';
-import {MyEventsComponent} from './shared/profile/my-events/my-events.component';
-import {Ng2UploaderModule} from 'ng2-uploader';
-import {LodgingListingComponent} from './lodging/lodging-listing/lodging-listing.component';
-import {LodgingService} from './services/lodging.service';
-import {LodgingDetailComponent} from './lodging/lodging-detail/lodging-detail.component';
+export const URL='http://localhost:18080/SkiWorld-web/';
+export const BASE_URL = URL+'v0/';
+export const USER_IMAGE_DIR =URL+'/resources/users/';
+import { EventAddComponent } from './event/event-add/event-add.component';
+import { MyEventsComponent } from './shared/profile/my-events/my-events.component';
+import { LodgingListingComponent } from './lodging/lodging-listing/lodging-listing.component';
+import { LodgingService } from './services/lodging.service';
+import { LodgingDetailComponent } from './lodging/lodging-detail/lodging-detail.component';
 import {JobAddComponent} from "./hiering/job-add/job-add.component";
-import {EventUpdateComponent} from './event/event-update/event-update.component';
-
-export const URL = 'http://localhost:18080/SkiWorld-web/';
-export const BASE_URL = URL + 'v0/';
-export const USER_IMAGE_DIR = URL + 'resources/users/';
+import { EventUpdateComponent } from './event/event-update/event-update.component';
+import { ErrorComponent } from './shared/error/error.component';
 export const routes = [
+  {path:'',redirectTo:'home',pathMatch:'full'},
+  {path:'home',component:HomeComponent,pathMatch: 'full'},
+  {path:'login',component:LoginComponent,pathMatch: 'full'},
+  {path:'logout',component:LogoutComponent,pathMatch: 'full'},
+  {path:'register',component:RegistrationComponent,pathMatch: 'full'},
+  {path:'confirm/:code',component:ConfirmationComponent,pathMatch: 'full'},
+  {path:'events',component:EventListingComponent,pathMatch: 'full'},
+  {path:'events/show/:id',component:EventCardDetailComponent,pathMatch: 'full'},
+  {path:'confirm/:code',component:ConfirmationComponent,pathMatch: 'full'},
+  {path:'jobOffers',component:JobOffersComponent,pathMatch: 'full'},
+  {path:'jobOffers/show/:id',component:OfferDetailsComponent,pathMatch: 'full'},
+  {path:'home',component:HomeComponent},
+  {path:'login',component:LoginComponent},
+  {path:'logout',component:LogoutComponent},
+  {path:'register',component:RegistrationComponent},
+  {path:'confirm/:code',component:ConfirmationComponent},
+  {path:'offersDetails/:id',component:OfferDetailsComponent},
+  {path:'profile',component:ProfileComponent,children:[
+      {path:'informations',component:PersonalComponent},
+      {path:'security',component:SecurityComponent},
+      {path:'myinvitations',component:EventsInvitationsComponent},
+      {path:'myevents',component:MyEventsComponent},
+      {path:'myparticipations',component:EventsParticipationsComponent},
+      {path:'event/add',component:EventAddComponent},
+      {path:'adarequests',component:MyAdAreaRequestsComponent}
+    ]},
+  {path:'jobOffers',component:JobOffersComponent},
+  {path:'jobOffers/show/:id',component:OfferDetailsComponent},
+  {path:'error/:code',component:ErrorComponent},
+  {path:'lodging',component:LodgingListingComponent},
+  {path:'lodging/:id',component:LodgingDetailComponent},
+  {path:'jobOffers/add',component:JobAddComponent}
   {path: '', redirectTo: 'home', pathMatch: 'full'},
   {path: 'home', component: HomeComponent, pathMatch: 'full'},
   {path: 'login', component: LoginComponent, pathMatch: 'full'},
@@ -110,11 +141,11 @@ export const routes = [
     EventAddComponent,
     LodgingListingComponent,
     LodgingDetailComponent,
-
     MyEventsComponent,
     JobAddComponent,
     MyEventsComponent,
-    EventUpdateComponent
+    EventUpdateComponent,
+    ErrorComponent
   ],
   imports: [
     FormsModule,
@@ -124,8 +155,7 @@ export const routes = [
     ReactiveFormsModule,
     NgxPaginationModule,
     ReCaptchaModule,
-    DatePickerModule,
-    Ng2UploaderModule
+    DatePickerModule
   ],
   providers: [LodgingService,
     eventService,

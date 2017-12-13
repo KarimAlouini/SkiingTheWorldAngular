@@ -1,7 +1,7 @@
 <div id="preloader"><img src="assets/images/preloader.gif" alt="" /></div>
 <div *ngIf="busy" class="loading">Loading&#8230;</div>
 <div class="preloader_hide">
-  <div id="page">
+  <div id="page" style="padding-bottom:5%">
     <app-header></app-header>
     <router-outlet (activate)="check()"></router-outlet>
 

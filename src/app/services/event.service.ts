@@ -65,5 +65,26 @@ export class eventService {
       headers: headers
     });
   }
+  public deleteEvent(event:any){
+    let token = localStorage.getItem('token');
+    var headers = new Headers();
+
+    headers.set('Authorization', 'CodeInc ' + token);
+    return this.http.put(BASE_URL+ 'secured/event/delete', event, {
+      headers: headers
+    });
+  }
+
+  public uploadImgs(id:string,file:any){
+    
+        let headers = new Headers();
+        headers.set('eventId',id);
+        headers.set('Authorization','CodeInc '+localStorage.getItem('token'));
+        let input = new FormData();
+        input.append('uploadedFile',file);
+        return this.http.put(BASE_URL+'secured/event/uploadPics',input,{
+          headers:headers
+        });
+      }
 
 }
