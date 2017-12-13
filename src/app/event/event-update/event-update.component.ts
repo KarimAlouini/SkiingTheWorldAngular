@@ -38,6 +38,7 @@ export class EventUpdateComponent implements OnInit {
   }
   public update(event: any) {
     event.id=this.event.id;
+    event.statue=this.event.statue;
     
         this.parent.parent.parent.setBusy(true);
         this.addE.updateEvent(event).subscribe(res => {

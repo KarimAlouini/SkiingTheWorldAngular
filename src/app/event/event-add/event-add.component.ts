@@ -19,33 +19,7 @@ export class EventAddComponent implements OnInit {
   private response: any;
   private files: any[];
 
-  uploadFile: any;
-  hasBaseDropZoneOver: boolean = false;
-  options: Object = {
-    url: 'http://localhost:/FileUploader/index.php'
-  };
-  sizeLimit = 2000000;
  
-  handleUpload(data): void {
-    if (data && data.response) {
-      data = JSON.parse(data.response);
-      this.uploadFile = data;
-      alert('File uploaded');
-    }
-  }
- 
-  fileOverBase(e:any):void {
-    this.hasBaseDropZoneOver = e;
-  }
- 
-  beforeUpload(uploadingFile): void {
-    if (uploadingFile.size > this.sizeLimit) {
-      uploadingFile.setAbort();
-      alert('File is too large');
-    }
-  }
-
-  
   
 
   constructor(private addE: eventService, private inj: Injector, private fb: FormBuilder,private router:Router) {
@@ -56,7 +30,7 @@ export class EventAddComponent implements OnInit {
       'name': [null, Validators.required],
       'location': [null, Validators.required],
       'start': [null, Validators.required],
-      'end': [null, null],
+      'end': [null, Validators.required],
       'description': [null, Validators.required],
       'maxPlace': [null, Validators.compose([Validators.min(2), Validators.required])],
       'statue': [null, Validators.required],
