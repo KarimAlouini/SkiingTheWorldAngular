@@ -5,11 +5,11 @@
 
 <!-- PAGE HEADER -->
 <section class="page_header">
-  
+
   <!-- CONTAINER -->
   <div class="container">
     <h3 class="pull-left"><b>Event Single</b></h3>
-    
+
     <div class="pull-right">
       <a href="women.html" >Back to shop<i class="fa fa-angle-right"></i></a>
     </div>
@@ -32,19 +32,19 @@
             <img style="max-width:770px" src="http://localhost:18080/SkiWorld-web/resources/events/{{event.id}}/{{event.images[0].fileName}}" alt="" /> 
           </div> 
           <div class="article_single_caption" style="text-transform: uppercase" >
-            
+
             <p>{{ event.name}} <br>
               <br>Start: {{ event.start|date:'dd MMM' }}
               <br>End: {{ event.end|date:'dd MMM' }}
             </p>
-          </div> 
-          
-          <div class="clear"></div> 
-           
-          <div class="article_single_content"> 
-            <h3>{{ event.description}}</h3> 
-             
-            <blockquote> 
+          </div>
+
+          <div class="clear"></div>
+
+          <div class="article_single_content">
+            <h3>{{ event.description}}</h3>
+
+            <blockquote>
               <table style="width:50%">
                 <tr >
                   <td><h4 style="font-weight:bold">Location: </h4></td>
@@ -74,26 +74,26 @@
             
             <ul class="post_meta"> 
               <li><i class="fa fa-user"></i><a href="javascript:void(0);" >{{event.host.login}}</a></li>
-            </ul> 
-             
-            <div class="shared_tags_block clearfix"> 
-              <div *ngFor ="let kw of event.keyword" class="pull-left post_tags"> 
+            </ul>
+
+            <div class="shared_tags_block clearfix">
+              <div *ngFor ="let kw of event.keyword" class="pull-left post_tags">
                 <a href="javascript:void(0);" >{{kw.content}}</a>
-              </div> 
-               
-              <div class="pull-right tovar_shared clearfix"> 
-                <p>Share item with friends</p> 
-                <ul> 
-                  <li><a class="facebook" href="javascript:void(0);" ><i class="fa fa-facebook"></i></a></li> 
-                  <li><a class="twitter" href="javascript:void(0);" ><i class="fa fa-twitter"></i></a></li> 
-                  <li><a class="linkedin" href="javascript:void(0);" ><i class="fa fa-linkedin"></i></a></li> 
-                  <li><a class="google-plus" href="javascript:void(0);" ><i class="fa fa-google-plus"></i></a></li> 
-                  <li><a class="tumblr" href="javascript:void(0);" ><i class="fa fa-tumblr"></i></a></li> 
-                </ul> 
-              </div> 
-            </div> 
-          </div> 
-        </article> 
-      </div><!-- //ARTICLE SINGLE --> 
-    </div><!-- //CONTAINER --> 
+              </div>
+
+              <div class="pull-right tovar_shared clearfix">
+                <p>Share item with friends</p>
+                <ul>
+                  <li><a class="facebook" href="javascript:void(0);" ><i class="fa fa-facebook"></i></a></li>
+                  <li><a class="twitter" href="javascript:void(0);" ><i class="fa fa-twitter"></i></a></li>
+                  <li><a class="linkedin" href="javascript:void(0);" ><i class="fa fa-linkedin"></i></a></li>
+                  <li><a class="google-plus" href="javascript:void(0);" ><i class="fa fa-google-plus"></i></a></li>
+                  <li><a class="tumblr" href="javascript:void(0);" ><i class="fa fa-tumblr"></i></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div><!-- //ARTICLE SINGLE -->
+    </div><!-- //CONTAINER -->
 </section><!-- //ARTICLES BLOCK -->

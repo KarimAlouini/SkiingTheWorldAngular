@@ -1,3 +1,49 @@
-<p>
-  security works!
-</p>
+<div class="title center" >
+  <p>Security</p>
+</div>
+
+<div class="row">
+<div *ngIf="response != undefined" class="col-md-10 col-md-offset-1">
+  <div class="alert" [ngClass]="{'alert-success':response.code == 0,'alert-danger':response.code != 0}">
+    <p>{{response.message}}</p>
+  </div>
+</div>
+
+  <div class="col-md-10 col-md-offset-1">
+
+  <form #form="ngForm" (ngModelChange)="checkForMatch()" (ngSubmit)="changePassword()">
+    <div class="form-group" [ngClass]="{'has-error':!oldPass.valid&&(oldPass.touched||oldPass.dirty)}">
+      <label for="oldPass" class="control-label">Old password</label>
+
+      <input  required=required minlength="5" name="oldPass"  class="form-control" type="password"  id="oldPass" #oldPass="ngModel" [(ngModel)]="model.oldPass">
+
+
+
+    </div>
+
+    <div class="form-group" [ngClass]="{'has-error':!newPass1.valid&&(newPass1.touched||newPass1.dirty)}">
+      <label for="newPass1" class="control-label">New password</label>
+
+      <input minlength="5" name="newPass1" required="" class="form-control" type="password"  id="newPass1" #newPass1="ngModel" [(ngModel)]="model.newPass1">
+
+
+    </div>
+
+    <div class="form-group" [ngClass]="{'has-error':!newPass2.valid&&(newPass2.touched||newPass2.dirty)}">
+      <label for="newPass2" class="control-label">Old password</label>
+
+      <input minlength="5" name="newPass2" required class="form-control" type="password"  id="newPass2" #newPass2="ngModel" [(ngModel)]="model.newPass2">
+
+
+    </div>
+    <span *ngIf="!passwordsMatch && newPass1.touched && newPass2.touched" class="help-block">
+              <div class="alert alert-danger">The given passwords do not match</div>
+              </span>
+
+    <div class="center"><input class="btn" [ngClass]="{'disabled':!form.valid ||!passwordsMatch }" type="submit" value="Update"></div>
+
+
+  </form>
+  </div>
+
+</div>

@@ -36,6 +36,34 @@ console.log(token);
       headers:headers
     }).map(res => res.json());
   }
+ public getMyJobOffers(){
+   let token = localStorage.getItem('token');
+   var headers = new Headers();
 
+   headers.set('Authorization', 'CodeInc ' + token);
+   return this.http.get(BASE_URL + 'secured/joboffers/mine', {
+     headers: headers
+   });
+ }
+ public applyForJobOffer(jobApply:any,file:any){
+   let token = localStorage.getItem('token');
+   var headers = new Headers();
+   headers.set('jobApply',JSON.stringify(jobApply));
+   const input = new FormData();
+   input.append('uploadedFile',file);
 
+   headers.set('Authorization', 'CodeInc ' + token);
+   return this.http.post(BASE_URL+ 'secured/joboffers/AddApply', input, {
+     headers: headers
+   });
+ }
+  public getMyApplies(){
+    let token = localStorage.getItem('token');
+    var headers = new Headers();
+
+    headers.set('Authorization', 'CodeInc ' + token);
+    return this.http.get(BASE_URL + 'secured/joboffers/myApplications', {
+      headers: headers
+    });
+  }
 }

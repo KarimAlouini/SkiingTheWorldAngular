@@ -3,6 +3,7 @@ import {AppComponent} from "../../app.component";
 import {Router} from "@angular/router";
 import {User} from "../../models/user/user";
 import {USER_IMAGE_DIR} from "../../app.module";
+import {Address} from "../../models/user/adress";
 
 @Component({
   selector: 'app-profile',
@@ -22,6 +23,9 @@ export class ProfileComponent implements OnInit {
 
 
     this.user = this.parent.getCurrentUser();
+    if(this.user.address == undefined){
+      this.user.address = new Address(null,null,null,null);
+    }
     if (this.user.imageName != null){
       this.userImage = USER_IMAGE_DIR+this.user.imageName;
     }
@@ -36,6 +40,8 @@ export class ProfileComponent implements OnInit {
       this.role = this.parent.currentUser.role;
 
     }
+    this.router.navigateByUrl('/profile/informations');
+
   }
 
   public setError(error:boolean){

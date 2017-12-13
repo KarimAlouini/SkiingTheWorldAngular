@@ -1,11 +1,15 @@
 import {Component} from '@angular/core';
-import {User} from "./models/user/user";
+import {User} from './models/user/user';
+import {UserService} from "./services/user.service";
+import {MessageResponse} from "./models/MessageResponse";
+import {Router} from "@angular/router";
 
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
+  providers:[UserService]
 
 })
 export class AppComponent {
@@ -14,11 +18,11 @@ export class AppComponent {
   public instance: AppComponent;
   public val: string;
   public currentUser: User;
-  private busy: boolean = false;
+  private busy:boolean = false;
 
 
 
-  constructor() {
+  constructor(private us:UserService,private router:Router) {
     this.instance = this;
     this.token = localStorage.getItem('token');
 
@@ -27,6 +31,24 @@ export class AppComponent {
     } catch (e) {
       this.currentUser = null;
     }
+
+    let interval = setInterval(()=>{
+
+      if(this.getCurrentUser() != null){
+        us.validateToken(localStorage.getItem('token')).subscribe((data)=>{
+          let response:MessageResponse = data.json();
+          console.log(response);
+          if(response.code != 0){
+            localStorage.setItem('current','');
+            this.currentUser = null;
+            this.router.navigateByUrl('/');
+
+          }
+        },error=>{
+          clearInterval(interval);
+        });
+      }
+    },5000);
 
 
   }
@@ -49,6 +71,10 @@ export class AppComponent {
 
   public updateUser(){
     localStorage.setItem('current',JSON.stringify(this.currentUser));
+  }
+
+  public setRedirection(url:string){
+    //this.redirect = true;
   }
 
 
