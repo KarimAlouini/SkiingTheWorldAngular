@@ -1,4 +1,9 @@
 <div *ngIf="selectedEvent == null">
+  
+<div class="title center" >
+  <p>My Events</p>
+</div>
+
 
 
 
@@ -18,15 +23,23 @@
     <td>{{event.name}}</td>
     <td>{{event.maxPlace}}</td> 
     <td>{{event.location}}</td>
-    <td>{{event.start}}</td>
-    <td>{{event.end}}</td>
+    <td>{{event.start |date:'dd MMM'}}</td>
+    <td>{{event.end |date:'dd MMM'}}</td>
     <td>{{event.statue}}</td>
     <td>{{event.image}}</td>
     <td>{{event.description}}</td>
-    <td><a class="btn btn-success"  (click)="selectEvent(event)">Update</a> <br> Delete </td>
+    <td style="width:110px">
+      <a style="padding:0;width:100px" class="btn btn-success"  (click)="selectEvent(event)">Update</a> <br><br>
+      <a style="padding:0;width:100px" class="btn btn-success"  (click)="delete(event)">Delete</a> 
+    </td>
   </tr>
   
 </table>
+
+<div class="center">
+  <a class="btn  btn-success" style="text-align:center"  routerLink="/profile/event/add" >Add Event</a>
+  </div>
+
 </div>
 
-<app-event-update [event] = "selectedEvent"></app-event-update>
+<app-event-update  *ngIf="selectedEvent != null" [event] = "selectedEvent"></app-event-update>

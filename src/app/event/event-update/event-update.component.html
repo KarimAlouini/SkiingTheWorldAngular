@@ -1,74 +1,71 @@
 
-
-
-
-
-
-<!-- CHECKOUT PAGE -->
-<section class="checkout_page" style="    padding-bottom: 10%;">
-
-  <!-- CONTAINER -->
-  <div class="container">
-
-    <!-- CHECKOUT BLOCK -->
-    <div class="checkout_block">
+<div class="title center" [@500]="'fadeInUp'">
+        <p>Update Event </p>
+</div>
       
-
-      <form class="checkout_form clearfix" [formGroup]="form" (ngSubmit)="add(form.value)" >
-
-            <div class="checkout_form_input2 adress "  >
-              <label>Event name<span class="color_red">*</span></label>
-              <input type="text" formControlName="name" name="name" value="" placeholder="" [(ngModel)] ="event.name" />
-            </div>
-
-            <div class="checkout_form_input2 last adress">
-                <label>Max place <span class="color_red">*</span></label>
-                <input type="text" formControlName="maxPlace" name="name" value="" placeholder="" [(ngModel)]="event.maxPlace" />
-            </div>
-
-            <div class="checkout_form_input3">
-                <label>Location<span class="color_red">*</span></label>
-                <input type="text" formControlName="location" name="name" value="" placeholder="" [(ngModel)]="event.location" />
-            </div>
-
-            <div class="checkout_form_input2 adress">
-                <label>Start<span class="color_red">*</span></label>
-                <date-picker formControlName="start" [showClearButton]="false"   name="date" [(ngModel)]="event.start" ></date-picker>              
-              </div>
+            <form  [formGroup]="form" (ngSubmit)="update(form.value)" >
+                  <div  class="form-group" [ngClass]="{'has-error':!form.controls['name'].valid && form.controls['name'].touched}"  >
+                    <label for="name" class="control-label">Event name<span class="color_red">*</span></label>
+                    <input class="form-control" type="text" formControlName="name" name="name" id="name" value="" placeholder="" [(ngModel)] ="event.name" />
+                    <span *ngIf="!form.controls['name'].valid && form.controls['name'].touched" class="help-block">
+                      <div class="alert alert-danger">Valid name is required !</div>
+                      </span>
+                  </div>
       
-              <div class="checkout_form_input2 last adress">
-                <label>End<span class="color_red">*</span></label>
-                <date-picker formControlName="end" [showClearButton]="false" [(ngModel)]="event.end"  name="date"></date-picker>
-              </div>
-
-              <div class="checkout_form_input2 adress">
-                  <label>Public/Private <span class="color_red">*</span></label>
-                  <select formControlName="statue" [(ngModel)]="event.statue" class="form-control">
-                    <option value="0">Public</option>
-                    <option value="1">Private</option>
-                  </select>
-              </div>
-
-              <div class="checkout_form_input2 last adress">
-                  <label>Image<span class="color_red">*</span></label>
-                  <input formControlName="image" type="file" name="name" value="" placeholder="" [(ngModel)]="event.image" />
-                  {{itemsAsObjects|json}}
-                                  
-              </div>
-
-              <hr class="clear">
-
-            <div class="checkout_form_input3">
-                <label>Description<span class="color_red">*</span></label>
-                <input formControlName="description" type="textarea" name="name" value="" placeholder="" [(ngModel)]="event.description" />
-            </div>
-
-        <div class="clear"></div>
-
-        <div class="checkout_form_note">All fields marked with (<span class="color_red">*</span>) are required</div>
-
-        <div class="center"><input class="btn" [ngClass]="{'disabled':!form.valid }" type="submit" value="Register"></div>
-      </form>
-    </div><!-- //CHECKOUT BLOCK -->
-  </div><!-- //CONTAINER -->
-</section><!-- //CHECKOUT PAGE -->
+                  <div class="form-group" [ngClass]="{'has-error':!form.controls['maxPlace'].valid && form.controls['maxPlace'].touched}">
+                      <label for="maxPlace" class="control-label">Max place <span class="color_red">*</span></label>
+                      <input type="number" formControlName="maxPlace" name="name" value="" id="maxPlace" placeholder="" [(ngModel)] ="event.maxPlace" />
+                      <span *ngIf="!form.controls['maxPlace'].valid && form.controls['maxPlace'].touched" class="help-block">
+                        <div class="alert alert-danger">Valid maxPlace is required !</div>
+                        </span>
+                  </div>
+      
+                  <div class="form-group" [ngClass]="{'has-error':!form.controls['location'].valid && form.controls['location'].touched}">
+                      <label for="location" class="control-label">Location<span class="color_red">*</span></label>
+                      <input type="text" formControlName="location" name="name" value="" id="location" placeholder="" [(ngModel)] ="event.location" />
+                      <span *ngIf="!form.controls['location'].valid && form.controls['location'].touched" class="help-block">
+                        <div class="alert alert-danger">Valid location is required !</div>
+                        </span>
+                  </div>
+      
+                  <div class="form-group" [ngClass]="{'has-error':!form.controls['start'].valid && form.controls['start'].touched}">
+                      <label for="start" class="control-label">Start<span class="color_red">*</span></label>
+                      <input type="date" formControlName="start" id="start" name="name" value="" placeholder="" [ngModel]="event.start | date:'yyyy-MM-dd'" (ngModelChange)="event.start = $event" />
+                      <span *ngIf="!form.controls['start'].valid && form.controls['start'].touched" class="help-block">
+                        <div class="alert alert-danger">Valid start date is required !</div>
+                        </span>              
+                    </div>
+            
+                    <div class="form-group" [ngClass]="{'has-error':!form.controls['end'].valid && form.controls['end'].touched}">
+                      <label for="end" class="control-label">End</label>
+                      <input type="date" formControlName="end" id="end" name="name" value="" placeholder="" [ngModel]="event.end | date:'yyyy-MM-dd'" (ngModelChange)="event.end = $event" />   
+                       <span *ngIf="!form.controls['end'].valid && form.controls['end'].touched" class="help-block">
+                        <div class="alert alert-danger">Valid end date is required !</div>
+                        </span>
+                    </div>
+      
+                    <div class="form-group" [ngClass]="{'has-error':!form.controls['image'].valid && form.controls['image'].touched}">
+                        <label for="image" class="control-label">Image<span class="color_red">*</span></label>
+                        <input formControlName="image" id="image" (change)="loadfiles($event)" multiple type="file" name="name" value="" placeholder="" [(ngModel)]="event.image" />
+                        <span *ngIf="!form.controls['image'].valid && form.controls['image'].touched" class="help-block">
+                          <div class="alert alert-danger">Valid image is required !</div>
+                          </span>
+                                        
+                    </div>
+      
+                    <hr class="clear">
+      
+                  <div class="form-group" [ngClass]="{'has-error':!form.controls['description'].valid && form.controls['description'].touched}">
+                      <label for="description" class="control-label">Description<span class="color_red">*</span></label>
+                      <input formControlName="description" id="description" type="textarea" name="name" value="" placeholder="" [(ngModel)]="event.description" />
+                      <span *ngIf="!form.controls['description'].valid && form.controls['description'].touched" class="help-block">
+                        <div class="alert alert-danger">Valid description is required !</div>
+                        </span>
+                  </div>
+      
+              <div class="clear"></div>
+      
+              <div class="checkout_form_note">All fields marked with (<span class="color_red">*</span>) are required</div>
+      
+              <div class="center"><input class="btn" [ngClass]="{'disabled':!form.valid }" type="submit" value="Register"></div>
+            </form>

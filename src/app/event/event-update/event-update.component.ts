@@ -1,3 +1,4 @@
+import { MyEventsComponent } from './../../shared/profile/my-events/my-events.component';
 import { Component, OnInit, Injector, Input } from '@angular/core';
 import { AppComponent } from '../../app.component';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
@@ -10,13 +11,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./event-update.component.css']
 })
 export class EventUpdateComponent implements OnInit {
-  private parent: AppComponent;
+  parent: MyEventsComponent;
   form: FormGroup;
    @Input () event:any;
   private response: any;
   constructor(private addE: eventService, private inj: Injector, private fb: FormBuilder,private router:Router) {
     
-    this.parent = inj.get(AppComponent);
+    this.parent = inj.get(MyEventsComponent);
 
     this.form = this.fb.group({
       'name': [null, Validators.required],
@@ -25,9 +26,7 @@ export class EventUpdateComponent implements OnInit {
       'end': [null, Validators.required],
       'description': [null, Validators.required],
       'maxPlace': [null, Validators.compose([Validators.min(2), Validators.required])],
-      'statue': [null, Validators.required],
-      'image': [null],
-
+      'image': [null]
     });
 
    // this.addE.getById(this.router.pa)
@@ -38,10 +37,11 @@ export class EventUpdateComponent implements OnInit {
   ngOnInit() {
   }
   public update(event: any) {
+    event.id=this.event.id;
     
-        this.parent.setBusy(true);
+        this.parent.parent.parent.setBusy(true);
         this.addE.updateEvent(event).subscribe(res => {
-          this.parent.setBusy(false);
+          this.parent.parent.parent.setBusy(false);
           this.response = res;
           this.router.navigateByUrl('profile/myevents');
     

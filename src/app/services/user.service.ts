@@ -24,13 +24,13 @@ export class UserService {
   }
 
   public confirm(code:any){
-    console.log('form '+code);
 
-      return this._http.get(BASE_URL+'users/confirm/'+code.email);
+
+      return this._http.get(BASE_URL+'users/confirm/'+code);
   }
 
   public resendConfirmation(email:string){
-console.log(email);
+
     var headers = new Headers();
     headers.set("email",email);
 
@@ -42,14 +42,37 @@ console.log(email);
 
   public update(user:any,file:any){
 
-    let headers = new Headers();
+    const headers = new Headers();
     headers.set('user',JSON.stringify(user));
     headers.set('Authorization','CodeInc '+localStorage.getItem('token'));
-    let input = new FormData();
+    const input = new FormData();
     input.append('uploadedFile',file);
     return this._http.post(BASE_URL+'secured/users/update',input,{
       headers:headers
     });
   }
+
+  public validateToken(tokenValue:string){
+
+    const headers = new Headers();
+    headers.set('token',tokenValue);
+    return this._http.post(BASE_URL+'users/validate',null,{
+      headers:headers
+    });
+  }
+
+  public changePassword(model:any){
+    const headers = new Headers();
+    headers.set('Authorization','CodeInc '+localStorage.getItem('token'));
+    headers.set('old_pass',model.oldPass);
+    headers.set('new_pass',model.newPass1);
+
+    return this._http.post(BASE_URL+'secured/users/change_password',null,{
+      headers:headers
+  });
+
+  }
+
+
 
 }

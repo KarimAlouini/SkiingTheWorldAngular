@@ -1,8 +1,11 @@
 import { AppComponent } from './../../app.component';
 import { Component, OnInit, Injector } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { eventService } from '../../services/event.service';
 import { Params } from '@angular/router';
+import { error } from 'util';
+import { URL } from './../../app.module';
+
 
 
 @Component({
@@ -18,13 +21,16 @@ private parent:AppComponent;
 private notFound:boolean = false;
 private isParticipated:boolean = false;
 private isLoading:boolean=true;
-  constructor(private activatedRoute:ActivatedRoute,private inj:Injector,private es:eventService) { 
+  constructor(private activatedRoute:ActivatedRoute,private inj:Injector,private es:eventService,private router:Router) { 
     this.parent = this.inj.get(AppComponent);
     
   }
   apply(){
     this.es.applyForEvent(this.event).subscribe(data=>{
+      this.isParticipated = true;
       console.log(data.json());
+    },error=>{
+      
     });
   }
 
@@ -35,6 +41,7 @@ private isLoading:boolean=true;
         this.isLoading = false;
             this.event = data.json();
             console.log(this.event);
+            this.event.image = URL+'resources/events/'+this.event.id+'/'+this.event.image;
             this.event.users.forEach(element => {
               console.log('this '+this.parent.getCurrentUser().id);
               console.log('element '+element.id);
@@ -47,10 +54,12 @@ private isLoading:boolean=true;
               this.notFound = true;
              
           }
-            
+          console.log(this.isParticipated);  
       },
     error=>{
-
+      if(error.status == 404){
+        this.router.navigateByUrl('/error/404');
+      }
     });
 
     });

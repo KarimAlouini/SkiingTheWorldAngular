@@ -1,9 +1,12 @@
+import { element } from 'protractor';
+import { AppComponent } from './../../app.component';
 import { Router } from '@angular/router';
 import { event } from './../../models/event';
 import { eventService } from './../../services/event.service';
 import { Component, OnInit, Injector } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AppComponent } from '../../app.component';
+import { error } from 'util';
+import { MyEventsComponent } from '../../shared/profile/my-events/my-events.component';
 
 @Component({
   selector: 'app-event-add',
@@ -11,9 +14,10 @@ import { AppComponent } from '../../app.component';
   styleUrls: ['./event-add.component.css']
 })
 export class EventAddComponent implements OnInit {
-  private parent: AppComponent;
+  parent: AppComponent;
   form: FormGroup;
   private response: any;
+  private files: any[];
 
   uploadFile: any;
   hasBaseDropZoneOver: boolean = false;
@@ -52,7 +56,7 @@ export class EventAddComponent implements OnInit {
       'name': [null, Validators.required],
       'location': [null, Validators.required],
       'start': [null, Validators.required],
-      'end': [null, Validators.required],
+      'end': [null, null],
       'description': [null, Validators.required],
       'maxPlace': [null, Validators.compose([Validators.min(2), Validators.required])],
       'statue': [null, Validators.required],
@@ -68,10 +72,41 @@ export class EventAddComponent implements OnInit {
         this.addE.addEvent(event).subscribe(res => {
           this.parent.setBusy(false);
           this.response = res;
+          if (this.response.code==0){
+            for(var i=0;i<this.files.length;i++){
+              this.addE.uploadImgs(this.response.message,this.files[i]).subscribe(
+                data=>{
+                  console.log(data);
+                },error=>{
+                  console.error(error);
+                }
+              )
+            }
+          }
           this.router.navigateByUrl('profile/myevents');
+
     
     
         });
+  }
+  public loadfiles($event){
+    console.log('here');
+
+    if ($event.target.files && $event.target.files.length > 0) {
+      
+
+      
+
+       
+            let f = $event.target.files;
+          
+      
+            this.files = f;
+      
+          }
+          else {
+            this.files = null;
+          }
   }
   
    
