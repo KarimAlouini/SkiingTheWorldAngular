@@ -34,12 +34,12 @@ export const BASE_URL = URL+'v0/';
 export const USER_IMAGE_DIR =URL+'/resources/users/';
 import { EventAddComponent } from './event/event-add/event-add.component';
 import { MyEventsComponent } from './shared/profile/my-events/my-events.component';
-import { Ng2UploaderModule } from 'ng2-uploader';
 import { LodgingListingComponent } from './lodging/lodging-listing/lodging-listing.component';
 import { LodgingService } from './services/lodging.service';
 import { LodgingDetailComponent } from './lodging/lodging-detail/lodging-detail.component';
 import {JobAddComponent} from "./hiering/job-add/job-add.component";
 import { EventUpdateComponent } from './event/event-update/event-update.component';
+import { ErrorComponent } from './shared/error/error.component';
 export const routes = [
   {path:'',redirectTo:'home',pathMatch:'full'},
   {path:'home',component:HomeComponent,pathMatch: 'full'},
@@ -58,8 +58,6 @@ export const routes = [
   {path:'logout',component:LogoutComponent},
   {path:'register',component:RegistrationComponent},
   {path:'confirm/:code',component:ConfirmationComponent},
-  {path:'event',component:EventListingComponent},
-  {path:'event/show/:id',component:EventCardDetailComponent},
   {path:'offersDetails/:id',component:OfferDetailsComponent},
   {path:'profile',component:ProfileComponent,children:[
       {path:'informations',component:PersonalComponent},
@@ -67,11 +65,12 @@ export const routes = [
       {path:'myinvitations',component:EventsInvitationsComponent},
       {path:'myevents',component:MyEventsComponent},
       {path:'myparticipations',component:EventsParticipationsComponent},
+      {path:'event/add',component:EventAddComponent},
       {path:'adarequests',component:MyAdAreaRequestsComponent}
     ]},
   {path:'jobOffers',component:JobOffersComponent},
   {path:'jobOffers/show/:id',component:OfferDetailsComponent},
-  {path:'event/add',component:EventAddComponent},
+  {path:'error/:code',component:ErrorComponent},
   
   
   {path:'lodging',component:LodgingListingComponent},
@@ -110,11 +109,11 @@ export const routes = [
     EventAddComponent,
     LodgingListingComponent,
     LodgingDetailComponent,
-
     MyEventsComponent,
     JobAddComponent,
     MyEventsComponent,
-    EventUpdateComponent
+    EventUpdateComponent,
+    ErrorComponent
   ],
   imports: [
     FormsModule,
@@ -124,8 +123,7 @@ export const routes = [
     ReactiveFormsModule,
     NgxPaginationModule,
     ReCaptchaModule,
-    DatePickerModule,
-    Ng2UploaderModule
+    DatePickerModule
   ],
   providers: [   LodgingService,
     eventService,

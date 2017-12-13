@@ -1,4 +1,6 @@
+<!-- BREADCRUMBS -->
 <section class="breadcrumb parallax margbot30"></section>
+<!-- //BREADCRUMBS -->
 
 <section class="typography_block padbot40">
 
@@ -30,6 +32,8 @@
 
               <!--user menu-->
 
+              <li *ngIf="role == 'ROLE_USER'" role="presentation" routerLinkActive="active"><a routerLink="myevents">My events</a></li>
+
               <li *ngIf="role == 'ROLE_USER'" role="presentation" routerLinkActive="active"><a routerLink="myinvitations">My event invitations</a></li>
               <li *ngIf="role == 'ROLE_USER'" role="presentation" routerLinkActive="active"><a routerLink="myparticipations">My event participations</a></li>
 
@@ -41,7 +45,7 @@
           <!-- END MENU -->
         </div>
       </div>
-      <div class="col-md-9">
+      <div class="col-md-9" style="padding-bottom: 5%;">
         <div class="profile-content">
           <router-outlet></router-outlet>
         </div>

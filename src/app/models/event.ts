@@ -1,3 +1,5 @@
+import { EventImage } from "./events/event_image.model";
+
 export interface event {
     id: number,
     name: string,
@@ -7,5 +9,5 @@ export interface event {
     location: number,
     start: string,
     end: string,
-    image: string
+    images:EventImage[]
   }

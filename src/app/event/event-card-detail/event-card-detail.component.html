@@ -29,7 +29,7 @@
            
           <div class="article_image" href="article-single.html" > 
             <div class="article_date">{{ event.start|date:'dd MMM' }}<span></span></div> 
-            <img src="assets/images/articles/1_full.jpg" alt="" /> 
+            <img style="max-width:770px" src="http://localhost:18080/SkiWorld-web/resources/events/{{event.id}}/{{event.images[0].fileName}}" alt="" /> 
           </div> 
           <div class="article_single_caption" style="text-transform: uppercase" >
             
@@ -55,21 +55,19 @@
                   <td><h5>{{ event.maxPlace}}</h5></td>
                 </tr>
               </table>
-              <a (click)="apply()" [ngClass]="{'disabled':isParticipated}" class="btn active" href="javascript:void(0);"><div *ngIf="!isParticipated">Apply for this event</div><div *ngIf="isParticipated">Already in</div></a>
+              <a (click)="apply()" [ngClass]="{'disabled':isParticipated}" class="btn active" >
+                <div *ngIf="!isParticipated">Apply for this event</div>
+                <div *ngIf="isParticipated">Already in</div>
+              </a>
             </blockquote> 
             <div class="clear"></div> 
              
             <div class="flexslider article_slider col-md-12"> 
               <ul class="slides"> 
-                <li class="slide1"> 
-                  <img src="images/articles/slide1.jpg" /> 
-                </li> 
-                <li class="slide2"> 
-                  <img src="images/articles/slide2.jpg" /> 
-                </li> 
-                <li class="slide3"> 
-                  <img src="images/articles/slide3.jpg" /> 
-                </li> 
+                  <li *ngFor="let im of event.images" class="slide1"> 
+                      <img src="http://localhost:18080/SkiWorld-web/resources/events/{{event.id}}/{{im.fileName}}" /> 
+                    </li>
+                
               </ul> 
             </div> 
              

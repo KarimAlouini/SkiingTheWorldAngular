@@ -10,14 +10,14 @@
     <h3 class="pull-left"><b>Events</b></h3>
     
     <div class="pull-right">
-      <a href="index.html" >Back<i class="fa fa-angle-right"></i></a>
+      <a routerLink="/home" >Back<i class="fa fa-angle-right"></i></a>
     </div>
   </div><!-- //CONTAINER -->
 </section><!-- //PAGE HEADER -->
 
 
 <!-- ARTICLES BLOCK -->
-<section class="articles_block">
+<section class="articles_block"  style="padding-bottom: 5%;">
   
   <!-- CONTAINER -->
   <div class="container">
@@ -44,7 +44,8 @@
     <hr>
 
     <!-- PAGINATION -->
-    <pagination-controls  (pageChange)="p = $event">
+
+    <pagination-controls *ngIf="events.length>0"  (pageChange)="p = $event">
         
                 </pagination-controls>
     <!-- //PAGINATION -->
