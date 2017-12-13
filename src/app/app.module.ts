@@ -83,7 +83,7 @@ export const routes = [
   {path:'jobApply/add',component:JobApplyComponent},
   {path:'lodging',component:LodgingListingComponent},
   {path:'lodging/:id',component:LodgingDetailComponent},
-  {path:'jobOffers/add',component:JobAddComponent}
+  {path:'jobOffers/add',component:JobAddComponent},
   {path: '', redirectTo: 'home', pathMatch: 'full'},
   {path: 'home', component: HomeComponent, pathMatch: 'full'},
   {path: 'login', component: LoginComponent, pathMatch: 'full'},
@@ -155,7 +155,7 @@ export const routes = [
     MyEventsComponent,
     JobAddComponent,
     MyEventsComponent,
-    DocumentViewComponent
+    DocumentViewComponent,
     MyApplicationsComponent,
     ApplicationsComponent,
     JobApplyComponent,
@@ -172,7 +172,7 @@ export const routes = [
     ReactiveFormsModule,
     NgxPaginationModule,
     ReCaptchaModule,
-    DatePickerModule
+    DatePickerModule,
     PdfViewerModule
   ],
   providers: [LodgingService,
