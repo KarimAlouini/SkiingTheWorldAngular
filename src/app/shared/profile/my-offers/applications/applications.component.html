@@ -1,0 +1,30 @@
+<table  class="table type1">
+  <tr style="background-color:lightblue; text-transform:uppercase">
+    <th>Name</th>
+    <th>Salary</th>
+    <th>Creation Date</th>
+    <th>Start Date</th>
+    <th>End Date</th>
+    <th>Offer Category</th>
+    <th>Number Of Places</th>
+    <th>Description</th>
+    <th>Action</th>
+  </tr>
+
+
+  <tr *ngFor="let offer of offers">
+
+    <td><a  data-toggle="modal" data-target="#myModal">{{offer.name}}</a></td>
+    <td>{{offer.salary}}</td>
+    <td>{{offer.creationDate | date:'shortDate' }}</td>
+    <td>{{offer.startDate | date:'shortDate' }}</td>
+    <td>{{offer.endDate | date:'shortDate' }}</td>
+    <td>{{offer.jobOfferCategory}}</td>
+    <td>{{offer.numberOfPlaces}}</td>
+    <td>{{offer.description}}</td>
+
+    <td><a class="fa fa-pencil"  (click)="selectJobOffer(offer)">Update</a> <br> <a class="fa fa-trash-o">Delete</a> </td>
+
+  </tr>
+
+</table>

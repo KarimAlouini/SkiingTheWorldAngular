@@ -1,19 +1,22 @@
-<div *ngFor="let new of newest">
-<a [routerLink]="['/jobOffers/show',new.id]">
-        <ul>
-          <li>
-            <!-- TOVAR -->
-            <div class="tovar_item_new">
-              <div class="tovar_img">
-                <img src="images/tovar/women/new/1.jpg" alt="" />
-              </div>
-              <div class="tovar_description clearfix">
-                <a class="tovar_title" >{{new.name}}</a>
-                <span class="tovar_price">{{new.salary}}Dt</span>
-              </div>
-            </div><!-- //TOVAR -->
-          </li>
+<div >
+  <div *ngFor="let new of newest">
+    <a [routerLink]="['/jobOffers/show',new.id]">
+      <ul>
+        <li>
+          <!-- TOVAR -->
+          <div class="tovar_item_new">
+            <div class="tovar_img">
+              <img src="../../../../assets/images/tovar/women/new/1.jpg" alt="" />
+            </div>
+            <div class="tovar_description clearfix">
+              <a class="tovar_title" >{{new.name}}</a>
+              <span  class="tovar_price">{{new.salary}}Dt</span>
+            </div>
+          </div><!-- //TOVAR -->
+        </li>
 
-        </ul>
-</a>
+      </ul>
+    </a>
+  </div>
+
 </div>

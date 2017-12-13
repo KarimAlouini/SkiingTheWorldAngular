@@ -64,9 +64,50 @@
                 <br/>
 
               </div>
-              <div class="tovar_view_btn">
-                <a class="add_bag" href="javascript:void(0);" ><i class="fa fa-shopping-cart"></i>Apply To Job</a>
+
+
+              <!-- Modal -->
+              <div id="myModal" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+
+                  <!-- Modal content-->
+                  <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <div class="panel-heading top-bar ">
+                      <div class="col-md-10 col-xs-10">
+                        <p class="panel-title"><span class="fa fa-envelope"></span> Message</p>
+                      </div>
+                      <div class="col-md-2 col-xs-2" style="text-align: right;">
+                      </div>
+                    </div>
+                  </div>
+                    <div class="panel-body msg_container_base">
+                      <br />
+                      <form  [formGroup]="form" (ngSubmit)="addApply(form.value)" >
+                        <div class="form-group">
+                          <input type="text" class="form-control" formControlName="objet" id="subject" placeholder="Subject">
+                        </div>
+                        <div class="form-group">
+                          <textarea type="text" class="form-control" formControlName="message" id="message" placeholder="Message..."></textarea>
+                        </div>
+
+                        <div class="modal-footer">
+                          <div class="center"><input class="btn"  [ngClass]="{'disabled':!form.valid }" type="submit" value="Send Application"></div>
+
+
+                        </div>
+
+                      </form>
+                    </div>
+                </div>
+
+                </div>
               </div>
+              <div  class="tovar_view_btn">
+                <a class="add_bag" data-toggle="modal"  *ngIf="offer.agent.role == 'ROLE_USER'" data-target="#myModal"><i class="fa fa-shopping-cart"></i>Apply To Job</a>
+              </div>
+
 
             </div>
 
@@ -120,8 +161,13 @@
 
       <div class="jcarousel">
 <app-new-arrival></app-new-arrival>
+
       </div>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
     </div><!-- //JCAROUSEL -->
   </div><!-- //CONTAINER -->
 </section>
-</div>
+</div >

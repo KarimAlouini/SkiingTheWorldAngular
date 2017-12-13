@@ -1,0 +1,60 @@
+<div *ngIf="selectedJobApply == null" xmlns="http://www.w3.org/1999/html">
+
+
+
+  <table  class="table type1">
+    <tr style="background-color:lightblue; text-transform:uppercase">
+      <th>Object</th>
+      <th>Message</th>
+      <th>Status</th>
+      <th>Actions</th>
+
+
+    </tr>
+
+
+    <tr *ngFor="let apply of applies">
+      <td>{{apply.objet}}</td>
+      <td>{{apply.message}}</td>
+      <td><span class="label " [ngClass]="{'label-success':apply.isAccepted,'label-warning':!apply.isAccepted}">Status</span></td>
+
+
+
+      <td><a class="fa fa-pencil"  (click)="selectJobOffer(apply)">Update</a> <br> <a class="fa fa-trash-o">Delete</a> </td>
+
+    </tr>
+
+  </table>
+
+  <!-- Modal -->
+  <div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <div class="panel-heading top-bar ">
+            <div class="col-md-10 col-xs-10">
+              <p class="panel-title"><span class="fa fa-envelope"></span> Message</p>
+            </div>
+            <div class="col-md-2 col-xs-2" style="text-align: right;">
+            </div>
+          </div>
+        </div>
+        <div class="panel-body msg_container_base">
+          <br />
+
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+    </div>
+
+

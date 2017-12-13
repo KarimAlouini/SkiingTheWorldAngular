@@ -40,6 +40,10 @@ import { LodgingService } from './services/lodging.service';
 import { LodgingDetailComponent } from './lodging/lodging-detail/lodging-detail.component';
 import {JobAddComponent} from "./hiering/job-add/job-add.component";
 import { EventUpdateComponent } from './event/event-update/event-update.component';
+import { MyOffersComponent } from './shared/profile/my-offers/my-offers.component';
+import { JobApplyComponent } from './hiering/job-apply/job-apply.component';
+import { ApplicationsComponent } from './shared/profile/my-offers/applications/applications.component';
+import { MyApplicationsComponent } from './shared/profile/my-applications/my-applications.component';
 export const routes = [
   {path:'',redirectTo:'home',pathMatch:'full'},
   {path:'home',component:HomeComponent,pathMatch: 'full'},
@@ -66,14 +70,19 @@ export const routes = [
       {path:'security',component:SecurityComponent},
       {path:'myinvitations',component:EventsInvitationsComponent},
       {path:'myevents',component:MyEventsComponent},
-      {path:'myparticipations',component:EventsParticipationsComponent},
+      {path:'myoffers',component:MyOffersComponent},
+    {path:'myapplications',component:MyApplicationsComponent},
+
+    {path:'myparticipations',component:EventsParticipationsComponent},
       {path:'adarequests',component:MyAdAreaRequestsComponent}
     ]},
   {path:'jobOffers',component:JobOffersComponent},
   {path:'jobOffers/show/:id',component:OfferDetailsComponent},
   {path:'event/add',component:EventAddComponent},
-  
-  
+  {path:'jobApply/add',component:JobApplyComponent},
+
+
+
   {path:'lodging',component:LodgingListingComponent},
   {path:'lodging/:id',component:LodgingDetailComponent},
   {path:'jobOffers/add',component:JobAddComponent}
@@ -114,7 +123,11 @@ export const routes = [
     MyEventsComponent,
     JobAddComponent,
     MyEventsComponent,
-    EventUpdateComponent
+    EventUpdateComponent,
+    MyOffersComponent,
+    JobApplyComponent,
+    ApplicationsComponent,
+    MyApplicationsComponent
   ],
   imports: [
     FormsModule,

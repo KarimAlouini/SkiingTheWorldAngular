@@ -5,11 +5,11 @@
 
 <!-- PAGE HEADER -->
 <section class="page_header">
-  
+
   <!-- CONTAINER -->
   <div class="container">
     <h3 class="pull-left"><b>Event Single</b></h3>
-    
+
     <div class="pull-right">
       <a href="women.html" >Back to shop<i class="fa fa-angle-right"></i></a>
     </div>
@@ -19,32 +19,32 @@
 
 <!-- ARTICLES BLOCK -->
 <section class="articles_block parallax">
-  
-  <!-- CONTAINER --> 
-  <div class="container"> 
-    
-      <!-- ARTICLE SINGLE --> 
-      <div class="article_single_block clearfix"> 
-        <article *ngIf="!isLoading" class="article_single clearfix"> 
-           
-          <div class="article_image" href="article-single.html" > 
-            <div class="article_date">{{ event.start|date:'dd MMM' }}<span></span></div> 
-            <img src="assets/images/articles/1_full.jpg" alt="" /> 
-          </div> 
+
+  <!-- CONTAINER -->
+  <div class="container">
+
+      <!-- ARTICLE SINGLE -->
+      <div class="article_single_block clearfix">
+        <article *ngIf="!isLoading" class="article_single clearfix">
+
+          <div class="article_image" href="article-single.html" >
+            <div class="article_date">{{ event.start|date:'dd MMM' }}<span></span></div>
+            <img src="assets/images/articles/1_full.jpg" alt="" />
+          </div>
           <div class="article_single_caption" style="text-transform: uppercase" >
-            
+
             <p>{{ event.name}} <br>
               <br>Start: {{ event.start|date:'dd MMM' }}
               <br>End: {{ event.end|date:'dd MMM' }}
             </p>
-          </div> 
-          
-          <div class="clear"></div> 
-           
-          <div class="article_single_content"> 
-            <h3>{{ event.description}}</h3> 
-             
-            <blockquote> 
+          </div>
+
+          <div class="clear"></div>
+
+          <div class="article_single_content">
+            <h3>{{ event.description}}</h3>
+
+            <blockquote>
               <table style="width:50%">
                 <tr >
                   <td><h4 style="font-weight:bold">Location: </h4></td>
@@ -55,47 +55,49 @@
                   <td><h5>{{ event.maxPlace}}</h5></td>
                 </tr>
               </table>
-              <a (click)="apply()" [ngClass]="{'disabled':isParticipated}" class="btn active" href="javascript:void(0);"><div *ngIf="!isParticipated">Apply for this event</div><div *ngIf="isParticipated">Already in</div></a>
-            </blockquote> 
-            <div class="clear"></div> 
-             
-            <div class="flexslider article_slider col-md-12"> 
-              <ul class="slides"> 
-                <li class="slide1"> 
-                  <img src="images/articles/slide1.jpg" /> 
-                </li> 
-                <li class="slide2"> 
-                  <img src="images/articles/slide2.jpg" /> 
-                </li> 
-                <li class="slide3"> 
-                  <img src="images/articles/slide3.jpg" /> 
-                </li> 
-              </ul> 
-            </div> 
-             
-            
-            <ul class="post_meta"> 
+              <a (click)="apply()" [ngClass]="{'disabled':isParticipated}" class="btn active" href="javascript:void(0);">
+                <div *ngIf="!isParticipated">Apply for this event</div>
+                <div *ngIf="isParticipated">Already in</div></a>
+            </blockquote>
+            <div class="clear"></div>
+
+            <div class="flexslider article_slider col-md-12">
+              <ul class="slides">
+                <li class="slide1">
+                  <img src="images/articles/slide1.jpg" />
+                </li>
+                <li class="slide2">
+                  <img src="images/articles/slide2.jpg" />
+                </li>
+                <li class="slide3">
+                  <img src="images/articles/slide3.jpg" />
+                </li>
+              </ul>
+            </div>
+
+
+            <ul class="post_meta">
               <li><i class="fa fa-user"></i><a href="javascript:void(0);" >{{event.host.login}}</a></li>
-            </ul> 
-             
-            <div class="shared_tags_block clearfix"> 
-              <div *ngFor ="let kw of event.keyword" class="pull-left post_tags"> 
+            </ul>
+
+            <div class="shared_tags_block clearfix">
+              <div *ngFor ="let kw of event.keyword" class="pull-left post_tags">
                 <a href="javascript:void(0);" >{{kw.content}}</a>
-              </div> 
-               
-              <div class="pull-right tovar_shared clearfix"> 
-                <p>Share item with friends</p> 
-                <ul> 
-                  <li><a class="facebook" href="javascript:void(0);" ><i class="fa fa-facebook"></i></a></li> 
-                  <li><a class="twitter" href="javascript:void(0);" ><i class="fa fa-twitter"></i></a></li> 
-                  <li><a class="linkedin" href="javascript:void(0);" ><i class="fa fa-linkedin"></i></a></li> 
-                  <li><a class="google-plus" href="javascript:void(0);" ><i class="fa fa-google-plus"></i></a></li> 
-                  <li><a class="tumblr" href="javascript:void(0);" ><i class="fa fa-tumblr"></i></a></li> 
-                </ul> 
-              </div> 
-            </div> 
-          </div> 
-        </article> 
-      </div><!-- //ARTICLE SINGLE --> 
-    </div><!-- //CONTAINER --> 
+              </div>
+
+              <div class="pull-right tovar_shared clearfix">
+                <p>Share item with friends</p>
+                <ul>
+                  <li><a class="facebook" href="javascript:void(0);" ><i class="fa fa-facebook"></i></a></li>
+                  <li><a class="twitter" href="javascript:void(0);" ><i class="fa fa-twitter"></i></a></li>
+                  <li><a class="linkedin" href="javascript:void(0);" ><i class="fa fa-linkedin"></i></a></li>
+                  <li><a class="google-plus" href="javascript:void(0);" ><i class="fa fa-google-plus"></i></a></li>
+                  <li><a class="tumblr" href="javascript:void(0);" ><i class="fa fa-tumblr"></i></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div><!-- //ARTICLE SINGLE -->
+    </div><!-- //CONTAINER -->
 </section><!-- //ARTICLES BLOCK -->
