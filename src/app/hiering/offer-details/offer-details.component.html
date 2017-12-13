@@ -84,7 +84,7 @@
                   </div>
                     <div class="panel-body msg_container_base">
                       <br />
-                      <form  [formGroup]="form" (ngSubmit)="addApply(form.value)" >
+                      <form  [formGroup]="form" (ngSubmit)="addApply(form.value)" enctype="multipart/form-data" >
                         <div class="form-group">
                           <input type="text" class="form-control" formControlName="objet" id="subject" placeholder="Subject">
                         </div>
@@ -92,8 +92,12 @@
                           <textarea type="text" class="form-control" formControlName="message" id="message" placeholder="Message..."></textarea>
                         </div>
 
+                        <div class="form-group">
+                          <input (change)="changeFile($event)" type="file" class="form-control"  placeholder="CV">
+                        </div>
+
                         <div class="modal-footer">
-                          <div class="center"><input class="btn"  [ngClass]="{'disabled':!form.valid }" type="submit" value="Send Application"></div>
+                          <div class="center"><input class="btn"  [ngClass]="{'disabled':!form.valid ||file==null}" type="submit" value="Send Application"></div>
 
 
                         </div>

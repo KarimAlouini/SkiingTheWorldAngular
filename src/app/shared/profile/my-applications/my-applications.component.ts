@@ -2,6 +2,8 @@ import {Component, Injector, OnInit} from '@angular/core';
 import {JobOffersService} from "../../../services/job-offers.service";
 import {Jobapply} from "../../../models/jobapply";
 import {AppComponent} from "../../../app.component";
+import {element} from "protractor";
+import {URL} from "../../../app.module";
 
 @Component({
   selector: 'app-my-applications',
@@ -12,8 +14,10 @@ import {AppComponent} from "../../../app.component";
 export class MyApplicationsComponent implements OnInit {
   private error: boolean = false;
   private doneLoading:boolean=false;
+  private showCV:boolean=false;
+  private url:string;
 
-  selectedJobApply:any=null;
+  selectedJobApply:Jobapply=null;
 
   p: number = 1;
   applies:Jobapply[];
@@ -31,6 +35,7 @@ export class MyApplicationsComponent implements OnInit {
       data=>{
         this.parent.setBusy(false);
         this.applies = data.json();
+
         console.log(this.applies);
       },
       error=>{
@@ -41,8 +46,15 @@ export class MyApplicationsComponent implements OnInit {
 
 
   }
-  public selectJobApply(apply:any){
-    this.selectedJobApply = apply;
+
+
+  openCV(ja:Jobapply){
+    console.log('ja');
+    console.log(ja);
+    this.selectedJobApply = ja;
+    this.url = URL+'resources/ja/'+this.selectedJobApply.offer.id+'/'+this.selectedJobApply.client.id+'/'+this.selectedJobApply.file;
+    console.log(this.url);
+    this.showCV = true;
   }
 
 }

@@ -45,12 +45,15 @@ console.log(token);
      headers: headers
    });
  }
- public applyForJobOffer(jobApply:any){
+ public applyForJobOffer(jobApply:any,file:any){
    let token = localStorage.getItem('token');
    var headers = new Headers();
+   headers.set('jobApply',JSON.stringify(jobApply));
+   const input = new FormData();
+   input.append('uploadedFile',file);
 
    headers.set('Authorization', 'CodeInc ' + token);
-   return this.http.put(BASE_URL+ 'secured/joboffers/AddApply', jobApply, {
+   return this.http.post(BASE_URL+ 'secured/joboffers/AddApply', input, {
      headers: headers
    });
  }

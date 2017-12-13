@@ -21,6 +21,7 @@ export class OfferDetailsComponent implements OnInit {
   form: FormGroup;
   private response:any;
   private apply:Jobapply;
+  file:any=null;
 
 
   private doneLoading:boolean=false;
@@ -29,14 +30,14 @@ export class OfferDetailsComponent implements OnInit {
     this.parent = this.inj.get(AppComponent);
     this.form = this.fb.group({
       'objet': [null, Validators.required],
-      'message': [null, Validators.required],
+      'message': [null, Validators.required]
     });
   }
   public addApply(apply: any) {
     apply.offer=this.offer;
     console.log(apply);
     //this.parent.setBusy(true);
-    this.addJa.applyForJobOffer(apply).subscribe(res => {
+    this.addJa.applyForJobOffer(apply,this.file).subscribe(res => {
       this.parent.setBusy(false);
       this.response = res;
       window.location.reload();
@@ -58,6 +59,16 @@ export class OfferDetailsComponent implements OnInit {
 
     });
 
+  }
+
+  public changeFile($event){
+    if($event.target.files && $event.target.files.length >0){
+
+      this.file =$event.target.files[0];
+    }
+    else{
+      this.file = null;
+    }
   }
 
 }

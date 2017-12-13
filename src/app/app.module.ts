@@ -44,6 +44,8 @@ import { MyOffersComponent } from './shared/profile/my-offers/my-offers.componen
 import { JobApplyComponent } from './hiering/job-apply/job-apply.component';
 import { ApplicationsComponent } from './shared/profile/my-offers/applications/applications.component';
 import { MyApplicationsComponent } from './shared/profile/my-applications/my-applications.component';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
+import { DocumentViewComponent } from './shared/profile/my-applications/document-view/document-view.component';
 export const routes = [
   {path:'',redirectTo:'home',pathMatch:'full'},
   {path:'home',component:HomeComponent,pathMatch: 'full'},
@@ -72,6 +74,7 @@ export const routes = [
       {path:'myevents',component:MyEventsComponent},
       {path:'myoffers',component:MyOffersComponent},
     {path:'myapplications',component:MyApplicationsComponent},
+    {path:'offer-document/:offer/:client/:file',component:DocumentViewComponent},
 
     {path:'myparticipations',component:EventsParticipationsComponent},
       {path:'adarequests',component:MyAdAreaRequestsComponent}
@@ -127,7 +130,8 @@ export const routes = [
     MyOffersComponent,
     JobApplyComponent,
     ApplicationsComponent,
-    MyApplicationsComponent
+    MyApplicationsComponent,
+    DocumentViewComponent
   ],
   imports: [
     FormsModule,
@@ -138,7 +142,8 @@ export const routes = [
     NgxPaginationModule,
     ReCaptchaModule,
     DatePickerModule,
-    Ng2UploaderModule
+    Ng2UploaderModule,
+    PdfViewerModule
   ],
   providers: [   LodgingService,
     eventService,
