@@ -17,6 +17,9 @@ export class eventService {
     //return this.http.get('data/event.json').map(res => res.json());
     return this.http.get(BASE_URL + 'event');
   }
+  public getNewest (){
+    return this.http.get(BASE_URL+'event/top5')
+  }
   getMyEvents() {
     let token = localStorage.getItem('token');
     var headers = new Headers();

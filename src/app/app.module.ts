@@ -46,6 +46,7 @@ import { MyApplicationsComponent } from './shared/profile/my-applications/my-app
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { DocumentViewComponent } from './shared/profile/my-applications/document-view/document-view.component';
 import { ErrorComponent } from './shared/error/error.component';
+import { EventTop5Component } from './event/event-top5/event-top5.component';
 export const routes = [
   {path:'',redirectTo:'home',pathMatch:'full'},
   {path:'home',component:HomeComponent,pathMatch: 'full'},
@@ -162,7 +163,8 @@ export const routes = [
     MyOffersComponent,
     EventUpdateComponent,
     EventUpdateComponent,
-    ErrorComponent
+    ErrorComponent,
+    EventTop5Component
   ],
   imports: [
     FormsModule,
