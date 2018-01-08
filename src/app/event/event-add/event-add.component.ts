@@ -18,12 +18,13 @@ export class EventAddComponent implements OnInit {
   form: FormGroup;
   private response: any;
   private files: any[];
+  private badword=false;
 
- 
-  
+
+
 
   constructor(private addE: eventService, private inj: Injector, private fb: FormBuilder,private router:Router) {
-    
+
     this.parent = inj.get(AppComponent);
 
     this.form = this.fb.group({
@@ -38,10 +39,10 @@ export class EventAddComponent implements OnInit {
 
     });
 
-    
+
   }
   public add(event: any) {
-    
+
         this.parent.setBusy(true);
         this.addE.addEvent(event).subscribe(res => {
           this.parent.setBusy(false);
@@ -59,34 +60,41 @@ export class EventAddComponent implements OnInit {
           }
           this.router.navigateByUrl('profile/myevents');
 
-    
-    
+
+
+        },error=>{
+          this.parent.setBusy(false);
+
+
+          if(error.status==400){
+            this.badword=true;
+          }
         });
   }
   public loadfiles($event){
     console.log('here');
 
     if ($event.target.files && $event.target.files.length > 0) {
-      
 
-      
 
-       
+
+
+
             let f = $event.target.files;
-          
-      
+
+
             this.files = f;
-      
+
           }
           else {
             this.files = null;
           }
   }
-  
-   
+
+
 
   ngOnInit() {
   }
-  
+
 
 }

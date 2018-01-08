@@ -4,11 +4,11 @@
 <!-- //BREADCRUMBS -->
 <!-- PAGE HEADER -->
 <section class="page_header parallax">
-  
+
   <!-- CONTAINER -->
   <div class="container">
     <h3 class="pull-left"><b>Events</b></h3>
-    
+
     <div class="pull-right">
       <a routerLink="/home" >Back<i class="fa fa-angle-right"></i></a>
     </div>
@@ -18,38 +18,38 @@
 
 <!-- ARTICLES BLOCK -->
 <section class="articles_block"  style="padding-bottom: 5%;">
-  
+
   <!-- CONTAINER -->
   <div class="container">
-  
+
     <!-- ROW -->
     <div class="row">
-      
+
       <!-- ARTICLES LIST -->
       <div  class="articles_list clearfix">
-        
-        
-        
+
+
+
         <div class="respond_clear_768"></div>
-        
-        <article *ngFor="let event of events | paginate: { itemsPerPage: 4, currentPage: p }" >
+
+        <article *ngFor="let event of events | paginate: { itemsPerPage: 2, currentPage: p }" >
             <app-event-card [event]="event" class="article_item article_small col-lg-3 col-md-3 col-sm-6 col-xs-6 col-ss-12 clearfix margbot30" ></app-event-card>
         </article><br>
-        
-        
-        
+
+
+
       </div><!-- //ARTICLES LIST -->
     </div><!-- //ROW -->
-    
+
     <hr>
 
     <!-- PAGINATION -->
 
     <pagination-controls *ngIf="events.length>0"  (pageChange)="p = $event">
-        
+
                 </pagination-controls>
     <!-- //PAGINATION -->
-    
+
     <div class="padbot30"></div>
   </div><!-- //CONTAINER -->
 </section><!-- //BLOG BLOCK -->

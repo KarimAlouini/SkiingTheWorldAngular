@@ -66,6 +66,9 @@
 
               <hr class="clear">
 
+              <span *ngIf="badword" class="help-block">
+                  <div class="alert alert-danger">Badword exist !</div>
+                  </span>
             <div class="form-group" [ngClass]="{'has-error':!form.controls['description'].valid && form.controls['description'].touched}">
                 <label for="description" class="control-label">Description<span class="color_red">*</span></label>
                 <textarea formControlName="description" id="description" type="text" name="name" value="" placeholder=""cols="30" rows="10" ></textarea>

@@ -1,0 +1,14 @@
+<li *ngFor="let new of newest" [routerLink]="['/events/show',new.id]" >
+    <div class="tovar_item">
+      <div class="tovar_img">
+        <div class="tovar_img_wrapper">
+            <img src="http://localhost:18080/SkiWorld-web/resources/events/{{new.id}}/{{new.images[0].fileName}}" alt="" />
+        </div>
+        
+      </div>
+      <div class="tovar_description clearfix">
+        <a class="tovar_title" href="product-page.html" >{{new.name}}</a>
+        <span class="tovar_price">{{new.start|date:'dd MMM' }}</span>
+      </div>
+    </div>
+</li><!-- //TOVAR1 -->

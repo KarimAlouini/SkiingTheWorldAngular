@@ -56,6 +56,7 @@ import {UserService} from "./services/user.service";
 import {GmapsServiceService} from "./services/gmaps-service.service";
 import {AgmCoreModule} from "@agm/core";
 import {MesCoursComponent} from "./shared/profile/mes-cours/mes-cours.component";
+import { EventTop5Component } from './event/event-top5/event-top5.component';
 export const routes = [
   {path:'',redirectTo:'home',pathMatch:'full'},
   {path:'home',component:HomeComponent,pathMatch: 'full'},
@@ -121,7 +122,6 @@ export const routes = [
       {path: 'myevents', component: MyEventsComponent},
       {path: 'myparticipations', component: EventsParticipationsComponent},
       {path: 'adarequests', component: MyAdAreaRequestsComponent}
-
     ]
   },
   {path: 'jobOffers', component: JobOffersComponent},
@@ -184,6 +184,8 @@ export const routes = [
     ArchiveComponent,
     MesCoursComponent
 
+    ErrorComponent,
+    EventTop5Component
   ],
   imports: [
     FormsModule,
@@ -207,4 +209,3 @@ export const routes = [
 })
 export class AppModule {
 }
-
