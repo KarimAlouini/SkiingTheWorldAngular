@@ -29,7 +29,7 @@ loginResponse:any;
   login(user:any){
   this.parent.setBusy(true);
   this.userservice.login(user).subscribe((resp:Response)=>{
-    console.log(resp);
+
     this.parent.setBusy(false);
     this.loginResponse = resp.json();
     if(this.loginResponse.code == 0){
@@ -40,7 +40,7 @@ loginResponse:any;
 
     }
 
-  })
+  });
   }
 
 
