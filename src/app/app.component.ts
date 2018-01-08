@@ -37,7 +37,7 @@ export class AppComponent {
       if(this.getCurrentUser() != null){
         us.validateToken(localStorage.getItem('token')).subscribe((data)=>{
           let response:MessageResponse = data.json();
-          console.log(response);
+
           if(response.code != 0){
             localStorage.setItem('current','');
             this.currentUser = null;

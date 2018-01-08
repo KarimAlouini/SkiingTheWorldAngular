@@ -12,8 +12,8 @@
   },
   "private": true,
   "dependencies": {
+    "@agm/core": "^1.0.0-beta.2",
     "@angular/animations": "^4.2.4",
-    "@angular/cdk": "^5.0.1",
     "@angular/common": "^4.2.4",
     "@angular/compiler": "^4.2.4",
     "@angular/core": "^4.2.4",
@@ -28,6 +28,8 @@
     "angular2-recaptcha": "^0.6.0",
     "core-js": "^2.5.3",
     "jquery": "^3.2.1",
+    "moment": "^2.19.4",
+    "ng2-date-countdown": "0.0.4",
     "ng2-pdf-viewer": "^3.0.2",
     "ng2-toastr": "^4.1.2",
     "ngx-pagination": "^3.0.3",
@@ -53,6 +55,7 @@
     "protractor": "~5.1.2",
     "ts-node": "~3.2.0",
     "tslint": "~5.7.0",
-    "typescript": "~2.3.3"
+    "typescript": "~2.3.3",
+    "webpack": "^3.10.0"
   }
 }

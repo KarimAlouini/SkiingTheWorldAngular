@@ -1,0 +1,107 @@
+<section class="breadcrumb parallax margbot30"></section>
+<!-- //BREADCRUMBS -->
+<!-- PAGE HEADER -->
+<section class="page_header parallax">
+
+
+
+  <!-- CONTAINER -->
+  <div class="container">
+
+    <div>
+      <agm-map [latitude]="lat" [longitude]="lng" [zoom]="16">
+        <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+      </agm-map>
+    </div>
+
+    <section class="articles_block">
+      <div class="container">
+        <div class="row">
+          <div class="my_account_block clearfix">
+            <h2 style="text-align:center">COURSE DETAILS</h2>
+            <br> <br>
+            <!-- ROW -->
+            <div class="row">
+              <div class="col-lg-8 col-md-8 col-sm-8 padbot40" style="display:flex; flex-direction:row;">
+                <blockquote>
+                  <i class="fa fa-book"> Course Name: {{course.courseName}}</i><br><br>
+                  <i class="fa fa-map-marker"> Location: {{course.location}}</i><br><br>
+                  <i class="fa fa-tasks"> Course State: {{course.courseState}}</i><br><br>
+                  <i class="fa fa-sort-amount-asc"> Course Level: {{course.courseLevel}}</i><br><br>
+                  <i class="fa fa-money"> Price: {{course.price}} DT</i><br><br>
+                  <i class="fa fa-group"> Number Of Places: {{course.maxParticipants}}</i><br><br>
+
+                  <input type="text" value="{{course.location}}" hidden #location>
+                  <input type="text" value="{{course.courseState}}" hidden #state>
+
+
+                </blockquote>
+                <div>
+
+                  <!-- <countdown  units="Month | Days | Hours | Minutes | Seconds"  end="{{course.date}}" ></countdown>-->
+                  <br> <br> <br> <br> <br> <br> <br><br> <br>
+
+                  <br> <br> <br> <br> <br>
+
+                  <div style="display:flex; flex-direction:row;">
+                    <button class="btn active" style=" width: 200px; margin-right:30px;" data-toggle="modal"
+                            data-target="#myModal">Apply
+                    </button>
+                    <button class="btn active" style=" width: 200px;" (click)="myF(location.value)"> Show in maps
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <br>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+    <div id="myModal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title"> APPLY FOR THIS COURSE</h4>
+          </div>
+          <div class="modal-body">
+            <div class="header-detail">
+              <div class="row">
+                <div class="form-group col-xs-12 ">
+                  <input type="number" step="1" class="form-control input-lg" #nbr min="1">
+                  <input hidden type="number" value="{{course.courseID}}" #cid>
+                </div>
+
+                <p class="text-center">
+                  <button class="btn btn-success btn-xl btn-round" (click)="apply(nbr,cid)">Apply</button>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+
+      </div>
+      <!-- <div class="modal-dialog" *ngIf="state!='FULL' && state!='CANCELLED' " >
+           <div class="modal-content">
+             <div class="modal-header">
+               <button type="button" class="close" data-dismiss="modal">&times;</button>
+               <h4 class="modal-title"> THIS COURSE IS NO LONGER AVAILABLE</h4>
+             </div>
+
+             <div class="modal-footer">
+               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+             </div>
+           </div>
+
+         </div>-->
+
+    </div>
+
+  </div>
+</section>

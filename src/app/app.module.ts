@@ -46,6 +46,16 @@ import { MyApplicationsComponent } from './shared/profile/my-applications/my-app
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { DocumentViewComponent } from './shared/profile/my-applications/document-view/document-view.component';
 import { ErrorComponent } from './shared/error/error.component';
+import {MyPipePipe} from "./pipes/my-pipe.pipe";
+import {DellaaPipePipe} from "./pipes/dellaa-pipe.pipe";
+import {CourseComponent} from "./courses/course/course.component";
+import {ArchiveComponent} from "./courses/archive/archive.component";
+import {CourseDetailsComponent} from "./courses/course-details/course-details.component";
+import {CourseService} from "./services/course.service";
+import {UserService} from "./services/user.service";
+import {GmapsServiceService} from "./services/gmaps-service.service";
+import {AgmCoreModule} from "@agm/core";
+import {MesCoursComponent} from "./shared/profile/mes-cours/mes-cours.component";
 export const routes = [
   {path:'',redirectTo:'home',pathMatch:'full'},
   {path:'home',component:HomeComponent,pathMatch: 'full'},
@@ -111,6 +121,7 @@ export const routes = [
       {path: 'myevents', component: MyEventsComponent},
       {path: 'myparticipations', component: EventsParticipationsComponent},
       {path: 'adarequests', component: MyAdAreaRequestsComponent}
+
     ]
   },
   {path: 'jobOffers', component: JobOffersComponent},
@@ -118,8 +129,11 @@ export const routes = [
   {path: 'event/add', component: EventAddComponent},
   {path: 'lodging', component: LodgingListingComponent},
   {path: 'lodging/:id', component: LodgingDetailComponent},
-  {path: 'jobOffers/add', component: JobAddComponent}
-
+  {path: 'jobOffers/add', component: JobAddComponent},
+  {path:'courses',component:CourseComponent},
+  {path:'courses/archive',component:ArchiveComponent},
+  {path:'courses/details/:courseID',component:CourseDetailsComponent},
+  {path:'my-courses',component:MesCoursComponent}
 
 ];
 
@@ -162,7 +176,14 @@ export const routes = [
     MyOffersComponent,
     EventUpdateComponent,
     EventUpdateComponent,
-    ErrorComponent
+    ErrorComponent,
+    MyPipePipe,
+    DellaaPipePipe,
+    CourseComponent,
+    CourseDetailsComponent,
+    ArchiveComponent,
+    MesCoursComponent
+
   ],
   imports: [
     FormsModule,
@@ -173,13 +194,17 @@ export const routes = [
     NgxPaginationModule,
     ReCaptchaModule,
     DatePickerModule,
-    PdfViewerModule
+    PdfViewerModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyBexj0UxCrBXMzeQ-Wxx5tFdb4BMzFveS0'
+    })
   ],
   providers: [LodgingService,
     eventService,
-    UtilService
+    UtilService,CourseService,UserService,GmapsServiceService
   ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
 }
+

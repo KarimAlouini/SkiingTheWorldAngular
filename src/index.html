@@ -6,6 +6,9 @@
   <link rel="shortcut icon" href="favicon.ico">
 
   <!-- CSS -->
+  <link href="assets/css/app.min.css" rel="stylesheet">
+  <link href="assets/css/thejobs.css" rel="stylesheet">
+  <link href="assets/css/custom.css" rel="stylesheet">
   <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
   <link href="assets/css/flexslider.css" rel="stylesheet" type="text/css" />
   <link href="assets/css/fancySelect.css" rel="stylesheet" media="screen, projection" />
@@ -13,9 +16,48 @@
   <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
   <link href="assets/css/table.css" rel="stylesheet" type="text/css" />
 
+
   <!-- FONTS -->
   <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
   <link href="assets/css/font-awesome.css" rel="stylesheet">
+  <style>
+    /****** Style Star Rating Widget *****/
+
+    .rating {
+      border: none;
+      float: left;
+    }
+
+    .rating > input { display: none; }
+    .rating > label:before {
+      margin: 5px;
+      font-size: 1.25em;
+      font-family: FontAwesome;
+      display: inline-block;
+      content: "\f005";
+    }
+
+    .rating > .half:before {
+      content: "\f089";
+      position: absolute;
+    }
+
+    .rating > label {
+      color: #ddd;
+      float: right;
+    }
+
+    /***** CSS Magic to Highlight Stars on Hover *****/
+
+    .rating > input:checked ~ label, /* show gold star when clicked */
+    .rating:not(:checked) > label:hover, /* hover current star */
+    .rating:not(:checked) > label:hover ~ label { color: #FFD700;  } /* hover previous stars in list */
+
+    .rating > input:checked + label:hover, /* hover current star when changing rating */
+    .rating > input:checked ~ label:hover,
+    .rating > label:hover ~ input:checked ~ label, /* lighten current selection */
+    .rating > input:checked ~ label:hover ~ label { color: #FFED85;  }
+  </style>
 </head>
 
 	<body>
@@ -46,7 +88,7 @@
   <script src="assets/js/fancySelect.js"></script>
   <script src="assets/js/animate.js" type="text/javascript"></script>
   <script src="assets/js/myscript.js" type="text/javascript"></script>
-      4  <script src="assets/js/table.js" type="text/javascript"></script>
+      <script src="assets/js/table.js" type="text/javascript"></script>
 
       <script>
     if (top != self) top.location.replace(self.location.href);

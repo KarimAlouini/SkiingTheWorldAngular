@@ -73,6 +73,10 @@ export class UserService {
 
   }
 
+  public getAll() {
+    return this._http.get(BASE_URL+'users/all').map(response=>response.json());
+  }
+
 
 
 }
