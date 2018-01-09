@@ -109,7 +109,7 @@
                 </div>
               </div>
               <div  class="tovar_view_btn">
-                <a class="add_bag" data-toggle="modal"  *ngIf="offer.agent.role == 'ROLE_USER'" data-target="#myModal"><i class="fa fa-shopping-cart"></i>Apply To Job</a>
+                <button class="add_bag" data-toggle="modal"  *ngIf="parent.getCurrentUser().role == 'ROLE_USER'" data-target="#myModal"><i class="fa fa-shopping-cart"></i>Apply To Job</button>
               </div>
 
 

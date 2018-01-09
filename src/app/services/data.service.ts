@@ -2,12 +2,13 @@ import { Http, RequestOptions, Headers } from '@angular/http';
 
 import { Injectable } from '@angular/core';
 import  'rxjs/add/operator/map'
+import {BASE_URL} from "../app.module";
 
 
 @Injectable()
 export class DataService {
 
-  constructor(private url:string,private http: Http) 
+  constructor(private url:string,private http: Http)
   {
 
   }
@@ -23,7 +24,7 @@ export class DataService {
   }
 
   public create(resource) {
-    let head = new Headers({ 
+    let head = new Headers({
        'Content-Type': 'application/json',
     });
        let options = new RequestOptions({ headers: head });
@@ -42,23 +43,23 @@ export class DataService {
   }
 
   public createval(resource) {
-    let head = new Headers({ 
+    let head = new Headers({
        'Content-Type': 'application/json',
     });
        let options = new RequestOptions({ headers: head });
-    return this.http.post("http://localhost:18080/SkiWorld-web/v0/rate/add", JSON.stringify(resource),options);
+    return this.http.post(BASE_URL+"rate/add", JSON.stringify(resource),options);
    }
 
    public apply (resource) {
-    let head = new Headers({ 
+    let head = new Headers({
        'Content-Type': 'application/json',
     });
        let options = new RequestOptions({ headers: head });
-    return this.http.post("http://localhost:18080/SkiWorld-web/v0/Courses/apply", JSON.stringify(resource),options);
+    return this.http.post(BASE_URL+"Courses/apply", JSON.stringify(resource),options);
    }
 
 
 
-  
-  
+
+
 }

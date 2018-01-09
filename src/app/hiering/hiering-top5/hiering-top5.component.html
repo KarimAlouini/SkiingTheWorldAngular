@@ -1,0 +1,27 @@
+
+
+<!-- BRANDS -->
+<section class="brands_carousel padbot40">
+
+  <!-- CONTAINER -->
+  <div class="container">
+    <h2>See the five Newest Job Offres</h2>
+
+    <!-- JCAROUSEL -->
+    <div class="jcarousel-wrapper">
+
+      <!-- NAVIGATION -->
+      <div class="jCarousel_pagination">
+        <a href="javascript:void(0);" class="jcarousel-control-prev" ><i class="fa fa-angle-left"></i></a>
+        <a href="javascript:void(0);" class="jcarousel-control-next" ><i class="fa fa-angle-right"></i></a>
+      </div><!-- //NAVIGATION --><div class="jcarousel" data-appear-top-offset='-100' data-animated='fadeInUp'>
+      <ul>
+        <li *ngFor="let new of newest" [routerLink]="['jobOffers/show',new.id]" >
+          <h1>{{new.name}}</h1>
+        </li><!-- //TOVAR1 -->
+      </ul>
+    </div>
+
+    </div><!-- //JCAROUSEL -->
+  </div><!-- //CONTAINER -->
+</section><!-- //BRANDS -->

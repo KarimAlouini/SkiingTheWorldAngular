@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Http} from "@angular/http";
 import {User} from "../models/user/user";
+import {BASE_URL} from "../app.module";
 
 @Injectable()
 export class SignupService {
@@ -9,6 +10,6 @@ export class SignupService {
 
   public signUp(user:any){
 
-    return this.http.put('http://localhost:18080/SkiWorld-web/v0/users',user).map(res=>res.json());
+    return this.http.put(BASE_URL+'users',user).map(res=>res.json());
   }
 }

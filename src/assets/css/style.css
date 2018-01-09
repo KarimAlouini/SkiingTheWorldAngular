@@ -5698,6 +5698,23 @@ input[type="submit"]:hover {background-color:#242424;}
 	.col-ss-1 {width: 8.333333333333332%;}
 
 }
+.baya{
+  -webkit-appearance: button;
+  -webkit-border-radius: 2px;
+  -webkit-user-select: none;
+  background-image: url(http://i62.tinypic.com/15xvbd5.png);
+  background-position: 97% center;
+  background-repeat: no-repeat;
+  border: 1px solid #ccc;
+  color: #555;
+  font-size: inherit;
+  overflow: hidden;
+  padding: 5px 10px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;height: 50px;
+  margin-bottom: 20px;
+}
 
 
 

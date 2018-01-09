@@ -36,17 +36,13 @@
 
               <li *ngIf="role == 'ROLE_USER'" role="presentation" routerLinkActive="active"><a routerLink="myevents">My events</a></li>
 
-              <li *ngIf="role == 'ROLE_USER'" role="presentation" routerLinkActive="active"><a routerLink="myinvitations">My event invitations</a></li>
-              <li *ngIf="role == 'ROLE_USER'" role="presentation" routerLinkActive="active"><a routerLink="myparticipations">My event participations</a></li>
               <li *ngIf="role == 'ROLE_AGENT'" role="presentation" routerLinkActive="active"><a routerLink="myoffers">My Offers</a></li>
               <li *ngIf="role == 'ROLE_AGENT'" role="presentation" routerLinkActive="active"><a routerLink="myapplications">My Applications</a></li>
 
               <!--agent menu-->
 
-              <li *ngIf="role == 'ROLE_AGENT'" role="presentation" routerLinkActive="active"><a routerLink="adarequests">My Ad areas requests</a></li>
 
               <!--Guide -->
-              <li *ngIf="role == 'ROLE_GUIDE'" role="presentation" routerLinkActive="active"><a routerLink="my-courses">My courses</a></li>
 
             </ul>
           </div>

@@ -29,9 +29,10 @@ import {EventsInvitationsComponent} from './shared/profile/events-invitations/ev
 import {EventsParticipationsComponent} from './shared/profile/events-participations/events-participations.component';
 import {MyAdAreaRequestsComponent} from './shared/profile/my-ad-area-requests/my-ad-area-requests.component';
 import {DatePickerModule} from 'angular-io-datepicker';
-export const URL='http://localhost:18080/SkiWorld-web/';
+export const URL='http://192.168.137.1:18080/SkiWorld-web/';
 export const BASE_URL = URL+'v0/';
-export const USER_IMAGE_DIR =URL+'/resources/users/';
+export const USER_IMAGE_DIR =URL+'resources/users/';
+export const PDF_DIR =URL+'resources/ja/';
 import { EventAddComponent } from './event/event-add/event-add.component';
 import { MyEventsComponent } from './shared/profile/my-events/my-events.component';
 import { LodgingListingComponent } from './lodging/lodging-listing/lodging-listing.component';
@@ -57,6 +58,7 @@ import {GmapsServiceService} from "./services/gmaps-service.service";
 import {AgmCoreModule} from "@agm/core";
 import {MesCoursComponent} from "./shared/profile/mes-cours/mes-cours.component";
 import { EventTop5Component } from './event/event-top5/event-top5.component';
+import { HieringTop5Component } from './hiering/hiering-top5/hiering-top5.component';
 export const routes = [
   {path:'',redirectTo:'home',pathMatch:'full'},
   {path:'home',component:HomeComponent,pathMatch: 'full'},
@@ -124,6 +126,8 @@ export const routes = [
       {path: 'adarequests', component: MyAdAreaRequestsComponent}
     ]
   },
+
+  {path: 'mycourses', component: MesCoursComponent},
   {path: 'jobOffers', component: JobOffersComponent},
   {path: 'jobOffers/show/:id', component: OfferDetailsComponent},
   {path: 'event/add', component: EventAddComponent},
@@ -184,7 +188,9 @@ export const routes = [
     ArchiveComponent,
     MesCoursComponent,
 
-    EventTop5Component
+    EventTop5Component,
+
+    HieringTop5Component
   ],
   imports: [
     FormsModule,
