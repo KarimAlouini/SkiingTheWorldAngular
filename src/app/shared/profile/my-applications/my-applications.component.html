@@ -1,14 +1,19 @@
+<div class="title center">
+  <p>My job applications</p>
+</div>
+
 <div *ngIf="selectedJobApply == null" xmlns="http://www.w3.org/1999/html">
 
 
 
   <table  class="table type1">
-    <tr style="background-color:lightblue; text-transform:uppercase">
+    <tr >
       <th>Object</th>
       <th>Message</th>
       <th>Status</th>
       <th>Actions</th>
       <th>CV</th>
+      <th>Decision</th>
 
     </tr>
 
@@ -23,6 +28,10 @@
       <td><a class="fa fa-pencil"  (click)="selectJobOffer(apply)">Update</a> <br> <a class="fa fa-trash-o">Delete</a> </td>
       <td>
         <a [routerLink]="['/profile/offer-document',apply.offer.id,apply.client.id,apply.file]"><button class="btn btn-default" >View</button></a>
+      </td>
+      <td>
+        <button class="btn btn-success"><i class="fa fa-check-square"></i> Accept</button>
+        <button class="btn btn-danger"><i class="fa fa-ban" aria-hidden="true"></i> Reject</button>
       </td>
     </tr>
 

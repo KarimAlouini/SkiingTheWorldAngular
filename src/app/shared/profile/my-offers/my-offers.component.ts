@@ -55,4 +55,17 @@ export class MyOffersComponent implements OnInit {
     this.selectedJobOffer = offer;
   }
 
+  public delete(jo:JobOffer){
+    this.parent.setBusy(true);
+    this.jos.delete(jo).subscribe(data=>{
+
+      this.offers.forEach((item,index)=>{
+        if(item.id == jo.id){
+          this.offers.splice(index,1);
+        }
+      });
+      this.parent.setBusy(false);
+    });
+  }
+
 }

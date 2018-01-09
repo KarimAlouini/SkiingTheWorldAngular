@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {BASE_URL} from "../app.module";
 import {Http, Headers} from '@angular/http';
+import {JobOffer} from "../models/joboffer";
 
 
 @Injectable()
@@ -66,4 +67,17 @@ console.log(token);
       headers: headers
     });
   }
+
+  public delete(jo:JobOffer) {
+
+    let token = localStorage.getItem('token');
+    var headers = new Headers();
+
+    headers.set('Authorization', 'CodeInc ' + token);
+    return this.http.put(BASE_URL + 'secured/joboffers/delete', jo, {
+      headers: headers
+    });
+  }
+
+
 }

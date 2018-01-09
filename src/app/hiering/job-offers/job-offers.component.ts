@@ -10,7 +10,7 @@ import {JobOffer} from "../../models/joboffer";
   providers: [JobOffersService]
 })
 export class JobOffersComponent implements OnInit {
-
+  p: number = 1;
   private parent: AppComponent;
   private offers: JobOffer;
   private error: boolean = false;

@@ -30,7 +30,7 @@
     </div>
 
     <div class="form-group" [ngClass]="{'has-error':!newPass2.valid&&(newPass2.touched||newPass2.dirty)}">
-      <label for="newPass2" class="control-label">Old password</label>
+      <label for="newPass2" class="control-label">New password confirmation</label>
 
       <input minlength="5" name="newPass2" required class="form-control" type="password"  id="newPass2" #newPass2="ngModel" [(ngModel)]="model.newPass2">
 

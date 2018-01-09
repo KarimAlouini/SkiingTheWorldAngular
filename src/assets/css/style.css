@@ -409,6 +409,9 @@ blockquote:before {
 	border-bottom:1px solid #e0e0e0;
 	border-left:1px solid #e0e0e0;
 }
+.table .type1 tr{
+  text-transform: uppercase;
+}
 .table.type1 thead {
 	font-weight:900;
 	color:#333;

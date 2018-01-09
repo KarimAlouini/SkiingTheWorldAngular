@@ -1,0 +1,17 @@
+.btn {
+  display: inline-block;
+  margin: 0;
+  padding: 13px 30px;
+
+  border-radius: 0;
+  box-shadow: none;
+
+  font-weight: 900;
+  line-height: 20px;
+  font-size: 14px;
+
+  text-shadow: none;
+
+  transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+}

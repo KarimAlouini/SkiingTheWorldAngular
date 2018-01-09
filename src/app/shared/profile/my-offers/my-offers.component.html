@@ -1,9 +1,11 @@
+<div class="title center">
+  <p>My job offers</p>
+</div>
 <div *ngIf="selectedJobOffer == null" xmlns="http://www.w3.org/1999/html">
 
 
-
-  <table  class="table type1">
-    <tr style="background-color:lightblue; text-transform:uppercase">
+  <table class="table type1">
+    <tr>
       <th>Name</th>
       <th>Salary</th>
       <th>Creation Date</th>
@@ -27,7 +29,9 @@
       <td>{{offer.numberOfPlaces}}</td>
       <td>{{offer.description}}</td>
 
-      <td><a class="fa fa-pencil"  (click)="selectJobOffer(offer)">Update</a> <br> <a class="fa fa-trash-o">Delete</a> </td>
+      <td><a class="fa fa-pencil" (click)="selectJobOffer(offer)">Update</a> <br> <a (click)="delete(offer)"
+                                                                                     class="fa fa-trash-o">Delete</a>
+      </td>
 
     </tr>
 
@@ -50,18 +54,12 @@
           </div>
         </div>
         <div class="panel-body msg_container_base">
-          <br />
+          <br/>
 
         </div>
       </div>
 
 
-
-
-
-
-
-
-</div>
+    </div>
 
 
