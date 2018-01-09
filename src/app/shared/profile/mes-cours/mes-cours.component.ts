@@ -26,9 +26,9 @@ export class MesCoursComponent implements OnInit {
     this.courseSe.getAll().subscribe((lstcourses)=>{
       console.log(lstcourses);
       this.courses=lstcourses;
-    })
+    });
 
-   this.userSe.getAll().subscribe((users)=>{this.users=users})
+
 
   }
 

@@ -14,7 +14,7 @@ import {ConfirmationComponent} from './shared/confirmation/confirmation.componen
 import {RegistrationComponent} from './shared/registration/registration.component';
 import {JobOffersComponent} from './hiering/job-offers/job-offers.component';
 import {OfferDetailsComponent} from './hiering/offer-details/offer-details.component';
-import {OfferCardComponent} from './hiering/offer-card/offer-card.component'
+import {OfferCardComponent} from './hiering/offer-card/offer-card.component';
 import {EventListingComponent} from './event/event-listing/event-listing.component';
 import {EventCardComponent} from './event/event-card/event-card.component';
 import {EventCardDetailComponent} from './event/event-card-detail/event-card-detail.component';
@@ -182,9 +182,8 @@ export const routes = [
     CourseComponent,
     CourseDetailsComponent,
     ArchiveComponent,
-    MesCoursComponent
+    MesCoursComponent,
 
-    ErrorComponent,
     EventTop5Component
   ],
   imports: [
