@@ -1,12 +1,10 @@
-import { element } from 'protractor';
-import { AppComponent } from './../../app.component';
-import { Router } from '@angular/router';
-import { event } from './../../models/event';
-import { eventService } from './../../services/event.service';
-import { Component, OnInit, Injector } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { error } from 'util';
-import { MyEventsComponent } from '../../shared/profile/my-events/my-events.component';
+import {element} from 'protractor';
+import {AppComponent} from './../../app.component';
+import {Router} from '@angular/router';
+import {event} from './../../models/event';
+import {eventService} from './../../services/event.service';
+import {Component, OnInit, Injector} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-event-add',
@@ -18,12 +16,10 @@ export class EventAddComponent implements OnInit {
   form: FormGroup;
   private response: any;
   private files: any[];
-  private badword=false;
+  private badword = false;
 
 
-
-
-  constructor(private addE: eventService, private inj: Injector, private fb: FormBuilder,private router:Router) {
+  constructor(private addE: eventService, private inj: Injector, private fb: FormBuilder, private router: Router) {
 
     this.parent = inj.get(AppComponent);
 
@@ -41,56 +37,53 @@ export class EventAddComponent implements OnInit {
 
 
   }
+
   public add(event: any) {
 
-        this.parent.setBusy(true);
-        this.addE.addEvent(event).subscribe(res => {
-          this.parent.setBusy(false);
-          this.response = res;
-          if (this.response.code==0){
-            for(var i=0;i<this.files.length;i++){
-              this.addE.uploadImgs(this.response.message,this.files[i]).subscribe(
-                data=>{
-                  console.log(data);
-                },error=>{
-                  console.error(error);
-                }
-              )
+    this.parent.setBusy(true);
+    this.addE.addEvent(event).subscribe(res => {
+      this.parent.setBusy(false);
+      this.response = res;
+      if (this.response.code == 0) {
+        for (var i = 0; i < this.files.length; i++) {
+          this.addE.uploadImgs(this.response.message, this.files[i]).subscribe(
+            data => {
+              console.log(data);
+            }, error => {
+              console.error(error);
             }
-          }
-          this.router.navigateByUrl('profile/myevents');
+          )
+        }
+      }
+      this.router.navigateByUrl('profile/myevents');
 
 
+    }, error => {
+      this.parent.setBusy(false);
 
-        },error=>{
-          this.parent.setBusy(false);
 
-
-          if(error.status==400){
-            this.badword=true;
-          }
-        });
+      if (error.status == 400) {
+        this.badword = true;
+      }
+    });
   }
-  public loadfiles($event){
+
+  public loadfiles($event) {
     console.log('here');
 
     if ($event.target.files && $event.target.files.length > 0) {
 
 
+      let f = $event.target.files;
 
 
+      this.files = f;
 
-            let f = $event.target.files;
-
-
-            this.files = f;
-
-          }
-          else {
-            this.files = null;
-          }
+    }
+    else {
+      this.files = null;
+    }
   }
-
 
 
   ngOnInit() {

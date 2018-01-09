@@ -14,6 +14,7 @@ import { URL } from './../../app.module';
   providers:[eventService]
 })
 export class EventListingComponent implements OnInit {
+  url:string=URL;
   p: number = 1;
   events:event[]=[];
   parent:AppComponent;
@@ -22,12 +23,13 @@ export class EventListingComponent implements OnInit {
    }
 
   ngOnInit() {
+
       this.parent.setBusy(true);
       this.es.getAllEvents().subscribe(
         data=>{
           this.parent.setBusy(false);
             this.events = data.json();
-           
+
             console.log(this.events);
         },
         error=>{

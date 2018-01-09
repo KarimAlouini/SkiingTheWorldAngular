@@ -1,7 +1,7 @@
 <a [routerLink]="['show',event.id]">
   <a class="article_image" >
     <div class="article_date">{{ event.start|date:'dd MMM' }}<span></span></div>
-    <img src="http://localhost:18080/SkiWorld-web/resources/events/{{event.id}}/{{event.images[0].fileName}}" alt="" />
+    <img src="{{url}}resources/events/{{event.id}}/{{event.images[0].fileName}}" alt="" />
   </a>
   <a class="article_title"  >{{event.name}}</a>
   <ul class="post_meta">

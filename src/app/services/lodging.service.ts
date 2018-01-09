@@ -3,10 +3,11 @@ import {Http} from "@angular/http";
 import {Lodging} from "../models/lodging";
 import {  Response} from '@angular/http';
 import { Observable } from 'rxjs';
+import {BASE_URL} from "../app.module";
 @Injectable()
 export class LodgingService {
-  url="http://localhost:18080/SkiWorld-web/v0/logding";
-  url1="http://localhost:18080/SkiWorld-web/v0/logding/byid";
+  url=BASE_URL+"logding";
+  url1=BASE_URL+"logding/byid";
 
   constructor(private http: Http) {}
 

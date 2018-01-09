@@ -15,22 +15,23 @@ import { URL } from './../../app.module';
   providers:[eventService]
 })
 export class EventCardDetailComponent implements OnInit {
+  url:string=URL;
 private event:any;
 private response:any;
 private parent:AppComponent;
 private notFound:boolean = false;
 private isParticipated:boolean = false;
 private isLoading:boolean=true;
-  constructor(private activatedRoute:ActivatedRoute,private inj:Injector,private es:eventService,private router:Router) { 
+  constructor(private activatedRoute:ActivatedRoute,private inj:Injector,private es:eventService,private router:Router) {
     this.parent = this.inj.get(AppComponent);
-    
+
   }
   apply(){
     this.es.applyForEvent(this.event).subscribe(data=>{
       this.isParticipated = true;
       console.log(data.json());
     },error=>{
-      
+
     });
   }
 
@@ -46,15 +47,15 @@ private isLoading:boolean=true;
               console.log('this '+this.parent.getCurrentUser().id);
               console.log('element '+element.id);
                 this.isParticipated = element.id == this.parent.getCurrentUser().id;
-                
+
             });
 
             if (this.event.code !== undefined){
               this.response = this.event;
               this.notFound = true;
-             
+
           }
-          console.log(this.isParticipated);  
+          console.log(this.isParticipated);
       },
     error=>{
       if(error.status == 404){
@@ -64,7 +65,7 @@ private isLoading:boolean=true;
 
     });
 
-     
+
   }
 
 }

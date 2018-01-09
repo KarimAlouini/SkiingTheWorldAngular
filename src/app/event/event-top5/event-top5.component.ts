@@ -1,6 +1,7 @@
 import { event } from './../../models/event';
 import { Component, OnInit } from '@angular/core';
 import { eventService } from '../../services/event.service';
+import {URL} from "../../app.module";
 
 @Component({
   selector: 'app-event-top5',
@@ -9,6 +10,7 @@ import { eventService } from '../../services/event.service';
   providers:[eventService]
 })
 export class EventTop5Component implements OnInit {
+  url:string=URL;
   private newest: event[];
   constructor(private es:eventService) { }
 
